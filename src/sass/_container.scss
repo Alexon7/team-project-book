@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 20px;
+
+  @include _mobile {
+    width: $mobile;
+  }
+
+  @include _tablet {
+    width: $tablet;
+    padding: 0px 32px;
+  }
+
+  @include _desktop {
+    width: $desktop;
+  }
+}
