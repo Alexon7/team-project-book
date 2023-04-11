@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 /*
 Перелік категорій книг__________________________https://books-backend.p.goit.global/books/category-list 
 Популярні книги, що належать до усіх категорій__https://books-backend.p.goit.global/books/top-books 
@@ -35,3 +34,4 @@ export class BookAPI {
     return instance.get(`${bookId}`);
   }
 }
+
