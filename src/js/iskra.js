@@ -2,14 +2,14 @@ import { BookAPI } from './api-service';
 const categoriesEl = document.querySelector('.categories-list');
 const categoriesBooksEl = document.querySelector('.categories-books');
 
-const BookApi = new BookAPI();
+const bookApi = new BookAPI();
 onRenderCategories(); //список категорий рендерится при запуске страниці
 // handleRenderTopBooks(); // списки топ книг по категориям - пока віводится список категорий, книги  только в консоле
 categoriesEl.addEventListener('click', handleRenderCategoryItem);
 
 // Рендерим список категорий, без async - надо разобраться как с ним
 function onRenderCategories() {
-  BookApi.getCategories().then(response => {
+  bookApi.getCategories().then(response => {
     const categoriesList = [...response.data].sort((a, b) => {
       return a.list_name.localeCompare(b.list_name);
     });
@@ -25,7 +25,7 @@ function onRenderCategories() {
 
 // список топ книг по категориям, загружаются сразу по умолчанию. надо подумать как прорисовать
 function handleRenderTopBooks() {
-  BookApi.getBooksTop().then(response => {
+  bookApi.getBooksTop().then(response => {
     const categoriesBooksList = [...response.data];
     // console.log(categoriesBooksList);
     categoriesBooksList.forEach(el => {
@@ -57,10 +57,10 @@ async function handleRenderCategoryItem(event) {
   try {
     const category = event.target.textContent.trim();
     console.log('Категория: ', category);
-    const response = await BookApi.getBooksByCategories(category);
+    const response = await bookApi.getBooksByCategories(category);
     // const id = '643282b2e85766588626a100';
     // const id = '643282b2e85766588626a118';
-    // const response = await BookApi.getBooksById(id); - проверка запроса книги по id
+    // const response = await bookApi.getBooksById(id); - проверка запроса книги по id
 
     console.log(response);
   } catch (err) {
