@@ -11,9 +11,6 @@ const instance = axios.create({
   baseURL: 'https://books-backend.p.goit.global/books/',
 });
 
-page = 0;
-query = null;
-
 export class BookAPI {
   getCategories() {
     return instance.get('category-list');
