@@ -40,28 +40,27 @@
   top: -718px;
 }
 
-.authorization__form {
+.auth__form {
   display: flex;
   flex-direction: column;
 }
 
-.authorization__modal {
+.auth__modal {
   width: 300px;
   padding: 40px 15px 15px;
-  @media screen and (min-width: 375px) {
+  @include _mobile {
     width: 350px;
     padding: 50px 20px 20px;
   }
-//   @media screen and (min-width: 768px) {
-//     width: 580px;
-//     padding: 65px 25px 25px;
-//   }
+  @include _tablet {
+    width: 580px;
+    padding: 65px 25px 25px;
+  }
 
-
-//   @include _desktop {
-//     width: 579px;
-//     padding: 80px 40px 40px;
-//   }
+  @include _desktop {
+    width: 579px;
+    padding: 80px 40px 40px;
+  }
   position: absolute;
 
   top: 50%;
@@ -74,17 +73,17 @@
   border-radius: 18px;
 }
 
-.authorization__icon__close {
+.auth__icon__close {
   display: block;
 
   width: 20px;
   height: 20px;
 
-  @media screen and (min-width: 375px) {
+  @include _mobile {
     width: 24px;
     height: 24px;
   }
-  @media screen and (min-width: 768px) {
+   @include _tablet {
     width: 28px;
     height: 28px;
   }
@@ -92,7 +91,7 @@
   stroke: $black-color;
 }
 
-.authorization__button__close {
+.auth__button__close {
   position: absolute;
   cursor: pointer;
   top: 13px;
@@ -113,13 +112,13 @@
   background-color: transparent;
   border: 0;
 
-  & > .authorization__icon__close:hover,
-  & > .authorization__icon__close:focus {
+  & > .auth__icon__close:hover,
+  & > .auth__icon__close:focus {
     stroke: $page-color-accent;
   }
 }
 
-.authorization__field {
+.auth__field {
   display: block;
   position: relative;
   margin-bottom: 13px;
@@ -135,7 +134,7 @@
   }
 }
 
-.authorization__field:nth-child(3) {
+.auth__field:nth-child(3) {
   margin-bottom: 20px;
 
   @media screen and (min-width: 375px) {
@@ -146,7 +145,7 @@
   }
 }
 
-.authorization__input {
+.auth__input {
   padding: 10px 20px;
   font-size: 14px;
 
@@ -170,7 +169,7 @@
   cursor: pointer;
 }
 
-.authorization__label {
+.auth__label {
   position: absolute;
 
   top: 12px;
@@ -203,13 +202,13 @@
   transition: 300ms;
 }
 
-.authorization__input:focus + .authorization__label,
-.authorization__input:not(:focus):valid + .authorization__label {
+.auth__input:focus + .auth__label,
+.auth__input:not(:focus):valid + .auth__label {
   top: 0;
   font-size: 10px;
 }
 
-.authorization__icon__mail {
+.auth__icon__mail {
   position: absolute;
 
   top: 10;
@@ -237,7 +236,7 @@
   }
 }
 
-.authorization__icon__pass {
+.auth__icon__pass {
   margin-left: 5px;
 
   position: absolute;
@@ -263,7 +262,7 @@
   }
 }
 
-.authorization__btn__submit {
+.auth__button__signup {
   cursor: pointer;
 
   padding: 10px 100px;
@@ -303,10 +302,10 @@
   color: #f3f3f3;
 }
 
-.authorization__link__block {
+.auth__link__block {
   text-align: center;
 }
-.authorization__link {
+.auth__link {
   font-weight: 700;
   font-size: 13px;
   @media screen and (min-width: 375px) {
@@ -323,7 +322,7 @@
 
   color: rgba(17, 17, 17, 0.5);
 }
-.authorization__link:nth-child(1) {
+.auth__link:nth-child(1) {
   margin-right: 7px;
 
   @media screen and (min-width: 375px) {
