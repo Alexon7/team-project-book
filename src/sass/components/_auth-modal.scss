@@ -4,8 +4,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  //   overflow: auto;
   overflow-y: scroll;
+  overflow: auto;
 
   background: $page-color-accent;
 
@@ -83,7 +83,7 @@
     width: 24px;
     height: 24px;
   }
-   @include _tablet {
+  @include _tablet {
     width: 28px;
     height: 28px;
   }
