@@ -1,7 +1,10 @@
+// Iskra Matjuha
+
 .book-categories {
   height: 472px;
   overflow: auto;
   margin-bottom: 40px;
+  width: 337px;
 }
 .category {
   font-style: normal;
@@ -19,4 +22,5 @@
 .category:focus {
   text-transform: uppercase;
   font-weight: 700;
+  color: $page-color-accent;
 }
