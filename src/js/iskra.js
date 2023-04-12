@@ -1,3 +1,5 @@
+import { showBookModal } from './show-modal-about-book';
+
 import { BookAPI } from './api-service';
 const categoriesEl = document.querySelector('.categories-list');
 const categoryBooksEl = document.querySelector('.category-books');
