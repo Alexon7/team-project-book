@@ -1,9 +1,9 @@
 import { BookAPI } from './api-service';
+import { handleRenderCategoryItem } from './render-bestsellers-bookByType';
 
 const categoriesEl = document.querySelector('.book-categories__list');
-console.log(categoriesEl);
+// console.log(categoriesEl);
 const bookApi = new BookAPI();
-// categoriesEl.addEventListener('click', handleRenderCategoryItem);
 
 // Рендерим список категорий
 const renderCategories = async () => {
@@ -18,7 +18,7 @@ const renderCategories = async () => {
  </li>
     ${categoriesList
       .map(
-        el => `<li class="category data-id= ${el.list_name}" >
+        el => `<li class="category" data-id= "${el.list_name}" >
   ${el.list_name}
  </li>`
       )
@@ -33,10 +33,12 @@ const renderCategories = async () => {
           activeCategory.classList.remove('is-active');
         }
         event.target.classList.add('is-active');
+        const category = event.target.dataset.id.trim();
         if (event.target.dataset.id === 'all-categories') {
-          console.log(event.target.dataset.id);
+          console.log('рендерим по всем категориям ', event.target.dataset.id);
         } else {
-          console.log(event.target.dataset.id);
+          handleRenderCategoryItem(category);
+          console.log('рендерим только категорию ', category);
         }
       });
     });
