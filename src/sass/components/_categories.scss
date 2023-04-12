@@ -14,7 +14,7 @@
 .category:not(:last-child) {
   margin-bottom: 32px;
 }
-.category.active,
+.category.is-active,
 .category:hover,
 .category:focus {
   text-transform: uppercase;
