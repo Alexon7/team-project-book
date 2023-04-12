@@ -1,3 +1,5 @@
+// Iskra Matjuha
+
 import { BookAPI } from './api-service';
 import { handleRenderCategoryItem } from './render-bestsellers-bookByType';
 
