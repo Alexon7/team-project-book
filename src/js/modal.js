@@ -4,7 +4,7 @@ import 'basiclightbox/dist/basiclightbox.min.css';
 export const modal = async content => {
   const modal = basicLightbox.create(content, {
     onShow: instance => {
-      instance.element().querySelector('.close').onclick = instance.close;
+      instance.element().querySelector('.close-icon').onclick = instance.close;
     },
     onClose: () => {
       localStorage.removeItem('openInfoBook');
