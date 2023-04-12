@@ -1,12 +1,13 @@
 import { BookAPI } from './api-service';
 const categoriesEl = document.querySelector('.categories-list');
 const categoryBooksEl = document.querySelector('.category-books');
+// const BookEl = document.querySelector('.book');
 
 const bookApi = new BookAPI();
 
 // handleRenderTopBooks(); // списки топ книг по категориям - пока віводится список категорий, книги  только в консоле
 categoriesEl.addEventListener('click', handleRenderCategoryItem);
-
+categoryBooksEl.addEventListener('click', handleBook);
 // Рендерим список категорий
 const renderCategories = async () => {
   try {
@@ -61,6 +62,7 @@ async function handleRenderCategoryItem(event) {
     return;
   }
   event.preventDefault();
+  console.log(event);
 
   try {
     const category = event.target.textContent.trim();
@@ -72,7 +74,7 @@ async function handleRenderCategoryItem(event) {
       categoryBooksEl.innerHTML = `
     ${categoryBooks
       .map(
-        el => `<li class="category-books" > <img src = ${el.book_image}> 
+        el => `<li class="category-books" > <a href= "" class ="book"> <img src = ${el.book_image} data-id= ${el._id}> </a>
  </li>`
       )
       .join('')}
@@ -83,11 +85,14 @@ async function handleRenderCategoryItem(event) {
     console.log(error.message);
   }
 }
+async function handleBook(event) {
+  event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
 
-//   console.log('Категория: ', category);
-//   // const id = '643282b2e85766588626a100';
-//   // const id = '643282b2e85766588626a118';
-//   // const response = await bookApi.getBooksById(id); - проверка запроса книги по id
-// } catch (err) {
-//   console.log(err);
-// }
+  const id = event.target.dataset.id;
+  console.log(id);
+  const response = await bookApi.getBooksById(id);
+  console.log(response.data); // откріваем модалку со всеми данніми по книге
+}
