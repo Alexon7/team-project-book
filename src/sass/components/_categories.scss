@@ -1,0 +1,22 @@
+.book-categories {
+  height: 472px;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+.category {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.category:not(:last-child) {
+  margin-bottom: 32px;
+}
+.category.active,
+.category:hover,
+.category:focus {
+  text-transform: uppercase;
+  font-weight: 700;
+}
