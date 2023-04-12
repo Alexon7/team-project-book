@@ -1,4 +1,40 @@
-.shopping-list__container {
-  width: 100%;
-  height: 100%;
+.shopping-list {
+  &__container {
+    margin: 40px 20px;
+  }
+  &-header {
+    margin-bottom: 120px;
+
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    letter-spacing: -0.04em;
+
+    color: $page-color-dark;
+
+    &__span {
+      color: $page-color-accent;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    width: 265px;
+  }
+
+  &__text {
+    margin-bottom: 14px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.29;
+
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    color: rgba(0, 0, 0, 0.6);
+  }
 }
