@@ -20,24 +20,7 @@ export function renderDescBook(aboutBook) {
         <p class="description">${aboutBook.description}</p>
 
         <div class="book-modal__links">
-          ${aboutBook.buy_links
-            .filter(
-              link =>
-                link.name === 'Amazon' ||
-                link.name === 'Bookshop' ||
-                link.name === 'Apple Books'
-            )
-            .map(link => {
-              return `<a class="link" href=${link.url}>
-              <img
-              class="img ${link.name}"
-              src="./img/${link.name}.png"
-              alt="Shop logo"
-
-            />
-            </a>`;
-            })
-            .join('')}
+          
         </div>
       </div>
      </div>
@@ -50,3 +33,22 @@ export function renderDescBook(aboutBook) {
   </div>
     `;
 }
+
+// ${aboutBook.buy_links
+//             .filter(
+//               link =>
+//                 link.name === 'Amazon' ||
+//                 link.name === 'Bookshop' ||
+//                 link.name === 'Apple Books'
+//             )
+//             .map(link => {
+//               return `<a class="link" href=${link.url}>
+//               <img
+//               class="img ${link.name}"
+//               src="./img/${link.name}.png"
+//               alt="Shop logo"
+
+//             />
+//             </a>`;
+//             })
+//             .join('')}
