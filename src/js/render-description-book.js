@@ -6,23 +6,25 @@ export function renderDescBook(aboutBook) {
   return `
   <div class="book-modal">
      <svg class="close-icon" width="24" height="24">
-             <use href="#icon-close"></use>
+             <use href="../images/logo/x-close.svg"></use>
       </svg>
     <div class="book-modal__content">
      <div class="book-modal__book">
       <img
       src = ${book_image}
         class="book-modal__img"
-        
         alt="о книге"
         loading="lazy"
        
        />
       <div class="book-modal__text">
 
-        <h4 class="title">${title}</h4>
-        <h4 class="author">${author}</h4>
-        <p class="description">Описание ${description}</p>
+        <h4 class="book-modal__title">${title}</h4>
+        <h4 class="book-modal__author">${author}</h4>
+        <p class="book-modal__description">${description}</p>
+
+      </div>
+      <div class="book-modal__links">
 
       </div>
      </div>
