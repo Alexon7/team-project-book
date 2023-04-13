@@ -1,10 +1,5 @@
-// Здесь жесть
-// import * as basicLightbox from 'basiclightbox';
-
-// import 'basiclightbox/dist/basiclightbox.min.css';
-
-const basicLightbox = require('basiclightbox');
-require('basiclightbox/dist/basiclightbox.min.css');
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 export const modal = async content => {
   const modal = basicLightbox.create(content, {
@@ -26,11 +21,3 @@ export const modal = async content => {
     }
   }
 };
-
-// чат gpt посоветовал:
-/*
-const basicLightbox = require('basiclightbox');
-require('basiclightbox/dist/basiclightbox.min.css');
-
-или юзать что-то другое
-*/
