@@ -1,4 +1,6 @@
+// Здесь жесть
 import * as basicLightbox from 'basiclightbox';
+
 import 'basiclightbox/dist/basiclightbox.min.css';
 
 export const modal = async content => {
