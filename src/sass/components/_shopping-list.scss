@@ -1,7 +1,17 @@
 .shopping-list {
   &__container {
     margin: 40px 20px;
+    @include _desktop {
+      display: flex;
+      flex-direction: row;
+
+      &__desktop {
+        width: 664px;
+        height: 501px;
+      }
+    }
   }
+
   &-header {
     margin-bottom: 120px;
 
@@ -11,6 +21,15 @@
     letter-spacing: -0.04em;
 
     color: $page-color-dark;
+
+    @include _tablet {
+      font-size: 48px;
+      line-height: 1.08;
+    }
+
+    @include _desktop {
+      margin-left: 40px;
+    }
 
     &__span {
       color: $page-color-accent;
@@ -23,6 +42,12 @@
     margin: 0 auto;
 
     width: 265px;
+    @include _tablet {
+      width: 349px;
+    }
+    @include _desktop {
+      margin-left: 355px;
+    }
   }
 
   &__text {
@@ -36,6 +61,11 @@
     letter-spacing: -0.02em;
 
     color: rgba(0, 0, 0, 0.6);
+
+    @include _tablet {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
   }
 }
 
@@ -53,4 +83,25 @@
 
 .is-hidden {
   display: none;
+}
+
+.support-div {
+  @include _tablet {
+    display: none;
+  }
+  @include _mobile {
+    display: none;
+  }
+  @include _desktop {
+    display: block;
+    width: 356px;
+    height: 490px;
+    background-color: $page-color-accent;
+  }
+}
+
+.shopping-section {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }
