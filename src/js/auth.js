@@ -9,13 +9,18 @@ import {
 } from 'firebase/auth';
 
 console.log(AuthErrorCodes);
+const authBackDrop = document.querySelector('.auth__backdrop');
+const authForm = document.querySelector('.auth__form');
+const authInputs = document.querySelector('.auth__unputs');
+const authButtonClose = document.querySelector('.auth__button__close');
 const userEmail = document.querySelector('#user_email');
 const userPassword = document.querySelector('#user_password');
 
 const btnLogin = document.querySelector('#btnLogin');
 const btnSignup = document.querySelector('#btnSignup');
-
 const btnLogout = document.querySelector('#btnLogout');
+const linkSignUp = document.querySelector('.link__signup');
+const linkSignIn = document.querySelector('.link__signin');
 
 const messageLogin = document.querySelector('.message__login');
 // export const lblAuthState = document.querySelector('#lblAuthState');
@@ -36,6 +41,66 @@ const firebaseSettings = initializeApp({
 });
 const auth = getAuth(firebaseSettings);
 console.log(auth);
+
+// Login using email/password
+const loginEmailPassword = async e => {
+  e.preventDefault();
+  const loginEmail = userEmail.value.trim();
+  const loginPassword = userPassword.value.trim();
+  try {
+    await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+  } catch (error) {
+    console.log(`There was an error: ${error}`);
+    showLoginError(error);
+  }
+};
+
+const showLoginError = error => {
+  if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
+    alert('Wrong password. Try again.');
+  } else {
+    alert(`Error: ${error.message}`);
+  }
+};
+
+const showLoginState = user => {
+  console.log(
+    // `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `
+    `You're logged in as  email: ${user.email}) `
+  );
+  messageLogin.insertAdjacentHTML(
+    'beforeend',
+    `<p class="auth__true__notify">You're logged in as <span>${user.email}<span></p>`
+  );
+  // authInputs.innerHTML = '';
+  // btnLogout.classList.toggle('btn-hidden');
+  // btnLogin.classList.toggle('btn-hidden');
+  // linkSignUp.classList.add('btn-hidden');
+  hideButtons();
+};
+
+function hideButtons() {
+  // btnLogout.style.display = 'none';
+  // btnLogin.style.display = 'none';
+  // linkSignUp.style.display = 'none';
+  authForm.style.display = 'none';
+  btnLogout.style.display = 'block';
+}
+
+linkSignIn.addEventListener('click', () => {
+  btnLogin.style.display = '';
+  btnSignup.style.display = 'none';
+  linkSignUp.style.display = '';
+  linkSignIn.style.display = 'none';
+});
+
+linkSignUp.addEventListener('click', () => { 
+  btnLogin.style.display = 'none';
+  btnSignup.style.display = 'block';
+  linkSignUp.style.display = 'none';
+  linkSignIn.style.display = 'block';
+})
+
 // Create new account using email/password
 const createAccount = async event => {
   event.preventDefault();
@@ -56,11 +121,6 @@ const createAccount = async event => {
 
 btnSignup.addEventListener('click', createAccount);
 
-const showLoginForm = () => {
-  userEmail.style.display = 'block';
-  userPassword.style.display = 'block';
-};
-
 const showApp = () => {
   userEmail.style.display = 'block';
   userPassword.style.display = 'block';
@@ -71,63 +131,49 @@ const showApp = () => {
 //   lblLoginErrorMessage.innerHTML = '';
 // };
 
-const showLoginError = error => {
-  if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
-    alert('Wrong password. Try again.');
-  } else {
-    alert(`Error: ${error.message}`);
-  }
-};
 
-const showLoginState = user => {
-  console.log(
-    // `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `
-    `You're logged in as  email: ${user.email}) `
-  );
-  messageLogin.innerHTML = `You're logged in`;
-};
+
+
 
 // hideLoginError();
 
-// Login using email/password
-const loginEmailPassword = async e => {
-  e.preventDefault();
 
-  const loginEmail = userEmail.value.trim();
-  const loginPassword = userPassword.value.trim();
-
-  // step 1: try doing this w/o error handling, and then add try/catch
-  // await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-
-  // step 2: add error handling
-  try {
-    await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-  } catch (error) {
-    console.log(`There was an error: ${error}`);
-    showLoginError(error);
-  }
-};
 
 // Monitor auth state
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, user => {
     if (user) {
+      messageLogin.innerHTML = '';
+
       console.log(user);
       console.log(auth);
       // showApp();
       showLoginState(user);
-
+      // setTimeout(() => {
+      //   authBackDrop.classList.add('is-hidden');
+      // }, 10000);
       // hideLoginError();
       // hideLinkError();
     } else {
-      showLoginForm();
       messageLogin.innerHTML = '';
       messageLogin.insertAdjacentHTML(
         'beforeend',
-        `<p>You're not logged in.</p>`
+        `<p class="auth__false__notify">You're not logged in</p>`
       );
+      showLoginForm();
     }
   });
+};
+
+const showLoginForm = () => {
+  authForm.style.display = 'block';
+  btnLogout.style.display = 'none';
+  userEmail.value = '';
+  userPassword.value = '';
+  // btnLogout.classList.toggle('btn-hidden');
+
+  // userEmail.style.display = 'block';
+  // userPassword.style.display = 'block';
 };
 
 // Log out
@@ -137,6 +183,9 @@ const logout = async () => {
 
 btnLogin.addEventListener('click', loginEmailPassword);
 btnLogout.addEventListener('click', logout);
+authButtonClose.addEventListener('click', () => {
+  authBackDrop.classList.add('is-hidden');
+});
 
 monitorAuthState();
 // console.log(auth);

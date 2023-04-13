@@ -262,7 +262,7 @@
   }
 }
 
-.auth__button__signup {
+.auth__button {
   cursor: pointer;
 
   padding: 10px 100px;
@@ -337,4 +337,52 @@
   color: $page-color-accent;
 
   text-decoration-line: underline;
+}
+
+.btn-hidden {
+  display: none;
+}
+
+.link__signup,
+ .link__signin {
+  margin-top: 20px;
+  border: none;
+  background: none;
+  font-weight: 700;
+  line-height: 24px;
+  color: $page-color-accent;
+
+  border-bottom: 2px solid $page-color-accent;
+  text-transform: uppercase;
+}
+
+
+
+.auth__false__notify {
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #dc143c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+}
+
+.auth__true__notify {
+  margin-bottom: 20px;
+  padding: 10px;
+  color: $page-color-accent;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+}
+
+.auth__true__notify > span {
+  color: #464060;
+}
+
+.auth__button__logout {
+  margin-left: auto;
+  margin-right: auto;
 }
