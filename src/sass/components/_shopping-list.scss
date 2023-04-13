@@ -39,11 +39,6 @@
   }
 }
 
-.trash {
-  height: 64px;
-  background-color: #fff;
-}
-
 .shopping-list__book-card {
   background-color: #fff;
 }
@@ -54,4 +49,8 @@
   gap: 5px;
 
   text-align: center;
+}
+
+.is-hidden {
+  display: none;
 }
