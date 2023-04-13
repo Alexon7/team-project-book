@@ -1,7 +1,8 @@
 // Iskra Matjuha
 
 import { BookAPI } from './api-service';
-import { handleRenderCategoryItem } from './render-bestsellers-bookByType';
+
+import { handleRenderCategoryItem } from './render-bookByType';
 
 const categoriesEl = document.querySelector('.book-categories__list');
 // console.log(categoriesEl);
@@ -36,10 +37,12 @@ const renderCategories = async () => {
         }
         event.target.classList.add('is-active');
         const category = event.target.dataset.id.trim();
+
         if (event.target.dataset.id === 'all-categories') {
           console.log('рендерим по всем категориям ', event.target.dataset.id);
         } else {
           handleRenderCategoryItem(category);
+
           console.log('рендерим только категорию ', category);
         }
       });

@@ -1,6 +1,5 @@
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basiclightbox.min.css';
-
+// import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basiclightbox.min.css';
 export const modal = async content => {
   const modal = basicLightbox.create(content, {
     onShow: instance => {
