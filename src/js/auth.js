@@ -13,6 +13,7 @@ const authBackDrop = document.querySelector('.auth__backdrop');
 const authForm = document.querySelector('.auth__form');
 const authInputs = document.querySelector('.auth__unputs');
 const authButtonClose = document.querySelector('.auth__button__close');
+const userNickname = document.querySelector('#user_name');
 const userEmail = document.querySelector('#user_email');
 const userPassword = document.querySelector('#user_password');
 
@@ -41,12 +42,15 @@ const firebaseSettings = initializeApp({
 });
 const auth = getAuth(firebaseSettings);
 console.log(auth);
+console.log(btnLogin.disabled);
+console.log(userEmail.value);
 
 // Login using email/password
 const loginEmailPassword = async e => {
   e.preventDefault();
   const loginEmail = userEmail.value.trim();
   const loginPassword = userPassword.value.trim();
+  console.log(loginEmail);
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
   } catch (error) {
@@ -92,25 +96,37 @@ linkSignIn.addEventListener('click', () => {
   btnSignup.style.display = 'none';
   linkSignUp.style.display = '';
   linkSignIn.style.display = 'none';
+  userNickname.style.display = 'none';
 });
 
-linkSignUp.addEventListener('click', () => { 
+linkSignUp.addEventListener('click', () => {
   btnLogin.style.display = 'none';
   btnSignup.style.display = 'block';
   linkSignUp.style.display = 'none';
   linkSignIn.style.display = 'block';
-})
+  userNickname.style.display = 'block';
+});
 
 // Create new account using email/password
 const createAccount = async event => {
   event.preventDefault();
+  const nickname = userNickname.value.trim();
   const email = userEmail.value.trim();
   const password = userPassword.value.trim();
+  userNickname.style.display = 'block';
+
+  const account = {
+    nickname: nickname,
+    email: email
+  };
+
+  Accounts.create(account).then(() => {});
 
   try {
     await createUserWithEmailAndPassword(auth, email, password).then(res => {
+      // Accounts.create(account);
       console.log(res);
-      console.log(res.email);
+      console.log(email);
     });
   } catch (error) {
     console.log(`There was an error: ${error}`);
@@ -121,23 +137,12 @@ const createAccount = async event => {
 
 btnSignup.addEventListener('click', createAccount);
 
-const showApp = () => {
-  userEmail.style.display = 'block';
-  userPassword.style.display = 'block';
-};
-
 //  const hideLoginError = () => {
 //   divLoginError.style.display = 'none';
 //   lblLoginErrorMessage.innerHTML = '';
 // };
 
-
-
-
-
 // hideLoginError();
-
-
 
 // Monitor auth state
 const monitorAuthState = async () => {
@@ -168,8 +173,10 @@ const monitorAuthState = async () => {
 const showLoginForm = () => {
   authForm.style.display = 'block';
   btnLogout.style.display = 'none';
+  userNickname.style.display = 'none';
   userEmail.value = '';
   userPassword.value = '';
+
   // btnLogout.classList.toggle('btn-hidden');
 
   // userEmail.style.display = 'block';
@@ -189,3 +196,22 @@ authButtonClose.addEventListener('click', () => {
 
 monitorAuthState();
 // console.log(auth);
+
+class Accounts {
+  static create(account) {
+    fetch(
+      'https://itsharks-books-project-default-rtdb.firebaseio.com/accounts.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(account),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      });
+  }
+}

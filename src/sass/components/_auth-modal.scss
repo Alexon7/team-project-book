@@ -47,7 +47,7 @@
 
 .auth__modal {
   width: 300px;
-  padding: 40px 15px 15px;
+  padding: 40px 10px 10px;
   @include _mobile {
     width: 350px;
     padding: 50px 20px 20px;
@@ -58,7 +58,6 @@
   }
 
   @include _desktop {
-    width: 579px;
     padding: 80px 40px 40px;
   }
   position: absolute;
@@ -204,7 +203,7 @@
 
 .auth__input:focus + .auth__label,
 .auth__input:not(:focus):valid + .auth__label {
-  top: 0;
+  top: 5;
   font-size: 10px;
 }
 
@@ -264,42 +263,42 @@
 
 .auth__button {
   cursor: pointer;
-
+  margin-bottom: 6px;
   padding: 10px 100px;
-
+  
   background: $black-color;
   border-radius: 40px;
-
-  margin-bottom: 6px;
+  border: none;
 
   @media screen and (min-width: 375px) {
     padding: 15px 110px;
-
     font-size: 13px;
-    line-height: calc(24 / 15);
   }
 
   @media screen and (min-width: 768px) {
     padding: 20px 154px;
     margin-bottom: 7px;
-
     font-size: 15px;
-    line-height: calc(24 / 15);
   }
   @media screen and (min-width: 1440px) {
     padding: 20px 213px;
     margin-bottom: 10px;
-
     font-size: 17px;
-    line-height: calc(24 / 15);
   }
 
   font-weight: 700;
-
+  line-height: 1.33;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
   color: #f3f3f3;
+
+  &:disabled {
+    background-color: #ABABAB;
+    border: none;
+    cursor: default;
+    color: $black-color;
+  }
 }
 
 .auth__link__block {
@@ -344,7 +343,7 @@
 }
 
 .link__signup,
- .link__signin {
+.link__signin {
   margin-top: 20px;
   border: none;
   background: none;
@@ -355,8 +354,6 @@
   border-bottom: 2px solid $page-color-accent;
   text-transform: uppercase;
 }
-
-
 
 .auth__false__notify {
   margin-bottom: 20px;
