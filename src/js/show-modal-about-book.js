@@ -3,7 +3,7 @@ import { modal } from './modal.js';
 import { BookAPI } from './api-service.js';
 const bookApi = new BookAPI();
 
-const categoryBooksEl = document.querySelector('.book-category__list');
+const categoryBooksEl = document.querySelector('.books-of-category__list');
 categoryBooksEl.addEventListener('click', handleDataBookById);
 
 // єтот кусок не надо - id книги получаем по клику книги:
