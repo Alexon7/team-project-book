@@ -15,13 +15,7 @@ export function renderDescBook(aboutBook) {
         loading="lazy"
        />
       <div class="book-modal__text">
-        <h4 class="title">заглавие</h4>
-        <h4 class="author">автор</h4>
-        <p class="description">описание</p>
-
-        <div class="book-modal__links">
-          
-        </div>
+       
       </div>
      </div>
      <button class="button btnAdd active" type="button">Add to shopping list</button>
