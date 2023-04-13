@@ -199,9 +199,9 @@ const monitorAuthState = async () => {
       console.log(auth);
       // showApp();
       showLoginState(user);
-      // setTimeout(() => {
-      //   authBackDrop.classList.add('is-hidden');
-      // }, 10000);
+      setTimeout(() => {
+        authBackDrop.classList.add('is-hidden');
+      }, 5000);
       // hideLoginError();
       // hideLinkError();
     } else {
