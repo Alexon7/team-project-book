@@ -1,0 +1,42 @@
+<!-- =============== Kralinskyi -------------------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon3.ico" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
+    <include src="./partials/header.html"></include>
+
+    <section class="section" id="shopping-list">
+      <div class="shopping-list__container">
+        <div class="support-div">WE SUPPORT</div>
+        <div class="shopping-list__desktop">
+          <div class="shopping-list-header">
+            <h2>
+              Shopping <span class="shopping-list-header__span">List</span>
+            </h2>
+          </div>
+          <div class="shopping-list__empty">
+            <p class="shopping-list__text">
+              This page is empty, add some books and proceed to order.
+            </p>
+            <img
+              src="./images/shopping-list/empty_shoping_list.png"
+              alt="books"
+            />
+          </div>
+        </div>
+        <div class="shopping-list__not-empty">
+          <ul class="shopping-list__list">
+            <li class="shopping-list__book-card"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="./js/render-shopping-list.js"></script>
+  </body>
+</html>

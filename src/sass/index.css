@@ -1,0 +1,161 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import url(https://fonts.googleapis.com/css?family=DM+Sans:regular,italic,500,700);
+.container {
+  width: 100%;
+  margin: 40px 20px;
+}
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0px 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+body {
+  font-family: "DM Sans";
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: #111111;
+  background-color: #f6f6f6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  font-style: normal;
+  cursor: pointer;
+}
+
+button {
+  padding: 0px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.book-categories {
+  height: 472px;
+  overflow: auto;
+  margin-bottom: 40px;
+  width: 337px;
+}
+
+.category {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.category:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.category.is-active,
+.category:hover,
+.category:focus {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4f2ee8;
+}
+
+.shopping-list__container {
+  margin: 40px 20px;
+}
+.shopping-list-header {
+  margin-bottom: 120px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
+  color: #111111;
+}
+.shopping-list-header__span {
+  color: #4f2ee8;
+}
+.shopping-list__empty {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 265px;
+}
+.shopping-list__text {
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.trash {
+  height: 64px;
+  background-color: #fff;
+}
+
+.shopping-list__book-card {
+  background-color: #fff;
+}
+
+.shopping-list__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+
+body.light-theme {
+  color: #111111;
+  background-color: #ffffff;
+}
+
+body.dark-theme {
+  color: #ffffff;
+  background-color: #111111;
+}/*# sourceMappingURL=index.css.map */

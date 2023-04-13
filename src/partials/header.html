@@ -1,0 +1,198 @@
+<!-- Bryzhko -->
+<!-- <load="partials/topic.html" /> -->
+
+<header class="header">
+  <div class="header__content container">
+    <a href="./index.html" class="header__link">
+      <img
+        class="header__logo"
+        srcset="
+          ./images/logo/logo-light-mobile.png    83w,
+          ./images/logo/logo-light-mobile@2x.png 83w,
+          ./images/logo/logo-light.png           86w,
+          ./images/logo/logo-light@2x.png        86w
+        "
+        sizes="(min-width: 768px) 86px, (min-width: 375px) 83px, 100vw"
+        src="./images/logo/logo-light-mobile.png"
+        alt="logo"
+        loading="lazy"
+      />
+    </a>
+    <nav class="desktop-nav">
+      <ul class="desktop-nav__list">
+        <li class="desktop-nav__item">
+          <a class="desktop-nav__link" href="./index.html">Home</a>
+        </li>
+        <li class="desktop-nav__item">
+          <a class="desktop-nav__link" href="./shopping-list.html"
+            >Shopping list</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Світла / Темна - тема -->
+    <div class="toolbar">
+      <!-- Розмітка перемикача теми -->
+      <div class="theme-switch">
+        <div class="theme-switch__control">
+          <input
+            class="theme-switch__toggle"
+            type="checkbox"
+            name="theme"
+            id="theme-switch-toggle"
+            aria-label="Перемикач світлої та темної теми"
+          />
+          <label
+            aria-hidden="true"
+            class="theme-switch__track"
+            for="theme-switch-toggle"
+          >
+          </label>
+          <div aria-hidden="true" class="theme-switch__marker"></div>
+        </div>
+      </div>
+
+      <button
+        class="menu-toggle js-open-menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Menu"
+      >
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.8333 11.6667H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24.5 7H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24.5 16.3333H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19.8333 21H3.5"
+            stroke="#111111"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-container js-menu-container" id="mobile-menu">
+  <div class="header mobile-header">
+    <a href="./index.html" class="header__link">
+      <img
+        class="header__logo"
+        srcset="
+          ./images/logo/logo-light-mobile.png    83w,
+          ./images/logo/logo-light-mobile@2x.png 83w,
+          ./images/logo/logo-light.png           86w,
+          ./images/logo/logo-light@2x.png        86w
+        "
+        sizes="(min-width: 768px) 86px, (min-width: 375px) 83px, 100vw"
+        src="./images/logo/logo-light-mobile.png"
+        alt="logo"
+        loading="lazy"
+      />
+    </a>
+    <!-- Світла / Темна - тема -->
+    <div class="toolbar">
+      <!-- Розмітка переключателя теми -->
+      <div class="theme-switch">
+        <div class="theme-switch__control">
+          <input
+            class="theme-switch__toggle"
+            type="checkbox"
+            name="theme"
+            id="theme-switch-toggle"
+            aria-label="Перемикач світлої та темної теми"
+          />
+          <label
+            aria-hidden="true"
+            class="theme-switch__track"
+            for="theme-switch-toggle"
+          >
+          </label>
+          <div aria-hidden="true" class="theme-switch__marker"></div>
+        </div>
+      </div>
+      <button class="menu-toggle js-close-menu" aria-label="Close">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 7L7 21M7 7L21 21"
+            stroke="#111111"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="users-data">
+      <img
+        class="users-avatar"
+        src="./images/logo/avatar.png"
+        alt="users-avatar"
+      />
+      <p class="users-login">Stephen</p>
+    </div>
+
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__list">
+        <li class="mobile-nav__item">
+          <a class="mobile-nav__link" href="./index.html">Home</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a class="mobile-nav__link" href="./shopping-list.html"
+            >Shopping list</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="background-img">
+    <button class="users-logout" type="button" aria-label="log-out">
+      Log out
+    </button>
+  </div>
+</div>
+
+<script
+  defer
+  src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+  integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+  crossorigin="anonymous"
+></script>
