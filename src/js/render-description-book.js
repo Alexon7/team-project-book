@@ -1,7 +1,7 @@
 // import sprite from '../img/sprite.svg';
 
 export function renderDescBook(aboutBook) {
-  const { title, author, description } = aboutBook;
+  const { book_image, title, author, description } = aboutBook;
 
   return `
   <div class="book-modal">
@@ -11,10 +11,12 @@ export function renderDescBook(aboutBook) {
     <div class="book-modal__content">
      <div class="book-modal__book">
       <img
+      src = ${book_image}
         class="book-modal__img"
         
         alt="о книге"
         loading="lazy"
+       
        />
       <div class="book-modal__text">
 
