@@ -45,6 +45,38 @@ console.log(auth);
 console.log(btnLogin.disabled);
 console.log(userEmail.value);
 
+class Accounts {
+  static create(account) {
+    fetch(
+      'https://itsharks-books-project-default-rtdb.firebaseio.com/accounts.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(account),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        account.id = response.nickname;
+        return account;
+      })
+      .then(addToLocalStorage);
+  }
+}
+
+function addToLocalStorage(account) {
+  const all = getAccountFromLocaleStorage();
+  all.push(account);
+  localStorage.setItem('accounts', JSON.stringify(all));
+}
+
+function getAccountFromLocaleStorage() {
+  return JSON.parse(localStorage.getItem('accounts') || '[]');
+}
+
 // Login using email/password
 const loginEmailPassword = async e => {
   e.preventDefault();
@@ -97,6 +129,12 @@ linkSignIn.addEventListener('click', () => {
   linkSignUp.style.display = '';
   linkSignIn.style.display = 'none';
   userNickname.style.display = 'none';
+  messageLogin.innerHTML = '';
+
+  messageLogin.insertAdjacentHTML(
+    'beforeend',
+    `<p class="auth__false__notify">You're not logged in</p>`
+  );
 });
 
 linkSignUp.addEventListener('click', () => {
@@ -105,6 +143,11 @@ linkSignUp.addEventListener('click', () => {
   linkSignUp.style.display = 'none';
   linkSignIn.style.display = 'block';
   userNickname.style.display = 'block';
+  messageLogin.innerHTML = '';
+  messageLogin.insertAdjacentHTML(
+    'beforeend',
+    `<p class="auth__notify">You can SIGN UP on this website</p>`
+  );
 });
 
 // Create new account using email/password
@@ -117,17 +160,19 @@ const createAccount = async event => {
 
   const account = {
     nickname: nickname,
-    email: email
+    email: email,
   };
 
-  Accounts.create(account).then(() => {});
+  // Accounts.create(account).then(() => {
+  //   console.log('Hello');
+  // });
 
   try {
-    await createUserWithEmailAndPassword(auth, email, password).then(res => {
-      // Accounts.create(account);
-      console.log(res);
-      console.log(email);
-    });
+    await createUserWithEmailAndPassword(auth, email, password);
+    Accounts.create(account);
+
+    // console.log(res);
+    // console.log(email);
   } catch (error) {
     console.log(`There was an error: ${error}`);
     showLoginError(error);
@@ -154,9 +199,9 @@ const monitorAuthState = async () => {
       console.log(auth);
       // showApp();
       showLoginState(user);
-      // setTimeout(() => {
-      //   authBackDrop.classList.add('is-hidden');
-      // }, 10000);
+      setTimeout(() => {
+        authBackDrop.classList.add('is-hidden');
+      }, 5000);
       // hideLoginError();
       // hideLinkError();
     } else {
@@ -196,22 +241,3 @@ authButtonClose.addEventListener('click', () => {
 
 monitorAuthState();
 // console.log(auth);
-
-class Accounts {
-  static create(account) {
-    fetch(
-      'https://itsharks-books-project-default-rtdb.firebaseio.com/accounts.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(account),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
-}
