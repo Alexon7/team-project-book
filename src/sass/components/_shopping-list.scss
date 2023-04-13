@@ -1,14 +1,17 @@
 .shopping-list {
   &__container {
     margin: 40px 20px;
+
     @include _desktop {
       display: flex;
       flex-direction: row;
+    }
+  }
 
-      &__desktop {
-        width: 664px;
-        height: 501px;
-      }
+  &__desktop {
+    @include _desktop {
+      margin-left: 40px;
+      width: -webkit-fill-available;
     }
   }
 
@@ -28,7 +31,7 @@
     }
 
     @include _desktop {
-      margin-left: 40px;
+      margin-bottom: 140px;
     }
 
     &__span {
@@ -44,9 +47,6 @@
     width: 265px;
     @include _tablet {
       width: 349px;
-    }
-    @include _desktop {
-      margin-left: 355px;
     }
   }
 
