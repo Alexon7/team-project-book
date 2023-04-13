@@ -14,7 +14,7 @@ async function renderShopppingList() {
     return;
   }
 
-  refs.emptyShoppingListEl.classList.add('is-hidden');
+  refs.emptyShoppingListEl.classList.toggle('is-hidden');
 
   const { data } = await bookApi.getBooksById(savedBookData._id);
 
