@@ -8,3 +8,12 @@ import './js/topic';
 import './js/render-categories-list';
 import './js/show-modal-about-book';
 import './js/modal';
+import './js/support-list';
+import './js/render-support-Ukraine';
+import './js/swiper';
+
+
+
+
+
+
