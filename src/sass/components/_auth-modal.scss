@@ -264,6 +264,8 @@
 .auth__button {
   cursor: pointer;
   margin-bottom: 6px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px 100px;
   
   background: $black-color;
@@ -345,6 +347,8 @@
 .link__signup,
 .link__signin {
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   border: none;
   background: none;
   font-weight: 700;
@@ -355,13 +359,19 @@
   text-transform: uppercase;
 }
 
+.auth__notify {
+  margin-bottom: 20px;
+  color: $page-color-accent;
+  line-height: 1.5;
+}
+
 .auth__false__notify {
   margin-bottom: 20px;
   padding: 10px;
   color: #dc143c;
   font-size: 24px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 1.33;
   letter-spacing: 0.1em;
 }
 
@@ -371,11 +381,14 @@
   color: $page-color-accent;
   font-size: 24px;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 1.5;
   letter-spacing: 0.1em;
 }
 
 .auth__true__notify > span {
+  margin-top: 15px;
+  display: block;
+  font-size: 16px;
   color: #464060;
 }
 
