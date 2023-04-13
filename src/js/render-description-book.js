@@ -12,14 +12,16 @@ export function renderDescBook(aboutBook) {
      <div class="book-modal__book">
       <img
         class="book-modal__img"
-        alt="Заголовок"
+        
+        alt="о книге"
         loading="lazy"
        />
       <div class="book-modal__text">
+
         <h4 class="title">${title}</h4>
         <h4 class="author">${author}</h4>
         <p class="description">Описание ${description}</p>
-        
+
       </div>
      </div>
      <button class="button btnAdd active" type="button">Add to shopping list</button>
@@ -32,27 +34,7 @@ export function renderDescBook(aboutBook) {
     `;
 }
 
-// export function renderDescBook(aboutBook) {
-//   return `
-//   <div class="book-modal">
-//      <svg class="close-icon" width="24" height="24">
-//              <use href="${sprite}#icon-close"></use>
-//       </svg>
-//     <div class="book-modal__content">
-//      <div class="book-modal__book">
-//       <img
-//         class="book-modal__img"
-//         src="${aboutBook.book_image ? aboutBook.book_image : ``}"
-//         alt="${aboutBook.title}"
-//         loading="lazy"
-//        />
-//       <div class="book-modal__text">
-//         <h4 class="title">${aboutBook.title}</h4>
-//         <h4 class="author">${aboutBook.author}</h4>
-//         <p class="description">${aboutBook.description}</p>
-
-//         <div class="book-modal__links">
-//           ${aboutBook.buy_links
+// ${aboutBook.buy_links
 //             .filter(
 //               link =>
 //                 link.name === 'Amazon' ||
@@ -70,15 +52,3 @@ export function renderDescBook(aboutBook) {
 //             </a>`;
 //             })
 //             .join('')}
-//         </div>
-//       </div>
-//      </div>
-//      <button class="button btnAdd active" type="button">Add to shopping list</button>
-//      <div class="btnRemove">
-//          <button class="button" type="button">Remove from shopping list</button>
-//      </div>
-
-//     </div>
-//   </div>
-//     `;
-// }
