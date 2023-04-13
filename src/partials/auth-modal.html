@@ -11,9 +11,10 @@
       </svg>
     </button>
     <!-- form -->
+    <div class="message__login"></div>
     <form class="auth__form">
       <!-- inputs -->
-      <div class="auth__field">
+      <!-- <div class="auth__field">
         <input
           type="text"
           name="name"
@@ -23,7 +24,7 @@
           required
         />
         <label class="auth__label" for="user_name">name</label>
-      </div>
+      </div> -->
 
       <div class="auth__field">
         <input
@@ -47,6 +48,7 @@
           class="auth__input"
           id="user_password"
           autocomplete="new-password"
+          required
         />
         <label class="auth__label" for="user_password"
           >password
@@ -56,8 +58,16 @@
         </label>
       </div>
       <!-- btn submit -->
-      <button type="submit" class="auth__button__signup" id="btnSignup">Sign up</button>
-      
+      <button type="submit" class="auth__button__signup" id="btnLogin">
+        Login
+      </button>
+      <button type="submit" class="auth__button__signup" id="btnSignup">
+        Sign up
+      </button>
+      <button type="submit" class="auth__button__signup" id="btnLogout">
+        Logout
+      </button>
+
       <!-- links -->
       <div class="auth__link__block">
         <a href="" class="auth__link">sign in</a>
