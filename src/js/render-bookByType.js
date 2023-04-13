@@ -1,5 +1,6 @@
 // Iskra Matjuha
 import { BookAPI } from './api-service';
+import { showBookModal } from './show-modal-about-book';
 
 const categoryBooksEl = document.querySelector('.books-of-category__list');
 const bookApi = new BookAPI();
@@ -17,4 +18,17 @@ export async function handleRenderCategoryItem(category) {
         )
         .join('')}
       `;
+}
+// получаем данные по книге и открываем модалку
+categoryBooksEl.addEventListener('click', handleDataBookById);
+function handleDataBookById(event) {
+  event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+
+  const bookId = event.target.dataset.id;
+  console.log(bookId);
+
+  showBookModal(bookId);
 }
