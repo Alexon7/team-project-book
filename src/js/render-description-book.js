@@ -10,14 +10,14 @@ export function renderDescBook(aboutBook) {
      <div class="book-modal__book">
       <img
         class="book-modal__img"
-        src="${aboutBook.book_image ? aboutBook.book_image : ``}"
-        alt="${aboutBook.title}"
+        
+        alt="о книге"
         loading="lazy"
        />
       <div class="book-modal__text">
-        <h4 class="title">${aboutBook.title}</h4>
-        <h4 class="author">${aboutBook.author}</h4>
-        <p class="description">${aboutBook.description}</p>
+        <h4 class="title">заглавие</h4>
+        <h4 class="author">автор</h4>
+        <p class="description">описание</p>
 
         <div class="book-modal__links">
           
