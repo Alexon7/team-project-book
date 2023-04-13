@@ -7,12 +7,12 @@
     <title>Book</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon3.ico" />
     <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <include src="./partials/header.html"></include>
 
     <section class="section" id="shopping-list">
-      <div class="trash">Header</div>
       <div class="shopping-list__container">
         <h2 class="shopping-list-header">
           Shopping <span class="shopping-list-header__span">List</span>
@@ -28,13 +28,13 @@
         </div>
         <div class="shopping-list__not-empty">
           <ul class="shopping-list__list">
-            <li><article class="shopping-list__book-card">1</article></li>
-            <li><article class="shopping-list__book-card">2</article></li>
-            <li><article class="shopping-list__book-card">3</article></li>
+            <li class="shopping-list__book-card">1</li>
+            <li class="shopping-list__book-card">2</li>
+            <li class="shopping-list__book-card">3</li>
           </ul>
         </div>
       </div>
     </section>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./js/render-shopping-list.js"></script>
   </body>
 </html>
