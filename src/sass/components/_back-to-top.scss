@@ -1,0 +1,40 @@
+.back_to_top {
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  z-index: 1000;
+  font-weight: bolder;
+  padding: 5px;
+  width: 40px;
+  text-align: center;
+  line-height: 30px;
+  background: $page-color-accent;
+  color: $page-color-light;
+  cursor: pointer;
+  border-radius: 50% 0 0 50%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  @include transition(all);
+  @include _tablet {
+    right: 5%;
+    bottom: 10%;
+    border-radius: 50%;
+  }
+  @include _desktop {
+    right: 3%;
+    bottom: 10%;
+  }
+}
+
+.back_to_top:hover {
+  background: $writer-color;
+  box-shadow: 0px 8px 43px hsla(0, 0%, 100%, 0.7);
+  transform: scale(1.1);
+}
+
+.back_to_top-show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}

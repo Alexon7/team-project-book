@@ -29,8 +29,9 @@ export function renderDescBook(aboutBook) {
       </div>
      </div>
      <button class="button btnAdd active" type="button">Add to shopping list</button>
-     <div class="btnRemove">
-         <button class="button" type="button">Remove from shopping list</button>
+     <div class="btnRemove-wrapper">
+         <button class="button btnRemove" type="button">Remove from shopping list</button>
+         <p class="button-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
      </div>
 
     </div>

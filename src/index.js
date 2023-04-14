@@ -11,9 +11,4 @@ import './js/modal';
 import './js/support-list';
 import './js/render-support-Ukraine';
 import './js/swiper';
-
-
-
-
-
-
+import './js/back-to-top';
