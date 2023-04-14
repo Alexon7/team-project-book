@@ -28,7 +28,14 @@
 .book-card__title {
   margin-bottom: 40px;
 
-  @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 52px;
+  /* identical to box height, or 108% */
+  
+  letter-spacing: -0.04em;
 
   @include tablet {
     font-size: 48px;
@@ -43,7 +50,17 @@
 .book-card__category-subtitle {
   margin-bottom: 18px;
 
-  @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+  
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  
+  color: #B4AFAF;
 
   @include tablet {
     line-height: calc(24 / 14);
@@ -96,7 +113,15 @@
 }
 
 .book-card__quick-view-text {
-  @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+  
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .book-card__wrap {
@@ -119,7 +144,16 @@
 }
 
 .book-card__author {
-  @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height, or 117% */
+  
+  letter-spacing: -0.04em;
+  
+  color: #B4AFAF;
   font-style: italic;
 }
 
@@ -129,7 +163,17 @@
   padding: 14px 28px;
   margin-bottom: 40px;
 
-  @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+  
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  
+  color: #111111;
 
   border: 2px solid $accent-color;
   border-radius: 40px;
