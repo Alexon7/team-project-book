@@ -19,6 +19,11 @@
   }
 }
 
+.dark-theme .book-modal {
+  background-color: #202024;
+  outline: 2px solid $page-color-light;
+}
+
 .close-icon {
   position: absolute;
   top: 12px;
@@ -71,6 +76,14 @@
   }
 }
 
+.dark-theme .book-modal__title,
+.dark-theme .book-modal__author,
+.dark-theme .book-modal__description,
+.dark-theme .modal-book__button {
+  color: $page-color-light;
+  background-color: #202024;
+}
+
 .book-modal__author {
   font-style: italic;
   font-weight: 400;
@@ -117,6 +130,10 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.dark-theme .button-text {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .modal-book__button {
