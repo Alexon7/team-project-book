@@ -12,6 +12,16 @@
   position: relative;
   max-width: 335px;
   transform: translate(0%, 100px);
+
+  @include _tablet {
+    max-width: 579px;
+    padding: 40px;
+  }
+}
+
+.dark-theme .book-modal {
+  background-color: #202024;
+  outline: 2px solid $page-color-light;
 }
 
 .close-icon {
@@ -19,7 +29,20 @@
   top: 12px;
   right: 12px;
   padding: 6px;
-  color: $page-color-dark;
+  cursor: pointer;
+  fill: $page-color-dark;
+}
+
+.close-icon:hover,
+.close-icon:focus {
+  fill: $page-color-accent;
+}
+
+.book-modal__book {
+  @include _tablet {
+    display: flex;
+    margin-bottom: 40px;
+  }
 }
 
 .book-modal__img {
@@ -28,6 +51,12 @@
   border-radius: 8px;
   margin: auto;
   margin-bottom: 14px;
+
+  @include _tablet {
+    height: 281px;
+    width: 192px;
+    margin-right: 24px;
+  }
 }
 
 .book-modal__title {
@@ -39,6 +68,20 @@
 
   margin-bottom: 4px;
   color: $page-color-dark;
+
+  @include _tablet {
+    font-size: 24px;
+    line-height: 117%;
+    margin-bottom: 8px;
+  }
+}
+
+.dark-theme .book-modal__title,
+.dark-theme .book-modal__author,
+.dark-theme .book-modal__description,
+.dark-theme .modal-book__button {
+  color: $page-color-light;
+  background-color: #202024;
 }
 
 .book-modal__author {
@@ -52,6 +95,12 @@
   letter-spacing: -0.04em;
 
   color: $writer-color;
+
+  @include _tablet {
+    font-size: 14px;
+    line-height: 129%;
+    margin-bottom: 20px;
+  }
 }
 
 .book-modal__description {
@@ -61,4 +110,70 @@
 
   letter-spacing: -0.04em;
   color: $page-color-dark;
+}
+
+.button-text {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 120%;
+  padding-top: 8px;
+
+  text-align: center;
+  letter-spacing: -0.04em;
+
+  color: rgba(17, 17, 17, 0.5);
+
+  @include _tablet {
+    font-size: 12px;
+    line-height: 117%;
+    width: 324px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.dark-theme .button-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-book__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 14px 28px;
+  border: 2px solid $page-color-accent;
+  border-radius: 40px;
+  background-color: $page-color-light;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: #111111;
+
+  @include _tablet {
+    padding: 20px;
+    font-size: 18px;
+    line-height: 133%;
+    width: 499px;
+  }
+}
+
+.modal-book__button:hover,
+.modal-book__button:focus {
+  background-color: $page-color-accent;
+  color: $page-color-light;
+}
+
+.book-modal__links {
+  margin-top: 14px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 20px;
+
+  @include _tablet {
+    margin-top: 20px;
+  }
 }

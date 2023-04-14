@@ -27,12 +27,13 @@ export const showBookModal = async bookId => {
   modal(renderedInfoBook);
 };
 
-export function show(event) {
-  const books = document.querySelectorAll('.category-books');
-  books.forEach(book => {
-    book.addEventListener('click', event => {
-      if (event.target.parentNode.nodeName === 'LI')
-        showBookModal(event.target.parentNode.dataset.id);
-    });
-  });
-}
+// export function show(event) {
+//   const books = document.querySelectorAll('.category-books');
+
+//   books.forEach(book => {
+//     book.addEventListener('click', event => {
+//       if (event.target.parentNode.nodeName === 'LI')
+//         showBookModal(event.target.parentNode.dataset.id);
+//     });
+//   });
+// }

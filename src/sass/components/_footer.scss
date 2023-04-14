@@ -1,0 +1,23 @@
+.page-footer {
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    @include _tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .page-footer-year {
+    }
+    .page-footer-rights {
+    }
+    .page-footer-goit {
+      span {
+      }
+      button {
+      }
+    }
+  }
+}

@@ -27,7 +27,9 @@
   });
 })();
 
-let activePage = document.querySelectorAll('.mobile-nav__link');
+let activePage = document.querySelectorAll(
+  '.mobile-nav__link, .desktop-nav__link'
+);
 activePage.forEach(el => {
   if (el.getAttribute('href') == window.location.pathname)
     el.classList.add('current');
