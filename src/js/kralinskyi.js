@@ -21,6 +21,12 @@
 
 // showBookDescriptionModal('643282b1e85766588626a086');
 
+//
+//
+// !=================================перейменувати renderDescBook
+// !перевірити де викликається
+/*
+
 import { renderBookDescription } from './render-description-book.js';
 import { modal } from './modal.js';
 import { BookAPI } from './api-service.js';
@@ -45,3 +51,4 @@ function onAddBook() {
   addedBooks.push(openedBookData);
   localStorage.setItem('addedBooks', JSON.stringify(addedBooks));
 }
+*/
