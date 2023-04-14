@@ -36,11 +36,6 @@
   /* identical to box height, or 108% */
   
   letter-spacing: -0.04em;
-
-  @include tablet {
-    font-size: 48px;
-    line-height: calc(52 / 48);
-  }
 }
 
 .book-card__filter {
@@ -62,9 +57,6 @@
   
   color: #B4AFAF;
 
-  @include tablet {
-    line-height: calc(24 / 14);
-  }
 }
 
 .book-card__list {
