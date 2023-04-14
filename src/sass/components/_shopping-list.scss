@@ -1,3 +1,12 @@
+.body.dark-theme {
+  .shopping-list-header__main {
+    color: #fff;
+  }
+  .shopping-list-header__span {
+    color: $page-color-accent;
+  }
+}
+
 .shopping-list {
   &__container {
     margin: 40px 20px;

@@ -3,6 +3,7 @@ const bookApi = new BookAPI();
 
 const refs = {
   emptyShoppingListEl: document.querySelector('.shopping-list__empty'),
+  notEmptyShoppingListEl: document.querySelector('.shopping-list__list'),
 };
 
 console.log('REFS', refs.emptyShoppingListEl);
@@ -14,7 +15,10 @@ async function renderShopppingList() {
     return;
   }
 
-  refs.emptyShoppingListEl.classList.toggle('is-hidden');
+  refs.notEmptyShoppingListEl.hasChildNodes &&
+    refs.emptyShoppingListEl.classList.toggle('is-hidden');
+
+  // refs.notEmptyShoppingListEl.classList.toggle('is-hidden');
 
   const { data } = await bookApi.getBooksById(savedBookData._id);
 
