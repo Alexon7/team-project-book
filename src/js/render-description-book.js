@@ -6,7 +6,7 @@ export function renderDescBook(aboutBook) {
   return `
   <div class="book-modal">
      <svg class="close-icon" width="24" height="24">
-             <use href="../images/logo/x-close.svg"></use>
+             <use href="../images/sprite.svg#close-btn"></use>
       </svg>
     <div class="book-modal__content">
      <div class="book-modal__book">
