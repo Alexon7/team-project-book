@@ -126,6 +126,7 @@ function hideButtons() {
 }
 
 linkSignIn.addEventListener('click', () => {
+  btnLogin.disabled = false;
   btnLogin.style.display = '';
   btnSignup.style.display = 'none';
   linkSignUp.style.display = '';
@@ -140,13 +141,12 @@ linkSignIn.addEventListener('click', () => {
 });
 
 linkSignUp.addEventListener('click', () => {
-  // btnLogin.style.display = 'none';
-  btnLogin.remove();
+  btnLogin.style.display = 'none';
   btnSignup.style.display = 'block';
   linkSignUp.style.display = 'none';
   linkSignIn.style.display = 'block';
   userNickname.style.display = 'block';
-  // btnLogin.disabled = true;
+  btnLogin.disabled = true;
   messageLogin.innerHTML = '';
   messageLogin.insertAdjacentHTML(
     'beforeend',
