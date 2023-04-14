@@ -13,7 +13,7 @@
   max-width: 335px;
   transform: translate(0%, 100px);
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     max-width: 579px;
     padding: 40px;
   }
@@ -39,7 +39,7 @@
 }
 
 .book-modal__book {
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     display: flex;
     margin-bottom: 40px;
   }
@@ -52,7 +52,7 @@
   margin: auto;
   margin-bottom: 14px;
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     height: 281px;
     width: 192px;
     margin-right: 24px;
@@ -69,7 +69,7 @@
   margin-bottom: 4px;
   color: $page-color-dark;
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     font-size: 24px;
     line-height: 117%;
     margin-bottom: 8px;
@@ -96,7 +96,7 @@
 
   color: $writer-color;
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     font-size: 14px;
     line-height: 129%;
     margin-bottom: 20px;
@@ -123,7 +123,7 @@
 
   color: rgba(17, 17, 17, 0.5);
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     font-size: 12px;
     line-height: 117%;
     width: 324px;
@@ -153,7 +153,7 @@
 
   color: #111111;
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     padding: 20px;
     font-size: 18px;
     line-height: 133%;
@@ -173,7 +173,7 @@
   display: flex;
   gap: 20px;
 
-  @media screen and (min-width: $tablet) {
+  @include _tablet {
     margin-top: 20px;
   }
 }
