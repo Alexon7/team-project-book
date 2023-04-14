@@ -17,6 +17,7 @@ export function renderDescBook(aboutBook) {
         loading="lazy"
        
        />
+      <div>
       <div class="book-modal__text">
 
         <h4 class="book-modal__title">${title}</h4>
@@ -25,7 +26,29 @@ export function renderDescBook(aboutBook) {
 
       </div>
       <div class="book-modal__links">
-        
+        <a class="modal-book__link" href="">
+              <img
+              class="book-modal__link amazon"
+              src="../images/Amazon.png"
+              alt="Shop logo"
+  
+            />
+        </a>
+        <a class="modal-book__link" href="">
+              <img
+              class="book-modal__link bookshop"
+              src="../images/Bookshop.png"
+              alt="Shop logo"
+            />
+        </a>
+        <a class="modal-book__link" href="">
+              <img
+              class="book-modal__link applebooks"
+              src="../images/Apple Books.png"
+              alt="Shop logo"
+            />
+        </a>
+      </div>
       </div>
      </div>
      <button class="modal-book__button btnAdd active" type="button">Add to shopping list</button>
