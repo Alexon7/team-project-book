@@ -1,3 +1,7 @@
+.booksList {
+  display: block;
+}
+
 .book-card {
   justify-content: center;
   align-items: center;
@@ -5,28 +9,43 @@
   height: auto;
   width: auto;
 }
+.title {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+  
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  
+  color: #B4AFAF;
+  margin-bottom: 18px;
+}
+
 
 .book-card__title {
   margin-bottom: 40px;
 
-  // @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
+  @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
 
-  @include _tablet {
+  @include tablet {
     font-size: 48px;
     line-height: calc(52 / 48);
   }
 }
 
 .book-card__filter {
-  // color: $accent-color;
+  color: $accent-color;
 }
 
 .book-card__category-subtitle {
   margin-bottom: 18px;
 
-  // @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
+  @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
 
-  @include _tablet {
+  @include tablet {
     line-height: calc(24 / 14);
   }
 }
@@ -35,6 +54,7 @@
   margin-bottom: 30px;
   display: flex;
   gap: 24px;
+  display: block;
 }
 
 .book-card__link {
@@ -44,8 +64,8 @@
 .book-card__image {
   border-radius: 8px;
   object-fit: cover;
-  width: 180px;
-  height: 256px;
+  width: 335px;
+  height: 485px;
 }
 
 .book-card__wrapper {
@@ -63,12 +83,12 @@
   width: 100%;
   height: 70px;
 
-  // color: $header-color-dark;
-  // background: $action-color;
+  color: $header-color-dark;
+  background: $action-color;
   border-radius: 0px 0px 8px 8px;
 
   transform: translateY(100%);
-  // @include transition(transform);
+  @include transition(transform);
 }
 
 .book-card__link:hover .book-card__overlay {
@@ -76,7 +96,7 @@
 }
 
 .book-card__quick-view-text {
-  // @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
+  @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
 }
 
 .book-card__wrap {
@@ -84,12 +104,22 @@
 }
 
 .book-card__name {
-  // @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
-  margin-bottom: 4px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+  
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  
+  color: #111111;
+  margin-top: 14px
 }
 
 .book-card__author {
-  // @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
+  @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
   font-style: italic;
 }
 
@@ -97,160 +127,52 @@
   display: block;
   margin-left: auto;
   padding: 14px 28px;
+  margin-bottom: 40px;
 
-  // @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
+  @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
 
-  // border: 2px solid $accent-color;
+  border: 2px solid $accent-color;
   border-radius: 40px;
 }
 
+
 .book-card__btn:hover,
 .book-card__btn:focus {
-  // color: $header-color-light;
-  // background-color: $accent-color;
+  color: $header-color-light;
+  background-color: $accent-color;
 }
 
-@media screen and (max-width: 767px) {
-  .book-card__list {
-    margin-bottom: 30px;
-    display: block;
-    gap: 20px;
-  }
-  .book-card__image {
-    height: 485px;
-    width: 335px;
-  }
-}
 @media screen and (min-width: 768px) {
   .book-card__image {
     height: 316px;
     width: 218px;
   }
   .book-card__list {
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
   }
+  .booksList{
+    display: flex;
+    gap: 25px;
+  }
+  .book-card__btn {
+    margin-top: 30px;
+  }
+
 }
 
 @media screen and (min-width: 1440px) {
-  .book-card {
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 80px;
-    height: auto;
-    width: auto;
-    @include _tablet {
-      padding-bottom: 100px;
-    }
-
-    @include _desktop {
-      padding-top: 40px;
-      padding-bottom: 72px;
-    }
+  .book-card__image {
+    height: 316px;
+    width: 218px;
   }
-
-  .book-card__title {
-    margin-bottom: 40px;
-
-    // @include fonts(32px, 38px, 700, -0.04em, false, $header-color-dark);
-
-    @include _tablet {
-      font-size: 48px;
-      line-height: calc(52 / 48);
-    }
-  }
-
-  .book-card__filter {
-    // color: $accent-color;
-  }
-
-  .book-card__category-subtitle {
-    margin-bottom: 18px;
-
-    // @include fonts(14px, 18px, 400, 0.03em, uppercase, $category-title-color);
-
-    @include _tablet {
-      line-height: calc(24 / 14);
-    }
-  }
-
   .book-card__list {
-    margin-bottom: 30px;
+    gap: 20px;
+  }
+  .booksList{
     display: flex;
     gap: 24px;
   }
-
-  .book-card__link {
-    display: inline-block;
-  }
-
-  .book-card__image {
-    border-radius: 8px;
-    object-fit: cover;
-    width: 180px;
-    height: 256px;
-  }
-
-  .book-card__wrapper {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .book-card__overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-
-    // color: $header-color-dark;
-    // background: $action-color;
-    border-radius: 0px 0px 8px 8px;
-
-    transform: translateY(100%);
-    // @include transition(transform);
-  }
-
-  .book-card__link:hover .book-card__overlay {
-    transform: translateY(0);
-  }
-
-  .book-card__quick-view-text {
-    // @include fonts(14px, 18px, 500, -0.04em, uppercase, $header-color-dark);
-  }
-
-  .book-card__wrap {
-    padding-top: 14px;
-  }
-
-  .book-card__name {
-    // @include fonts(16px, 18px, 700, -0.04em, uppercase, $header-color-dark);
-    margin-bottom: 4px;
-  }
-
-  .book-card__author {
-    // @include fonts(12px, 14px, 400, -0.04em, false, $category-title-color);
-    font-style: italic;
-  }
-
   .book-card__btn {
-    display: block;
-    margin-left: auto;
-    padding: 14px 28px;
-
-    // @include fonts(14px, 18px, 700, -0.01em, uppercase, $header-color-dark);
-
-    // border: 2px solid $accent-color;
-    border-radius: 40px;
-  }
-
-  .book-card__btn:hover,
-  .book-card__btn:focus {
-    // color: $header-color-light;
-    // background-color: $accent-color;
+    margin-top: 30px;
   }
 }
