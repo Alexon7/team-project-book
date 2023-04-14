@@ -1,47 +1,22 @@
-// update
-/**
+import { renderDescBook } from './render-description-book.js';
+import { modal } from './modal.js';
+import { BookAPI } from './api-service.js';
+const bookApi = new BookAPI();
 
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import { refs } from './js/refs';
-import { renderShoppingBooksList } from './js/renderShoppingBooksList';
-import { renderSupport } from './js/supportList';
-import { createOptions } from './js/pagination';
-import { buildSwiperSliderSupport } from './js/swiper';
-import './js/swiper';
-import './js/menu';
-import './js/theme';
+export async function showBookDescriptionModal(bookId) {
+  try {
+    const response = await bookApi.getBooksById(bookId);
+    const bookData = await response.data;
 
-let pagination;
-const itemsPerPage = 3;
+    console.log('data - ', bookData);
 
-const renderSliderSupport = async () => {
-  buildSwiperSliderSupport(refs.sliderSupport);
-};
-renderSupport();
-renderSliderSupport();
-
-export const renderShoppingBooks = async (currentPage = 1) => {
-  const allShoppingBooks = JSON.parse(localStorage.getItem('shopping-books'));
-  const shoppingBooksByPage = allShoppingBooks.slice(
-    itemsPerPage * currentPage - itemsPerPage,
-    itemsPerPage * currentPage
-  );
-  if (refs.shoppingBooksContainer) {
-    refs.shoppingBooksContainer.innerHTML =
-      renderShoppingBooksList(shoppingBooksByPage);
+    localStorage.setItem('openedBookData', JSON.stringify(bookData));
+    const renderedInfoBook = renderDescBook(bookData);
+    modal(renderedInfoBook);
+  } catch (error) {
+    console.log(error);
+    return null;
   }
-};
-
-if (refs.paginationContainer) {
-  renderShoppingBooks();
-  pagination = new Pagination(refs.paginationContainer, createOptions());
 }
 
-pagination &&
-  pagination.on('beforeMove', event => {
-    const currentPage = event.page;
-    renderShoppingBooks(currentPage);
-  });
-
- */
+showBookDescriptionModal('643282b1e85766588626a086');
