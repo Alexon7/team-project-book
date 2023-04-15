@@ -14,11 +14,10 @@ getBooksRender();
 // resolution viwe
 addEventListener('resize', event => {
   if (
-    (window.innerWidth > 767 && currentRenderWidth < 1440) ||
+    (window.innerWidth > 767 && currentRenderWidth < 768) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-    // (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
-    // (window.innerWidth < 768 && currentRenderWidth > 767)||
-    window.innerWidth > 1440
+    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
   }
@@ -37,7 +36,7 @@ export function renderBestsellersBooks(response) {
   bestsellersBooks = bestsellersBooks.map(type => {
     return { ...type, books: type.books.slice(0, amountRenderedBooks) };
   });
-  const booksCcontainerEl = document.querySelector('.books-container');
+  const booksCcontainerEl = document.querySelector('.book-card__list');
   console.log('booksList', booksCcontainerEl);
   booksCcontainerEl.innerHTML = renderBestsellersBooksList(bestsellersBooks);
 }
@@ -77,7 +76,7 @@ export function renderBestsellersBooksList(data) {
             </li>`;
     })
     .join('');
-
+  console.log('refs.galleryContainer в букс', refs.galleryContainer);
   refs.galleryContainer.insertAdjacentHTML('beforeEnd', markup);
 
   const seeMoreBtn = document.querySelectorAll('.book-card__btn');
