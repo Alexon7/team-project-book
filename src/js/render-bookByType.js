@@ -3,6 +3,7 @@ import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
 import { renderBestsellersBook } from './render-bestseller-book';
+import './swiper';
 // import loaderRender from './preloader';
 
 // const categoryBooksEl = document.querySelector('.books-of-category__list');

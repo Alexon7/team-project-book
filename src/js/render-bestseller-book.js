@@ -13,7 +13,7 @@ const bookApi = new BookAPI();
 // getBooksRender();
 renderBestsellersBooks();
 // -------------------------------------------------------------------
-let currentRenderWidth =  window.innerWidth;
+let currentRenderWidth = window.innerWidth;
 // resolution viwe
 addEventListener('resize', event => {
   if (
@@ -25,6 +25,12 @@ addEventListener('resize', event => {
     location.reload();
   }
 });
+
+// const renderSliderSupport = async () => {
+//   buildSwiperSliderSupport(refs.sliderSupport);
+// };
+// renderSliderSupport();
+
 export async function renderBestsellersBooks() {
   // refs.galleryContainer.innerHTML = '';
   let currentRenderWidth = window.innerWidth;
