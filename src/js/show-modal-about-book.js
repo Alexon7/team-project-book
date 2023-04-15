@@ -19,8 +19,8 @@ const bookApi = new BookAPI();
 // };
 
 export const showBookModal = async bookId => {
-  const response = await bookApi.getBooksById(bookId);
-  const infoBook = response.data;
+  const infoBook = await bookApi.getBooksById(bookId);
+  // const infoBook = response.data;
   console.log(infoBook);
   localStorage.setItem('openInfoBook', JSON.stringify(infoBook));
   const renderedInfoBook = renderDescBook(infoBook);
