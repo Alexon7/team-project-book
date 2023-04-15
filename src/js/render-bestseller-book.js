@@ -48,7 +48,7 @@ export async function getBooksRender() {
     renderBestsellersBooksList(response.data);
     console.log('зашли');
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return null;
   }
 }
