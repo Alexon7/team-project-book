@@ -1,11 +1,8 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 
-
-
- const createSwiperSliderSupport = sliderElm => {
+export const createSwiperSliderSupport = sliderElm => {
   const sliderId = sliderElm.dataset.id;
   const swiper = new Swiper(`[data-id="${sliderId}"]`, {
-    
     slidesPerView: 'auto',
     spaceBetween: 20,
     direction: 'vertical',
@@ -18,5 +15,4 @@ import Swiper, { Navigation, Pagination } from 'swiper';
   return swiper;
 };
 
-
-createSwiperSliderSupport();
+// createSwiperSliderSupport();

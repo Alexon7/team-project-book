@@ -5,6 +5,7 @@ import { refs } from './refs';
 import { handleRenderCategoryItem } from './render-bookByType';
 import { renderBestsellersBooks } from './render-bestseller-book';
 import { loaderRender } from './preloader';
+// import { createSwiperSliderSupport } from './swiper';
 // import { renderBestsellersBooksList } from './render-bestseller-book';
 
 // console.log(categoriesEl);
@@ -47,6 +48,7 @@ const renderCategories = async () => {
         </h1>`;
         renderBestsellersBooks();
       } else {
+        refs.galleryContainer.innerHTML = '';
         handleRenderCategoryItem(category);
 
         console.log('рендерим только категорию ', category);
