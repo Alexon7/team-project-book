@@ -13,6 +13,7 @@ const bookApi = new BookAPI();
 // getBooksRender();
 renderBestsellersBooks();
 // -------------------------------------------------------------------
+let currentRenderWidth =  window.innerWidth;
 // resolution viwe
 addEventListener('resize', event => {
   if (
