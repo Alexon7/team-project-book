@@ -13,12 +13,11 @@ const bookApi = new BookAPI();
 export async function handleRenderCategoryItem(category) {
   const categoryBooks = await bookApi.getBooksByCategories(category);
   // console.log(response);
-  console.log(categoryBooks);
-  refs.book_card__title.innerHTML = `<h1 class="book-card__title">${category.substring(
+  console.log('refs.galleryContainer из функции', refs.galleryContainer);
+  refs.book_card__title.innerHTML = `${category.substring(
     0,
     category.lastIndexOf(' ')
-  )}<span class="book-card__filter"> ${category.split(' ').pop()}</span></h1>`;
-
+  )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
   if (categoryBooks.length > 0) {
     // renderBestsellersBook(categoryBooks, category);
     refs.galleryContainer.innerHTML = `
