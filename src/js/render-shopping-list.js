@@ -1,11 +1,9 @@
-import sprite from '../img/sprite.svg';
-
 export function renderShoppingBooksList(savedBooks) {
   const bookItemTemplate = book => `
     <li class="shopping-book">
       <button class="delete" type="button">
         <svg class="icon" width="16" height="16">
-          <use href="${sprite}#icon-delete"></use>
+          <use href="${sprite}#delete-book"></use>
         </svg>
       </button>
       <div class="content">

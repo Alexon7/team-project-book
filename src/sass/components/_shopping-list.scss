@@ -95,17 +95,9 @@
 }
 
 .support-div {
-  @include _tablet {
-    display: none;
-  }
-  @include _mobile {
-    display: none;
-  }
+  display: none;
   @include _desktop {
     display: block;
-    width: 356px;
-    height: 490px;
-    background-color: $page-color-accent;
   }
 }
 
