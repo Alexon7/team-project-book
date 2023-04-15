@@ -43,8 +43,8 @@ const renderCategories = async () => {
       if (event.target.dataset.id === 'all-categories') {
         console.log('рендерим по всем категориям ', event.target.dataset.id);
         refs.book_card__title.innerHTML = `<h1 class="book-card__title">
-      Best Sellers <span class="book-card__filter">Books</span>
-    </h1>`;
+          Best Sellers <span class="book-card__filter">Books</span>
+        </h1>`;
         renderBestsellersBooks();
       } else {
         handleRenderCategoryItem(category);
