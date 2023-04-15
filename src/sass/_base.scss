@@ -52,3 +52,9 @@ button {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.main {
+  display: flex;
+}
+.sidebar {
+  max-width: 490px;
+}
