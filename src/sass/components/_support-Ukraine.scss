@@ -1,82 +1,29 @@
-//  .support__container {
-//    position: relative;
-
-//    width: 335px;
-//    height: 352px;
-
-//    background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
-//        #4f2ee8 18.03%,
-//        #ffffff 100%);
-//    box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
-//    border-radius: 16px;
-
-//    margin-left: auto;
-//    margin-right: auto;
-//    overflow: hidden;
-//  }
-
-//  .support__title {
-//    font-weight: 700;
-//    font-size: 28px;
-//    line-height: calc(32 / 28);
-//    letter-spacing: -0.04em;
-//    color: white;
-
-//    padding-left: 40px;
-//    padding-top: 24px;
-//  }
-
-//  .support__icon {
-//    position: absolute;
-//    top: 24px;
-//    margin-left: 12px;
-//  }
-
-//  .support__list {
-//    padding-top: 40px;
-//    padding-bottom: 16px;
-//  }
-
-//  .support_btn {
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-
-//    position: absolute;
-//    bottom: 20px;
-//    left: 50%;
-//    transform: translateX(-50%);
-
-//    width: 38px;
-//    height: 38px;
-//    padding: 1px;
-//    border-radius: 20px;
-//    border: none;
-//  }
 
 .support__container {
   // margin: 0 auto;
   padding: 24px 40px 20px 40px;
+  margin-left: 24px;
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
   max-width: 335px;
-   height: 352px;
+  height: 352px;
   height: 100%;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%,
-                #4f2ee8 18.03%,
-                #ffffff 100%);
-        
+      #4f2ee8 18.03%,
+      #ffffff 100%);
 
   @include _tablet {
     // height: 472px;
-    padding-bottom: 14px;
+     padding-bottom: 14px;
+    
   }
 
   @include _desktop {
     max-width: 356px;
-     height: 490px;
+    height: 490px;
     padding-bottom: 24px;
+    
   }
 }
 
@@ -94,13 +41,41 @@
 
 .support__list {
   margin-bottom: 16px;
+  overflow: hidden;
+  height: 188px;
 
   @include _tablet {
     margin-bottom: 32px;
+    height: 292px;
   }
 
   @include _desktop {
     margin-bottom: 40px;
+  
+  }
+}
+
+.support__wrapper {
+  position: relative;
+  width: 335px;
+  height: 352px;
+  padding: 24px 40px;
+  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, var(--color-blue) 18.03%, var(--color-white) 100%);
+  box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
+  border-radius: 16px;
+
+  @media screen and (max-width: 767.98px) {
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 335px;
+    min-height: 472px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 356px;
+    height: 490px;
   }
 }
 
@@ -123,9 +98,12 @@
 
 .support__img {
   filter: grayscale(100%) brightness(0) invert(100%);
+  height: 32px;
 }
 
 .support__btn {
+  width: 32px;
+  height: 32px;
   display: flex;
   margin-left: auto;
   margin-right: auto;
