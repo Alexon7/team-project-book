@@ -3,9 +3,11 @@ import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
 import { renderBestsellersBook } from './render-bestseller-book';
+// import loaderRender from './preloader';
 
 // const categoryBooksEl = document.querySelector('.books-of-category__list');
 const bookApi = new BookAPI();
+
 //запрос книг по выбранной категории - считываем категорию со списка категорий - и нужно прорисовать книги из нее
 export async function handleRenderCategoryItem(category) {
   const categoryBooks = await bookApi.getBooksByCategories(category);

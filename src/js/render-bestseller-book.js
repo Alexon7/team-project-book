@@ -36,6 +36,7 @@ export async function renderBestsellersBooks() {
   } else {
     amountRenderedBooks = 5;
   }
+
   let bestsellersBooks = await bookApi.getBooksTop();
   // let bestsellersBooks = response;
   console.log('bestsellersBooks', bestsellersBooks);
