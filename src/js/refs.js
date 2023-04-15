@@ -7,4 +7,5 @@ export const refs = {
   body: document.querySelector('body'),
   booksList: document.querySelector('.booksList'),
   categoriesEl: document.querySelector('.book-categories__list'),
+  containerBooks: document.querySelector('.books'),
 };
