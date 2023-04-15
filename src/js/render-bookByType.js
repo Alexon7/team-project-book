@@ -54,8 +54,9 @@ export async function handleRenderCategoryItem(category) {
   }
 }
 // получаем данные по книге и открываем модалку
-const categoryBooksEl = document.querySelector('.book-card__list');
-categoryBooksEl.addEventListener('click', handleDataBookById);
+// const categoryBooksEl = document.querySelector('.book-card__list');
+console.log('galleryContainer', refs.galleryContainer);
+refs.galleryContainer.addEventListener('click', handleDataBookById);
 export function handleDataBookById(event) {
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') {

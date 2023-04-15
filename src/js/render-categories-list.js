@@ -28,8 +28,8 @@ const renderCategories = async () => {
       )
       .join('')}
     `;
-  console.log(categoriesList);
-  console.dir(refs.allCategoryLink);
+  // console.log(categoriesList);
+  // console.dir(refs.allCategoryLink);
   const allCategoryLink = document.querySelectorAll('.category');
   allCategoryLink.forEach(categoryLink => {
     categoryLink.addEventListener('click', event => {
@@ -42,7 +42,7 @@ const renderCategories = async () => {
 
       if (event.target.dataset.id === 'all-categories') {
         console.log('рендерим по всем категориям ', event.target.dataset.id);
-        getBooksRender();
+        // getBooksRender();
       } else {
         handleRenderCategoryItem(category);
 
