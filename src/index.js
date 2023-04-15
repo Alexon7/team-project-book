@@ -1,7 +1,7 @@
 import './js/api-service';
 import './js/home-page';
 import './js/menu';
-import './js/kralinskyi';
+// import './js/kralinskyi';
 import './js/render-bookByType';
 import './js/auth';
 import './js/topic';
@@ -11,9 +11,5 @@ import './js/modal';
 import './js/support-list';
 import './js/render-support-Ukraine';
 import './js/swiper';
-
-
-
-
-
-
+import './js/back-to-top';
+import './js/render-bestseller-book';

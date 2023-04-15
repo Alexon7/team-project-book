@@ -1,0 +1,94 @@
+<div class="auth__backdrop is-hidden">
+<!-- <div class="auth__backdrop"> -->
+  <!-- elips -->
+  <div class="elips"></div>
+  <!-- modal -->
+  <div class="auth__modal">
+    <!-- close btn -->
+    <button class="auth__button__close">
+      <svg class="auth__icon__close">
+        <use href="./images/sprite.svg#close-btn"></use>   
+      </svg>
+    </button>
+    <!-- form -->
+    <div class="message__login"></div>
+    <form class="auth__form">
+      <!-- inputs --> 
+      <div class="auth__unputs">
+        <div class="auth__field">
+        <input
+          type="text"
+          name="name"
+          class="auth__input"
+          id="user_name"
+          autocomplete="nickname"
+          required
+        />  
+        <label class="auth__label" for="user_name">name</label>
+      </div> 
+ 
+        <div class="auth__field">
+          <input
+            type="email"      
+            name="email"
+            class="auth__input"
+            id="user_email"
+            autocomplete="email"
+            required
+          />
+          <label class="auth__label" for="user_email">email</label>
+          <svg class="auth__icon__mail">
+            <use href="./images/sprite.svg#mail"></use>
+          </svg>
+        </div>
+
+        <div class="auth__field">
+          <input
+            type="password"
+            name="password"
+            class="auth__input"
+            id="user_password"
+            autocomplete="new-password"
+            required
+          />
+          <label class="auth__label" for="user_password"
+            >password
+            <svg class="auth__icon__pass">
+              <use href="./images/sprite.svg#pass"></use>
+            </svg>
+          </label>
+        </div>   
+      </div>
+      <!-- btn submit -->    
+      <button
+        type="submit"
+        class="auth__button__signin auth__button"
+        id="btnLogin"
+      >
+        Login
+      </button>
+      <button
+        type="submit"
+        class="auth__button__signup auth__button btn-hidden"
+        id="btnSignup"
+      >
+        Sign up
+      </button>
+
+      <!-- links -->
+      <div class="auth__link__block">  
+        <!-- <a href="" class="auth__link">sign in</a> 
+        <a href="" class="auth__link">sign up</a> -->
+        <button type="button" class="link__signin btn-hidden">sign in</button>
+        <button type="button" class="link__signup">sign up</button>
+      </div>
+    </form>
+    <button
+      type="button"
+      class="auth__button__logout auth__button btn-hidden"
+      id="btnLogout"
+    >
+      Logout 
+    </button>
+  </div>
+</div>

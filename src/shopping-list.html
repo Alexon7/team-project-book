@@ -9,32 +9,41 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
+    <!-- <include src="./partials/preloader.html"></include> -->
     <include src="./partials/header.html"></include>
-
+    <include src="./partials/back-to-top.html"></include>
     <section class="section" id="shopping-list">
-      <div class="trash">Header</div>
       <div class="shopping-list__container">
-        <h2 class="shopping-list-header">
-          Shopping <span class="shopping-list-header__span">List</span>
-        </h2>
-        <div class="shopping-list__empty">
-          <p class="shopping-list__text">
-            This page is empty, add some books and proceed to order.
-          </p>
-          <img
-            src="./images/shopping-list/empty_shoping_list.png"
-            alt="books"
-          />
+        <!-- Added block - desktop -->
+        <div class="support-div">WE SUPPORT</div>
+        <div class="shopping-list__desktop">
+          <div class="shopping-list-header">
+            <h2 class="shopping-list-header__main">
+              Shopping <span class="shopping-list-header__span">List</span>
+            </h2>
+          </div>
+          <!-- Empty list - default -->
+          <div class="shopping-list__empty">
+            <p class="shopping-list__text">
+              This page is empty, add some books and proceed to order.
+            </p>
+            <img
+              src="./images/shopping-list/empty_shoping_list.png"
+              alt="books"
+            />
+          </div>
         </div>
+        <!-- Render added books-->
         <div class="shopping-list__not-empty">
-          <ul class="shopping-list__list">
-            <li><article class="shopping-list__book-card">1</article></li>
-            <li><article class="shopping-list__book-card">2</article></li>
-            <li><article class="shopping-list__book-card">3</article></li>
-          </ul>
+          <ul class="shopping-list__list"></ul>
+          <!-- <li class="shopping-list__book-card">2</li> -->
         </div>
+        <!-- Pagination -->
       </div>
+      <div id="pagination" class="tui-pagination"></div>
     </section>
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./js/render-shopping-list.js"></script> -->
+    <!-- <script type="module" src="./js/pagination.js"></script> -->
+    <script type="module" src="./js/kralinskyi.js"></script>
   </body>
 </html>

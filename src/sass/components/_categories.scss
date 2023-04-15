@@ -1,26 +1,55 @@
 // Iskra Matjuha
 
-.book-categories {
-  height: 472px;
+.book-category {
+  height: 230px;
   overflow: auto;
-  margin-bottom: 40px;
-  width: 337px;
+  margin-top: 40px;
 }
+
 .category {
-  font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 1.125;
+
+  color: rgba(17, 17, 17, 0.6);
+  letter-spacing: -0.02em;
   cursor: pointer;
+
+  // @include _tablet {
+  //   width: $tablet;
+  //   font-size: 18px;
+  // }
 }
 
 .category:not(:last-child) {
-  margin-bottom: 32px;
+  @include _tablet {
+    width: $tablet;
+    margin-bottom: 32px;
+  }
+  margin-bottom: 24px;
 }
 .category.is-active,
 .category:hover,
 .category:focus {
   text-transform: uppercase;
   font-weight: 700;
-  color: $page-color-accent;
+}
+
+.light-theme {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.light-theme .category.is-active,
+.light-theme .category:hover,
+.light-theme .category:focus {
+  color: #4f2ee8;
+}
+.dark-theme .category.is-active,
+.dark-theme .category:hover,
+.dark-theme .category:focus {
+  color: #eac645;
 }

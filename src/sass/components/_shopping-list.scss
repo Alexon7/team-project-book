@@ -1,7 +1,29 @@
+.body.dark-theme {
+  .shopping-list-header__main {
+    color: #fff;
+  }
+  .shopping-list-header__span {
+    color: $page-color-accent;
+  }
+}
+
 .shopping-list {
   &__container {
     margin: 40px 20px;
+
+    @include _desktop {
+      display: flex;
+      flex-direction: row;
+    }
   }
+
+  &__desktop {
+    @include _desktop {
+      margin-left: 40px;
+      width: -webkit-fill-available;
+    }
+  }
+
   &-header {
     margin-bottom: 120px;
 
@@ -11,6 +33,15 @@
     letter-spacing: -0.04em;
 
     color: $page-color-dark;
+
+    @include _tablet {
+      font-size: 48px;
+      line-height: 1.08;
+    }
+
+    @include _desktop {
+      margin-bottom: 140px;
+    }
 
     &__span {
       color: $page-color-accent;
@@ -23,6 +54,9 @@
     margin: 0 auto;
 
     width: 265px;
+    @include _tablet {
+      width: 349px;
+    }
   }
 
   &__text {
@@ -36,12 +70,12 @@
     letter-spacing: -0.02em;
 
     color: rgba(0, 0, 0, 0.6);
-  }
-}
 
-.trash {
-  height: 64px;
-  background-color: #fff;
+    @include _tablet {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+  }
 }
 
 .shopping-list__book-card {
@@ -54,4 +88,29 @@
   gap: 5px;
 
   text-align: center;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.support-div {
+  @include _tablet {
+    display: none;
+  }
+  @include _mobile {
+    display: none;
+  }
+  @include _desktop {
+    display: block;
+    width: 356px;
+    height: 490px;
+    background-color: $page-color-accent;
+  }
+}
+
+.shopping-section {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
 }

@@ -26,3 +26,17 @@
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+
+let activePage = document.querySelectorAll(
+  '.mobile-nav__link, .desktop-nav__link'
+);
+activePage.forEach(el => {
+  if (el.getAttribute('href') == window.location.pathname)
+    el.classList.add('current');
+});
+
+const authModalOpen = document.querySelector('.auth');
+const authModalWindow = document.querySelector('.auth__backdrop');
+authModalOpen.addEventListener('click', () => {
+  authModalWindow.classList.remove('is-hidden');
+});
