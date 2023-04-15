@@ -2,6 +2,7 @@
 import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
+import { renderBestsellersBook } from './render-bestseller-book';
 
 // const categoryBooksEl = document.querySelector('.books-of-category__list');
 const bookApi = new BookAPI();
@@ -11,8 +12,8 @@ export async function handleRenderCategoryItem(category) {
   // console.log(response);
   console.log(categoryBooks);
   refs.book_card__title.textContent = `${category}`;
-
   if (categoryBooks.length > 0) {
+    // renderBestsellersBook(categoryBooks, category);
     refs.galleryContainer.innerHTML = `
       ${categoryBooks
         .map(
@@ -44,7 +45,7 @@ export async function handleRenderCategoryItem(category) {
               el.author.length > 28 ? el.author.slice(0, 28) + '...' : el.author
             } </p>
           </div>
-   
+
      </li>`
         )
         .join('')}
