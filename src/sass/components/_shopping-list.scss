@@ -95,12 +95,7 @@
 }
 
 .support-div {
-  @include _tablet {
-    display: none;
-  }
-  @include _mobile {
-    display: none;
-  }
+  display: none;
   @include _desktop {
     display: block;
   }
