@@ -4,7 +4,7 @@ import axios from 'axios';
 import { refs } from './refs';
 import { BookAPI } from './api-service';
 import { handleRenderCategoryItem } from './render-bookByType';
-
+import { loaderRender } from './preloader';
 import { handleDataBookById } from './render-bookByType';
 // code -------------------------------------------------------------------
 const bookApi = new BookAPI();
@@ -32,9 +32,11 @@ addEventListener('resize', event => {
 // renderSliderSupport();
 
 export async function renderBestsellersBooks() {
+  loaderRender();
   // refs.galleryContainer.innerHTML = '';
   let currentRenderWidth = window.innerWidth;
   let amountRenderedBooks = 1;
+
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
   } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
