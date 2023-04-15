@@ -4,6 +4,12 @@
   height: 230px;
   overflow: auto;
   margin-top: 40px;
+  @include _tablet {
+    width: 337px;
+  }
+  @include _desktop {
+    width: 356px;
+  }
 }
 
 .category {
@@ -16,7 +22,11 @@
   cursor: pointer;
 
   // @include _tablet {
-  //   width: $tablet;
+  //   width: 337px;
+  //   font-size: 18px;
+  // }
+  // @include _desktop {
+  //   width: 490pxt;
   //   font-size: 18px;
   // }
 }
