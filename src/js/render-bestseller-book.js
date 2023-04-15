@@ -24,7 +24,7 @@ addEventListener('resize', event => {
   }
 });
 export function renderBestsellersBooks(response) {
-  currentRenderWidth = window.innerWidth;
+  let currentRenderWidth = window.innerWidth;
   let amountRenderedBooks = 1;
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
