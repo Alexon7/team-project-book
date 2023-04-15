@@ -14,10 +14,11 @@ getBooksRender();
 // resolution viwe
 addEventListener('resize', event => {
   if (
-    (window.innerWidth > 767 && currentRenderWidth < 768) ||
+    (window.innerWidth > 767 && currentRenderWidth < 1440) ||
     (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
-    (window.innerWidth < 768 && currentRenderWidth > 767)
+    // (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    // (window.innerWidth < 768 && currentRenderWidth > 767)||
+    window.innerWidth > 1440
   ) {
     location.reload();
   }
@@ -36,7 +37,9 @@ export function renderBestsellersBooks(response) {
   bestsellersBooks = bestsellersBooks.map(type => {
     return { ...type, books: type.books.slice(0, amountRenderedBooks) };
   });
-  refs.booksList.innerHTML = renderBestsellersBooksList(bestsellersBooks);
+  const booksCcontainerEl = document.querySelector('.books-container');
+  console.log('booksList', booksCcontainerEl);
+  booksCcontainerEl.innerHTML = renderBestsellersBooksList(bestsellersBooks);
 }
 // get-books
 export async function getBooksRender() {
