@@ -13,6 +13,7 @@
       #4f2ee8 18.03%,
       #ffffff 100%);
 
+
   @include _tablet {
     // height: 472px;
      padding-bottom: 14px;
@@ -109,7 +110,7 @@
   margin-right: auto;
   border: none;
   border-radius: 50%;
-  background-color:  white;
+  background-color: white;
   padding: 6px;
 
   @include _tablet {

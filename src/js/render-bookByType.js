@@ -2,17 +2,25 @@
 import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
+import { renderBestsellersBook } from './render-bestseller-book';
+import './swiper';
+// import loaderRender from './preloader';
 
 // const categoryBooksEl = document.querySelector('.books-of-category__list');
 const bookApi = new BookAPI();
+
 //запрос книг по выбранной категории - считываем категорию со списка категорий - и нужно прорисовать книги из нее
 export async function handleRenderCategoryItem(category) {
   const categoryBooks = await bookApi.getBooksByCategories(category);
   // console.log(response);
   console.log(categoryBooks);
-  refs.book_card__title.textContent = `${category}`;
+  refs.book_card__title.innerHTML = `<h1 class="book-card__title">${category.substring(
+    0,
+    category.lastIndexOf(' ')
+  )}<span class="book-card__filter"> ${category.split(' ').pop()}</span></h1>`;
 
   if (categoryBooks.length > 0) {
+    // renderBestsellersBook(categoryBooks, category);
     refs.galleryContainer.innerHTML = `
       ${categoryBooks
         .map(
@@ -44,7 +52,7 @@ export async function handleRenderCategoryItem(category) {
               el.author.length > 28 ? el.author.slice(0, 28) + '...' : el.author
             } </p>
           </div>
-   
+
      </li>`
         )
         .join('')}

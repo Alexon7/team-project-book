@@ -4,14 +4,14 @@
 
 // const buildSwiperSliderSupport = sliderElm => {
 //   const sliderIdentifier = sliderElm.dataset.id;
-//   const swiper = new Swiper(`[data-id="${sliderIdentifier}"]`, {
+//   const swiper = new Swiper([data-id="${sliderIdentifier}"], {
 //     spaceBetween: 20,
 //     direction: 'vertical',
 //     slidesPerView: 'auto',
 //     loop: true,
 //     navigation: {
-//       nextEl: `.swiper-button-next-${sliderIdentifier}`,
-//       prevEl: `.swiper-button-prev-${sliderIdentifier}`,
+//       nextEl: .swiper-button-next-${sliderIdentifier},
+//       prevEl: .swiper-button-prev-${sliderIdentifier},
 //     },
 //   });
 //   return swiper;
@@ -27,7 +27,7 @@ let moveDown = false;
 
 const verticalSlider = function () {
   imgSlides.forEach(function (slide) {
-    slide.style.transform = `translateY(-${counter * 100}%)`;
+    slide.style.transform = translateY(-${counter * 100}%);
   });
 };
 

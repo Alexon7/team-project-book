@@ -2,15 +2,18 @@
 
 import axios from 'axios';
 import { refs } from './refs';
+import { BookAPI } from './api-service';
 import { handleRenderCategoryItem } from './render-bookByType';
-
+import { loaderRender } from './preloader';
 import { handleDataBookById } from './render-bookByType';
 // code -------------------------------------------------------------------
-
+const bookApi = new BookAPI();
 // variables -------------------------------------------------------------------
 
-getBooksRender();
+// getBooksRender();
+renderBestsellersBooks();
 // -------------------------------------------------------------------
+let currentRenderWidth = window.innerWidth;
 // resolution viwe
 addEventListener('resize', event => {
   if (
@@ -22,9 +25,18 @@ addEventListener('resize', event => {
     location.reload();
   }
 });
-export function renderBestsellersBooks(response) {
+
+// const renderSliderSupport = async () => {
+//   buildSwiperSliderSupport(refs.sliderSupport);
+// };
+// renderSliderSupport();
+
+export async function renderBestsellersBooks() {
+  loaderRender();
+  // refs.galleryContainer.innerHTML = '';
   let currentRenderWidth = window.innerWidth;
   let amountRenderedBooks = 1;
+
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
   } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
@@ -32,31 +44,50 @@ export function renderBestsellersBooks(response) {
   } else {
     amountRenderedBooks = 5;
   }
-  let bestsellersBooks = response;
+
+  let bestsellersBooks = await bookApi.getBooksTop();
+  // let bestsellersBooks = response;
+  console.log('bestsellersBooks', bestsellersBooks);
   bestsellersBooks = bestsellersBooks.map(type => {
     return { ...type, books: type.books.slice(0, amountRenderedBooks) };
   });
-  const booksCcontainerEl = document.querySelector('.book-card__list');
-  console.log('booksList', booksCcontainerEl);
-  booksCcontainerEl.innerHTML = renderBestsellersBooksList(bestsellersBooks);
+
+  // const booksCcontainerEl = document.querySelector('.book-card__list');
+  console.log('booksList', refs.galleryContainer);
+
+  refs.galleryContainer.innerHTML = await renderBestsellersBooksList(
+    bestsellersBooks
+  );
+
+  const seeMoreBtn = document.querySelectorAll('.book-card__btn');
+  console.log('seeMoreBtn', seeMoreBtn);
+  seeMoreBtn.forEach(el => {
+    el.addEventListener('click', handleSeeMore);
+    function handleSeeMore(ev) {
+      const category = ev.target.dataset.category.trim();
+      handleRenderCategoryItem(category);
+    }
+  });
 }
+
 // get-books
-export async function getBooksRender() {
-  try {
-    const response = await axios.get(
-      'https://books-backend.p.goit.global/books/top-books'
-    );
-    renderBestsellersBooks(response.data);
-    renderBestsellersBooksList(response.data);
-    console.log('зашли');
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-}
+// export async function getBooksRender() {
+//   try {
+//     const response = await axios.get(
+//       'https://books-backend.p.goit.global/books/top-books'
+//     );
+//     // renderBestsellersBooks(response.data);
+//     // renderBestsellersBooksList(response.data);
+//     console.log('зашли');
+//   } catch (error) {
+//     console.log(error);
+//     return null;
+//   }
+// }
 // ----
 // render-books -------------------------------------------------------------------
 export function renderBestsellersBooksList(data) {
+  console.log('renderBestsellersBooksList(data)', data);
   const markup = data
     .map(typeBooks => {
       return `
@@ -77,26 +108,15 @@ export function renderBestsellersBooksList(data) {
     })
     .join('');
   console.log('refs.galleryContainer в букс', refs.galleryContainer);
-  refs.galleryContainer.insertAdjacentHTML('beforeEnd', markup);
-
-  const seeMoreBtn = document.querySelectorAll('.book-card__btn');
-  console.log(seeMoreBtn);
-  seeMoreBtn.forEach(el => {
-    el.addEventListener('click', handleSeeMore);
-    function handleSeeMore(ev) {
-      const category = ev.target.dataset.category.trim();
-      handleRenderCategoryItem(category);
-    }
-  });
+  return markup;
+  // refs.galleryContainer.insertAdjacentHTML('beforeEnd', markup);
 }
 
 export function renderBestsellersBook(book, typeBooks) {
   return `
      <li class="book-card__item" >
       <a class="book-card__link" href="#">
-          <div class="book-card__wrapper" data-id="${book._id}" data-type="${
-    typeBooks.list_name
-  }">
+          <div class="book-card__wrapper" data-type="${typeBooks.list_name}">
               <img
               class="book-card__image"
               src="${book.book_image ? book.book_image : ``}"
@@ -124,7 +144,8 @@ export function renderBestsellersBook(book, typeBooks) {
    
      </li>`;
 }
-const categoryBooksEl = document.querySelector('.book-card__list');
-categoryBooksEl.addEventListener('click', handleDataBookById);
+
+// const categoryBooksEl = document.querySelector('.book-card__list');
+refs.galleryContainer.addEventListener('click', handleDataBookById);
 
 // -----

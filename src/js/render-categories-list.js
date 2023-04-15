@@ -3,8 +3,9 @@
 import { BookAPI } from './api-service';
 import { refs } from './refs';
 import { handleRenderCategoryItem } from './render-bookByType';
-import { getBooksRender } from './render-bestseller-book';
+import { renderBestsellersBooks } from './render-bestseller-book';
 import { loaderRender } from './preloader';
+// import { createSwiperSliderSupport } from './swiper';
 // import { renderBestsellersBooksList } from './render-bestseller-book';
 
 // console.log(categoriesEl);
@@ -42,8 +43,12 @@ const renderCategories = async () => {
 
       if (event.target.dataset.id === 'all-categories') {
         console.log('рендерим по всем категориям ', event.target.dataset.id);
-        // getBooksRender();
+        refs.book_card__title.innerHTML = `<h1 class="book-card__title">
+          Best Sellers <span class="book-card__filter">Books</span>
+        </h1>`;
+        renderBestsellersBooks();
       } else {
+        refs.galleryContainer.innerHTML = '';
         handleRenderCategoryItem(category);
 
         console.log('рендерим только категорию ', category);
