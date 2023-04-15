@@ -44,15 +44,18 @@
           </button>
           <div class="dropdown">
             <button class="sign-up__btn" type="button" id="user-data-desktop">
-              <img class="users-avatar" src="./images/logo/avatar.png" alt="users-avatar" />
-              <p class="users-login">Stephen</p>
+              <svg class="users-avatar" width="32" height="32">
+                <use href="./images/sprite.svg#user-ico"></use>
+              </svg>
+              <p class="users-login"></p>
               <svg width="23" height="26">
                 <use href="./images/sprite.svg#user-caret-down"></use>
               </svg>
             </button>
             <div class="dropdown-content">
-              <button class="log-out-btn__text" type="button" id="log-out-desktop">Log out</button>
-              <svg width="20" height="20">
+
+              <span class="log-out-btn__text" id="log-out-desktop">Log out</span>
+              <svg class="log-out-btn__icon" width="20" height="20">
                 <use href="./images/sprite.svg#golder-arrow-right"></use>
               </svg>
             </div>
@@ -99,7 +102,9 @@
 
   <div class="mobile-menu">
     <div class="users-data">
-      <img class="users-avatar" src="./images/logo/avatar.png" alt="users-avatar" id="user-avatar-mobile" />
+      <svg class="users-avatar" width="32" height="32" id="user-avatar-mobile">
+        <use href="./images/sprite.svg#user-ico"></use>
+      </svg>
       <p class="users-login" id="user-login-mobile">Stephen</p>
     </div>
 

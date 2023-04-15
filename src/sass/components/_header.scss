@@ -87,7 +87,6 @@ body.dark-theme > header {
   line-height: 1.29;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  // color: $page-color-dark;
   color: inherit;
 }
 
@@ -108,41 +107,55 @@ body.dark-theme > header {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: $page-color-light;
-  color: $page-color-accent;
+  top: 56px;
+  color: $page-color-dark;
   align-items: center;
-  padding: 4px 9px 4px 12px;
+  padding: 14px;
   height: 48px;
   font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.32;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
   border: none;
   cursor: pointer;
   z-index: 1;
+  background: $page-color-light;
+  border: 1.5px solid $page-color-dark;
+  border-radius: 18px;
+  min-width: 170px;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sign-up__btn {
   background: $page-color-accent;
   border-radius: 36px;
   display: flex;
-  gap: 9px;
+  justify-content: space-between;
   align-items: center;
   padding: 4px 9px 4px 12px;
   height: 48px;
   font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.32;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
   color: $page-color-light;
   border: none;
   cursor: pointer;
+  min-width: 170px;
+}
+
+.auth {
+  gap: 55px;
+  border: 1.5px solid $page-color-dark;
+  border-radius: 18px;
+  min-width: 150px;
 }
 
 .menu-toggle {
@@ -343,6 +356,9 @@ body.dark-theme > header {
 }
 
 .menu-toggle-icon {
-  // stroke: $page-color-dark;
   stroke: currentColor;
+}
+
+.menu-toggle-icon:hover {
+  stroke: $page-color-accent;
 }
