@@ -6,34 +6,34 @@ import axios from 'axios';
 Детальна інформація про книгу___________________https://books-backend.p.goit.global/books/ bookId
 */
 
-const instance = axios.create({
-  baseURL: 'https://books-backend.p.goit.global/books/',
-});
+// const instance = axios.create({
+//   baseURL: 'https://books-backend.p.goit.global/books/',
+// });
 
-export class BookAPI {
-  getCategories() {
-    return instance.get('category-list');
-  }
+// export class BookAPI {
+//   getCategories() {
+//     return instance.get('category-list');
+//   }
 
-  getBooksByCategories(selectedCategory) {
-    return instance.get('category', {
-      params: {
-        category: selectedCategory,
-      },
-    });
-  }
+//   getBooksByCategories(selectedCategory) {
+//     return instance.get('category', {
+//       params: {
+//         category: selectedCategory,
+//       },
+//     });
+//   }
 
-  getBooksTop() {
-    return instance.get('top-books');
-  }
+//   getBooksTop() {
+//     return instance.get('top-books');
+//   }
 
-  getBooksById(bookId) {
-    return instance.get(`${bookId}`);
-  }
-}
+//   getBooksById(bookId) {
+//     return instance.get(`${bookId}`);
+//   }
+// }
 
 //! ========= З використанням async - await ===========
-/*
+
 const instance = axios.create({
   baseURL: 'https://books-backend.p.goit.global/books/',
 });
@@ -80,4 +80,4 @@ export class BookAPI {
   }
 }
 
-*/
+
