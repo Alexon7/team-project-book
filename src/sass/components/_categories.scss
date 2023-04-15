@@ -2,7 +2,9 @@
 
 .book-category {
   height: 230px;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-x: hidden;
+
   margin-top: 40px;
   @include _tablet {
     width: 337px;
@@ -45,12 +47,14 @@
   font-weight: 700;
 }
 
-.light-theme {
-  color: rgba(255, 255, 255, 0.6);
+.light-theme .category {
+  // color: rgba(255, 255, 255, 0.6);
+  color: rgba(17, 17, 17, 0.6);
 }
 
-.dark-theme {
-  color: rgba(17, 17, 17, 0.6);
+.dark-theme .category {
+  // color: rgba(17, 17, 17, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .light-theme .category.is-active,
