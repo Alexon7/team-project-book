@@ -137,7 +137,7 @@
 }
 
 .modal-book__button {
-  display: block;
+  // display: block;
   margin-left: auto;
   margin-right: auto;
   padding: 14px 28px;
@@ -147,6 +147,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 129%;
+  cursor: pointer;
 
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -159,6 +160,17 @@
     line-height: 133%;
     width: 499px;
   }
+}
+
+.book-modal .btnAdd,
+.book-modal .btnRemove {
+  display: none;
+}
+
+.book-modal .btnAdd.active,
+.book-modal .btnRemove.active {
+  display: block;
+  margin: 0 auto;
 }
 
 .modal-book__button:hover,
