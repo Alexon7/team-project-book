@@ -2,7 +2,7 @@
 
 <header class="header">
   <div class="header__content container">
-    <a href="./index.html" class="header__link">
+    <a href="./index.html" class="header__link" aria-label="link-to-main-page">
       <svg class="logo" width="83" height="28">
         <use href="./images/sprite.svg#logo-light"></use>
       </svg>
@@ -47,13 +47,13 @@
               <svg class="users-avatar" width="32" height="32">
                 <use href="./images/sprite.svg#user-ico"></use>
               </svg>
-              <p class="users-login"></p>
+              <span class="users-login"></span>
               <svg width="23" height="26">
                 <use href="./images/sprite.svg#user-caret-down"></use>
               </svg>
             </button>
-            <div class="dropdown-content">
 
+            <div class="dropdown-content">
               <span class="log-out-btn__text" id="log-out-desktop">Log out</span>
               <svg class="log-out-btn__icon" width="20" height="20">
                 <use href="./images/sprite.svg#golder-arrow-right"></use>
@@ -83,8 +83,8 @@
       <div class="toolbar">
         <div class="theme-switch">
           <div class="theme-switch__control">
-            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
-              <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle"
+            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle-mob">
+              <input class="theme-switch__toggle" type="checkbox" name="theme" id="theme-switch-toggle-mob"
                 aria-label="Перемикач світлої та темної теми" />
               <span class="theme-switch__toggle--custom"></span>
             </label>
