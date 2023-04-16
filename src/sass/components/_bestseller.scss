@@ -61,9 +61,10 @@
 
 .book-card__list {
   margin-bottom: 30px;
-  display: flex;
-  gap: 24px;
-  display: block;
+  // display: flex;
+
+  gap: 20px;
+  // display: block;
 }
 
 .book-card__link {
@@ -155,6 +156,7 @@
 .book-card__btn {
   display: block;
   margin-left: auto;
+  // margin-right: auto;
   padding: 14px 28px;
   margin-bottom: 40px;
 
@@ -180,6 +182,44 @@
   background-color: #4f2ee8;
 }
 
+// @media screen and (min-width: 768px) {
+//   .book-card__image {
+//     height: 316px;
+//     width: 218px;
+//   }
+//   .book-card__list {
+//     gap: 20px;
+//   }
+//   .booksList {
+//     display: flex;
+//     gap: 25px;
+//   }
+//   .book-card__btn {
+//     margin-top: 30px;
+//   }
+//   .book-card__title {
+//     font-size: 48px;
+//     line-height: 52px;
+//   }
+// }
+
+// @media screen and (min-width: 1440px) {
+//   .book-card__image {
+//     height: 316px;
+//     width: 218px;
+//   }
+//   .book-card__list {
+//     gap: 20px;
+//   }
+//   .booksList {
+//     display: flex;
+//     gap: 24px;
+//   }
+//   .book-card__btn {
+//     margin-top: 30px;
+//   }
+// }
+
 @media screen and (min-width: 768px) {
   .book-card__image {
     height: 316px;
@@ -198,22 +238,5 @@
   .book-card__title {
     font-size: 48px;
     line-height: 52px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .book-card__image {
-    height: 316px;
-    width: 218px;
-  }
-  .book-card__list {
-    gap: 20px;
-  }
-  .booksList {
-    display: flex;
-    gap: 24px;
-  }
-  .book-card__btn {
-    margin-top: 30px;
   }
 }

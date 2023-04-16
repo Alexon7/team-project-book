@@ -1,17 +1,30 @@
 // Iskra Matjuha
 
 .book-category {
-  height: 230px;
   overflow-x: auto;
   overflow-x: hidden;
+  margin-bottom: 40px;
+  height: 228px;
+  width: 335px;
 
-  margin-top: 40px;
-  @include _tablet {
+  @media screen and (min-width: 768px) {
     width: 337px;
+    height: 472px;
   }
-  @include _desktop {
+
+  // @include _tablet {
+  //   width: 337px;
+  //   height: 472px;
+  // }
+
+  @media screen and (min-width: 1280px) {
     width: 356px;
+    height: 472px;
   }
+  // @include _desktop {
+  //   width: 356px;
+  //   height: 472px;
+  // }
 }
 
 .category {
