@@ -9,14 +9,56 @@
       flex-direction: row;
       flex-wrap: wrap;
     }
+    .page-footer-year::before {
+      content: '\00A9';
+    }
     .page-footer-year {
+      padding-left: 10px;
+      font-family: 'DM Sans';
+      font-size: 19px;
+      line-height: 1.33;
+      letter-spacing: 0.1em;
+      // color: $page-color-dark;
+      color: grey;
     }
     .page-footer-rights {
+      @include _tablet {
+        border-width: medium;
+        border-style: hidden solid hidden solid;
+        border-color: grey;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 19px;
+        line-height: 1.33;
+        letter-spacing: 0.1em;
+        color: grey;
+      }
     }
     .page-footer-goit {
+      font-size: 21px;
+      color: grey;
+      font-weight: 500;
       span {
       }
+      // .modal-heart {
+      //   width: 20px;
+      //   height: 20px;
+      // }
+      .button-heart:hover {
+        content: 'scale(1.25)';
+        color: violet;
+      }
+      .button-heart:focus {
+        content: 'scale(1.25)';
+        color: violet;
+      }
+      .modal-heart {
+        color: currentColor;
+      }
       button {
+        border: none;
+        padding-left: 10px;
+        padding-right: 10px;
       }
     }
   }
