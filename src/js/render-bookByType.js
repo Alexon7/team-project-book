@@ -3,7 +3,7 @@ import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
 import { renderBestsellersBook } from './render-bestseller-book';
-import './swiper';
+// import './swiper';
 // import loaderRender from './preloader';
 
 // const categoryBooksEl = document.querySelector('.books-of-category__list');
@@ -12,6 +12,8 @@ const bookApi = new BookAPI();
 //запрос книг по выбранной категории - считываем категорию со списка категорий - и нужно прорисовать книги из нее
 export async function handleRenderCategoryItem(category) {
   const categoryBooks = await bookApi.getBooksByCategories(category);
+  const bookCardEl = document.querySelector('.book-card');
+
   // console.log(response);
   console.log('refs.galleryContainer из функции', refs.galleryContainer);
   refs.book_card__title.innerHTML = `${category.substring(
@@ -19,7 +21,7 @@ export async function handleRenderCategoryItem(category) {
     category.lastIndexOf(' ')
   )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
   if (categoryBooks.length > 0) {
-    // renderBestsellersBook(categoryBooks, category);
+    console.log('refs.galleryContainer', refs.galleryContainer);
     refs.galleryContainer.innerHTML = `
       ${categoryBooks
         .map(
@@ -62,10 +64,11 @@ export async function handleRenderCategoryItem(category) {
 }
 // получаем данные по книге и открываем модалку
 // const categoryBooksEl = document.querySelector('.book-card__list');
-console.log('galleryContainer', refs.galleryContainer);
+
 refs.galleryContainer.addEventListener('click', handleDataBookById);
 export function handleDataBookById(event) {
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG') {
     return;
   }

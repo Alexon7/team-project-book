@@ -35,6 +35,7 @@ const renderCategories = async () => {
   allCategoryLink.forEach(categoryLink => {
     categoryLink.addEventListener('click', event => {
       const activeCategory = document.querySelector('.category.is-active');
+
       if (activeCategory) {
         activeCategory.classList.remove('is-active');
       }
