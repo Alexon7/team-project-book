@@ -2,33 +2,20 @@
 import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
-import { renderBestsellersBook } from './render-bestseller-book';
-// import './swiper';
-// import loaderRender from './preloader';
 
-// const categoryBooksEl = document.querySelector('.books-of-category__list');
 const bookApi = new BookAPI();
 
 //запрос книг по выбранной категории - считываем категорию со списка категорий - и нужно прорисовать книги из нее
 export async function handleRenderCategoryItem(category) {
   const categoryBooks = await bookApi.getBooksByCategories(category);
-  const bookCardEl = document.querySelector('.book-card');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // console.log(response);
-  console.log('refs.galleryContainer из функции', refs.galleryContainer);
-  refs.book_card__title.innerHTML = `${category.substring(
-    0,
-    category.lastIndexOf(' ')
-  )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
   if (categoryBooks.length > 0) {
     console.log('refs.galleryContainer', refs.galleryContainer);
     refs.galleryContainer.innerHTML = `
       ${categoryBooks
         .map(
           el =>
-            //         `
-            //         <li class="category-books book-card__item" > <a href= "" class ="book-card"> <img class = "book-card__image" src = ${el.book_image} data-id= ${el._id}> <h3 class = "book-card__name"> ${el.title}</h3> <p class= "book-card__author">${el.author} </p></a>
-            //  </li>`
             `
      <li class="book-card__item" >
       <a class="book-card__link" href="#">

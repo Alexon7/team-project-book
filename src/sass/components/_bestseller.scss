@@ -61,8 +61,8 @@
 
 .book-card__list {
   margin-bottom: 30px;
-  // display: flex;
-
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   // display: block;
 }
