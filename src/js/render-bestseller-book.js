@@ -53,18 +53,22 @@ export async function renderBestsellersBooks() {
   });
 
   // const booksCcontainerEl = document.querySelector('.book-card__list');
-  console.log('booksList', refs.galleryContainer);
+  // console.log('booksList', refs.galleryContainer);
 
   refs.galleryContainer.innerHTML = await renderBestsellersBooksList(
     bestsellersBooks
   );
 
   const seeMoreBtn = document.querySelectorAll('.book-card__btn');
-  console.log('seeMoreBtn', seeMoreBtn);
+
   seeMoreBtn.forEach(el => {
     el.addEventListener('click', handleSeeMore);
+
     function handleSeeMore(ev) {
       const category = ev.target.dataset.category.trim();
+      refs.galleryContainer.innerHTML = ``;
+      refs.galleryContainer.scrollTop;
+      console.log('refs.galleryContainer', refs.galleryContainer);
       handleRenderCategoryItem(category);
     }
   });
@@ -87,7 +91,7 @@ export async function renderBestsellersBooks() {
 // ----
 // render-books -------------------------------------------------------------------
 export function renderBestsellersBooksList(data) {
-  console.log('renderBestsellersBooksList(data)', data);
+  // console.log('renderBestsellersBooksList(data)', data);
   const markup = data
     .map(typeBooks => {
       return `
@@ -107,7 +111,7 @@ export function renderBestsellersBooksList(data) {
             </li>`;
     })
     .join('');
-  console.log('refs.galleryContainer в букс', refs.galleryContainer);
+  // console.log('refs.galleryContainer в букс', refs.galleryContainer);
   return markup;
   // refs.galleryContainer.insertAdjacentHTML('beforeEnd', markup);
 }
