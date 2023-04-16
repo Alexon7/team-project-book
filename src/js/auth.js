@@ -51,9 +51,6 @@ const auth = getAuth(firebaseSettings);
 // console.log(auth);
 // console.log(btnLogin.disabled);
 // console.log(userEmail.value);
-
-// authBackDrop.addEventListener('load', () => monitorAuthState);
-
 class Accounts {
   static create(account) {
     fetch(
@@ -219,8 +216,6 @@ const monitorAuthState = async () => {
       messageLogin.innerHTML = '';
       userInterface.style.display = 'flex';
 
-      // console.log(user);
-      // console.log(auth);
       showLoginState(user);
       setTimeout(() => {
         authBackDrop.classList.add('is-hidden');
@@ -255,7 +250,7 @@ const showLoginForm = () => {
 // Log out
 export const logout = async () => {
   await signOut(auth);
-  location.reload();
+  // location.reload();
 };
 
 btnLogin.addEventListener('click', loginEmailPassword);
