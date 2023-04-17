@@ -248,6 +248,16 @@ body.dark-theme > header {
   padding: 18px 20px;
 }
 
+body.dark-theme > header > .menu-container > .mobile-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border: 1.5px solid $page-color-light;
+  border-radius: 0px 0px 8px 8px;
+  background-color: $page-color-dark;
+  color: $page-color-light;
+}
+
 .users-data {
   display: flex;
   gap: 9px;
@@ -351,4 +361,10 @@ body.dark-theme > header {
   input[type='checkbox']:checked
   + .theme-switch__toggle--custom:before {
   transform: translateX(20px);
+}
+
+@media only screen and (max-width: 375px) {
+  .mobile-nav__theme-switch {
+    display: block;
+  }
 }
