@@ -32,10 +32,10 @@ export function renderDescBook(aboutBook) {
                           <img class="book-modal__link amazon" src=${amazon} alt="Shop logo" />
                       </a>
                       <a class="modal-book__link" href="">
-                          <img class="book-modal__link bookshop" src=${bookshop} alt="Shop logo" />
+                          <img class="book-modal__link applebooks" src=${apple} alt="Shop logo" />
                       </a>
                       <a class="modal-book__link" href="">
-                          <img class="book-modal__link applebooks" src=${apple} alt="Shop logo" />
+                          <img class="book-modal__link bookshop" src=${bookshop} alt="Shop logo" />
                       </a>
                   </div>
               </div>

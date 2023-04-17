@@ -17,30 +17,43 @@
     max-width: 579px;
     padding: 40px;
   }
-}
 
-.dark-theme .book-modal {
-  background-color: $page-color-dark;
-  border: 2px solid $page-color-light;
+    .dark-theme & {
+      background-color: $page-color-dark;
+      border: 2px solid $page-color-light;
+    }
 }
 
 .book-modal__close-button {
   display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 6px;
-  
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-  
-    cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  @include _tablet {
+      top: 34px;
+      right: 26px;
+      width: 28px;
+      height: 28px;
+      padding: 7px;
+    }
+
+  @include _desktop {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 .close-icon {
@@ -52,10 +65,15 @@
   .book-modal__close-button:focus & {
     fill: $page-color-accent;
   }
-}
 
-.dark-theme .close-icon {
-  fill: $page-color-light;
+    @include _tablet {
+      width: 14px;
+      height: 14px;
+    }
+
+    .dark-theme & {
+      fill: $page-color-light;
+    }
 }
 
 .book-modal__book {
@@ -68,14 +86,15 @@
 
 .book-modal__img {
   display: block;
+  width: 287px;
   height: 408px;
   border-radius: 8px;
   margin: auto;
   margin-bottom: 14px;
 
   @include _tablet {
-    height: 281px;
     width: 192px;
+    height: 281px;
     margin-right: 24px;
   }
 }
@@ -88,7 +107,8 @@
   letter-spacing: -0.04em;
 
   margin-bottom: 4px;
-  color: $page-color-dark;
+  color: $shopping-list-title;
+  text-transform: uppercase;
 
   @include _tablet {
     font-size: 24px;
@@ -102,7 +122,7 @@
 .dark-theme .book-modal__description,
 .dark-theme .modal-book__button {
   color: $page-color-light;
-  background-color: #202024;
+  background-color: $page-color-dark;
 }
 
 .book-modal__author {
