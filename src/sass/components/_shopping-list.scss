@@ -2,8 +2,20 @@
   .shopping-list-header__main {
     color: #fff;
   }
+
   .shopping-list-header__span {
     color: $page-color-accent;
+  }
+
+  .shopping-list__text {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.body.light-theme {
+  background-color: $background-color;
+  .shopping-list__text {
+    color: rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -32,7 +44,7 @@
     line-height: 1.19;
     letter-spacing: -0.04em;
 
-    color: $page-color-dark;
+    // color: $page-color-dark;
 
     @include _tablet {
       font-size: 48px;
@@ -69,8 +81,6 @@
     text-align: center;
     letter-spacing: -0.02em;
 
-    color: rgba(0, 0, 0, 0.6);
-
     @include _tablet {
       margin-bottom: 20px;
       font-size: 18px;
@@ -88,6 +98,8 @@
   gap: 5px;
 
   text-align: center;
+
+  background-color: blueviolet;
 }
 
 .is-hidden {

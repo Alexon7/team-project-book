@@ -1,0 +1,29 @@
+<section class="section" id="shopping-list">
+  <div class="shopping-list__container">
+    <!-- Added block - desktop -->
+    <div class="support-div">
+      <include src="./partials/support.html"></include>
+    </div>
+    <div class="shopping-list__desktop">
+      <div class="shopping-list-header">
+        <h2 class="shopping-list-header__title">
+          <span class="shopping-list-header__main">Shopping</span>
+          <span class="shopping-list-header__span">List</span>
+        </h2>
+      </div>
+      <!-- Empty list - default -->
+      <div class="shopping-list__empty">
+        <p class="shopping-list__text">
+          This page is empty, add some books and proceed to order.
+        </p>
+        <img src="./images/shopping-list/empty_shoping_list.png" alt="books" />
+      </div>
+    </div>
+    <!-- Render added books-->
+    <div class="shopping-list__not-empty">
+      <ul class="shopping-list__list"></ul>
+    </div>
+  </div>
+  <!-- Pagination -->
+  <div id="pagination" class="tui-pagination"></div>
+</section>
