@@ -1,4 +1,6 @@
-export function renderShoppingBooksList(savedBooks) {
+import sprite from '../images/sprite.svg';
+
+export function renderShoppingListBooks(savedBooks) {
   const bookItemTemplate = book => `
     <li class="shopping-book">
       <button class="delete" type="button">
