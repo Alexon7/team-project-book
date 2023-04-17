@@ -5,21 +5,23 @@ const renderShoppingList = document.querySelector('.shopping-list__list');
 
 let dataBooks = localStorage.getItem('shoppingList');
 dataBooks = JSON.parse(dataBooks);
-console.log(dataBooks);
 
-// (function loadList() {
-//   // Якщо масив книжок є  ----
-//   //   dataBooks && emptyShoppingList.classList.add('is-hidden');
+const dataBooksArr = [];
+dataBooksArr.push(dataBooks);
+// console.log(dataBooksArr);
+(function loadList() {
+  // Якщо масив книжок є  ----
+  //   dataBooks && emptyShoppingList.classList.add('is-hidden');
 
-//   const renderedList = renderShoppingListBooks(dataBooks);
+  const renderedList = renderShoppingListBooks(dataBooksArr);
 
-//   renderShoppingList.insertAdjacentHTML('beforeend', renderedList);
-// })();
+  renderShoppingList.insertAdjacentHTML('beforeend', renderedList);
+})();
 
-// renderShoppingList.addEventListener('click', onShoppingListClick);
+renderShoppingList.addEventListener('click', onShoppingListClick);
 
-// function onShoppingListClick(e) {
-//   e.preventDefault();
+function onShoppingListClick(e) {
+  e.preventDefault();
 
-//   console.log('click!');
-// }
+  console.log('click!');
+}
