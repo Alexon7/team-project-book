@@ -1,18 +1,19 @@
 .header {
   display: flex;
   height: 64px;
-  width: 100%;
-  border: 1.5px solid $page-color-dark;
+  max-width: 1440px;
+  margin: 0 auto 40px auto;
+  border: 1.5px solid $shopping-list-title;
   border-radius: 0px 0px 8px 8px;
   background-color: $page-color-light;
-  margin-bottom: 40px;
 }
 
 body.light-theme > header {
   display: flex;
   height: 64px;
-  width: 100%;
-  border: 1.5px solid $page-color-dark;
+  max-width: 1440px;
+  margin: 0 auto 40px auto;
+  border: 1.5px solid $shopping-list-title;
   border-radius: 0px 0px 8px 8px;
   background-color: $page-color-light;
   color: $page-color-dark;
@@ -21,10 +22,11 @@ body.light-theme > header {
 body.dark-theme > header {
   display: flex;
   height: 64px;
-  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 40px auto;
   border: 1.5px solid $page-color-light;
   border-radius: 0px 0px 8px 8px;
-  background-color: $page-color-dark;
+  background-color: $shopping-list-title;
   color: $page-color-light;
 }
 
@@ -38,13 +40,16 @@ body.dark-theme > header {
 
   @media screen and (min-width: $desktop) {
     gap: 100px;
+    max-width: 1440px;
   }
 }
 
 .container.header__content {
   padding: 18px 20px;
-  margin: 0 auto;
-  width: 100%;
+  margin: 0;
+  max-width: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .header__link {
@@ -136,7 +141,7 @@ body.dark-theme > header {
 
 .auth {
   gap: 55px;
-  border: 1.5px solid $page-color-dark;
+  border: 1.5px solid $shopping-list-title;
   border-radius: 18px;
   min-width: 150px;
 }
@@ -164,8 +169,9 @@ body.dark-theme > header {
   letter-spacing: -0.04em;
   cursor: pointer;
   background: $page-color-light;
-  border: 1.5px solid $page-color-dark;
+  border: 1.5px solid $shopping-list-title;
   border-radius: 18px;
+  color: $shopping-list-title;
 }
 
 .dropdown:hover .dropdown-content {
@@ -299,7 +305,7 @@ body.dark-theme > header > .menu-container > .mobile-header {
   line-height: 1.29;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: $page-color-dark;
+  color: $black-color;
   background: $current-page-color;
   border-radius: 36px;
   padding: 8px 16px;
