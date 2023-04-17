@@ -52,8 +52,8 @@ export function renderDescBook(aboutBook) {
       </div>
      </div>
      <button class="modal-book__button btnAdd active" type="button">Add to shopping list</button>
-     <div class="btnRemove-wrapper btnRemove">
-         <button class="modal-book__button" type="button">Remove from shopping list</button>
+     <div class="btnRemove-wrapper">
+         <button class="modal-book__button btnRemove" type="button">Remove from shopping list</button>
          <p class="button-text">Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
      </div>
 
