@@ -1,6 +1,6 @@
 import sprite from '../images/sprite.svg';
 import amazon from '../images/Amazon.png';
-import '../images/Apple Books.png';
+import '../images/Apple.png';
 import '../images/Bookshop.png';
 
 export function renderShoppingListBooks(savedBooks) {
