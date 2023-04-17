@@ -2,11 +2,12 @@
 import { BookAPI } from './api-service';
 import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
-
+import { loaderRender } from './preloader';
 const bookApi = new BookAPI();
 
 //запрос книг по выбранной категории - считываем категорию со списка категорий - и нужно прорисовать книги из нее
 export async function handleRenderCategoryItem(category) {
+  loaderRender();
   const categoryBooks = await bookApi.getBooksByCategories(category);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -18,16 +19,16 @@ export async function handleRenderCategoryItem(category) {
           el =>
             `
      <li class="book-card__item" >
-      <a class="book-card__link" href="#">
+      <a class="book-card__link" href="#" >
           <div class="book-card__wrapper"   data-type="${el.list_name}">
               <img
               class="book-card__image"
               src="${el.book_image ? el.book_image : ``}"
               alt="${el.title}"
-              loading="lazy"
               data-id="${el._id}"
-              />
-              <div class="book-card__overlay">
+              loading="lazy"
+                            />
+              <div class="book-card__overlay" data-id="${el._id}">
               <p class="book-card__quick-view-text">quick view</p>
           </div>
           </div>
@@ -50,17 +51,24 @@ export async function handleRenderCategoryItem(category) {
   }
 }
 // получаем данные по книге и открываем модалку
-// const categoryBooksEl = document.querySelector('.book-card__list');
 
 refs.galleryContainer.addEventListener('click', handleDataBookById);
 export function handleDataBookById(event) {
   event.preventDefault();
 
-  if (event.target.nodeName !== 'IMG') {
+  if (event.target.nodeName === 'IMG') {
+    const bookId = event.target.dataset.id;
+    showBookModal(bookId);
     return;
   }
-
-  const bookId = event.target.dataset.id;
-
-  showBookModal(bookId);
+  if (event.target.nodeName === 'DIV') {
+    const bookId = event.target.dataset.id;
+    showBookModal(bookId);
+    return;
+  }
+  if (event.target.nodeName === 'P') {
+    const bookId = event.target.parentNode.dataset.id;
+    showBookModal(bookId);
+    return;
+  }
 }
