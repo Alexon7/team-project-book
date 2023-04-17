@@ -1,27 +1,31 @@
 import { renderShoppingListBooks } from './render-shopping-list.js';
 
+const emptyShoppingList = document.querySelector('.shopping-list__empty');
 const removeBookFromShoppingListBtn = document.querySelector('.delete-btn');
-const renderShoppingList = document.querySelector('.shopping-list__list');
+const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
 
-let dataBooks = localStorage.getItem('shoppingList');
-dataBooks = JSON.parse(dataBooks);
-
-const dataBooksArr = [];
-dataBooksArr.push(dataBooks);
-// console.log(dataBooksArr);
 (function loadList() {
+  let dataBooks = localStorage.getItem('shoppingList');
+  dataBooks = JSON.parse(dataBooks);
+
+  console.log(dataBooks);
+
   // Якщо масив книжок є  ----
-  //   dataBooks && emptyShoppingList.classList.add('is-hidden');
+  dataBooks && emptyShoppingList.classList.add('is-hidden');
 
-  const renderedList = renderShoppingListBooks(dataBooksArr);
+  const renderedList = renderShoppingListBooks(dataBooks);
 
-  renderShoppingList.insertAdjacentHTML('beforeend', renderedList);
+  renderBookDescriptionEl.innerHTML = renderedList;
 })();
 
-renderShoppingList.addEventListener('click', onShoppingListClick);
+// removeBookFromShoppingListBtn.addEventListener('click', onRemoveBookBtnClick);
 
-function onShoppingListClick(e) {
-  e.preventDefault();
+// function onRemoveBookBtnClick(e) {
+//   e.preventDefault();
 
-  console.log('click!');
-}
+//   console.log('click!');
+// }
+
+// !+++++++++++++++++++++++++++++++++++
+
+console.log(renderBookDescriptionEl);

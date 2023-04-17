@@ -3,8 +3,6 @@ import '../images/Apple.png';
 import '../images/Bookshop.png';
 
 export function renderShoppingListBooks(savedBooks) {
-  console.log(savedBooks);
-
   const bookItemTemplate = book => `
     <li class="shopping-book">
       <button class="delete-btn" type="button" width="28" height="28">
