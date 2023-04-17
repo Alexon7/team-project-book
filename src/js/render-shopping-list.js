@@ -1,12 +1,11 @@
 import sprite from '../images/sprite.svg';
-import amazon from '../images/Amazon.png';
 import '../images/Apple.png';
 import '../images/Bookshop.png';
 
 export function renderShoppingListBooks(savedBooks) {
   const bookItemTemplate = book => `
     <li class="shopping-book">
-      <button class="delete-btn" type="button">
+      <button class="delete-btn" type="button" width="28" height="28">
         <svg class="delete-icon" width="28" height="28">
           <use href="${sprite}#delete-book"></use>
         </svg>
@@ -39,7 +38,7 @@ export function renderShoppingListBooks(savedBooks) {
                   return `<a class="link" href=${link.url}>
                     <img
                       class="image ${link.name}"
-                      src="./image/${link.name}.png"
+                      src="./images/${link.name}.png"
                       alt="Shop logo"
                     />
                   </a>`;

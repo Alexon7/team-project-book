@@ -1,26 +1,25 @@
-// import { renderDescBook } from './render-description-book.js';
 import { renderShoppingListBooks } from './render-shopping-list.js';
-// import { modal } from './modal.js';
-import { BookAPI } from './api-service.js';
-const bookApi = new BookAPI();
 
-const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
-const emptyShoppingList = document.querySelector('.shopping-list__empty');
+const removeBookFromShoppingListBtn = document.querySelector('.delete-btn');
+const renderShoppingList = document.querySelector('.shopping-list__list');
 
-// ! Список книжок.
+let dataBooks = localStorage.getItem('shoppingList');
+dataBooks = JSON.parse(dataBooks);
+console.log(dataBooks);
 
-function loadList() {
-  let dataBooks = localStorage.getItem('shoppingList');
-  dataBooks = JSON.parse(dataBooks);
+// (function loadList() {
+//   // Якщо масив книжок є  ----
+//   //   dataBooks && emptyShoppingList.classList.add('is-hidden');
 
-  console.log(dataBooks);
+//   const renderedList = renderShoppingListBooks(dataBooks);
 
-  // Якщо масив книжок є  ----
-  dataBooks && emptyShoppingList.classList.add('is-hidden');
+//   renderShoppingList.insertAdjacentHTML('beforeend', renderedList);
+// })();
 
-  const renderedList = renderShoppingListBooks(dataBooks);
+// renderShoppingList.addEventListener('click', onShoppingListClick);
 
-  renderBookDescriptionEl.innerHTML = renderedList;
-}
+// function onShoppingListClick(e) {
+//   e.preventDefault();
 
-loadList();
+//   console.log('click!');
+// }

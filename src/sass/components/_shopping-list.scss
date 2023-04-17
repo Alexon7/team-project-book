@@ -27,6 +27,10 @@
   .shopping-book {
     color: $page-color-dark;
   }
+
+  .book-text-title {
+    color: $shopping-list-title;
+  }
 }
 
 .shopping-list {
@@ -116,6 +120,8 @@
 
   border: 2px solid rgba(79, 46, 232, 0.4);
   border-radius: 16px;
+
+  // background-color: $page-color-light;
 }
 
 .is-hidden {
@@ -136,14 +142,12 @@
 }
 
 .delete-btn {
-  border: none;
-}
-
-.delete-icon {
-  border: none;
   position: absolute;
   top: 14px;
   right: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
 }
 
 .book {
@@ -181,6 +185,7 @@
 
 .book__text {
 }
+
 .book__text-title {
   font-weight: 700;
   font-size: 16px;
@@ -188,8 +193,6 @@
 
   letter-spacing: -0.04em;
   text-transform: uppercase;
-
-  color: $shopping-list-title;
 }
 
 .book__text-type {
