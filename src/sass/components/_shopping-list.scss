@@ -1,6 +1,6 @@
 .body.dark-theme {
   .shopping-list-header__main {
-    color: #fff;
+    color: $page-color-light;
   }
 
   .shopping-list-header__span {
@@ -10,12 +10,22 @@
   .shopping-list__text {
     color: rgba(255, 255, 255, 0.6);
   }
+
+  .shopping-book {
+    color: $page-color-light;
+    background-color: $shopping-list-title;
+  }
 }
 
 .body.light-theme {
   background-color: $background-color;
+
   .shopping-list__text {
     color: rgba(0, 0, 0, 0.6);
+  }
+
+  .shopping-book {
+    color: $page-color-dark;
   }
 }
 
@@ -37,7 +47,7 @@
   }
 
   &-header {
-    margin-bottom: 120px;
+    margin-bottom: 40px;
 
     font-weight: 700;
     font-size: 32px;
@@ -64,6 +74,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 80px;
 
     width: 265px;
     @include _tablet {
@@ -86,20 +97,25 @@
       font-size: 18px;
     }
   }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  &__not-empty {
+  }
 }
 
-.shopping-list__book-card {
-  background-color: #fff;
-}
+.shopping-book {
+  position: relative;
+  padding: 20px;
 
-.shopping-list__list {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  text-align: center;
-
-  background-color: blueviolet;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
 }
 
 .is-hidden {
@@ -117,4 +133,78 @@
   display: flex;
   flex-direction: row;
   gap: 40px;
+}
+
+.delete-btn {
+  border: none;
+}
+
+.delete-icon {
+  border: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.book {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.book__img {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book__author {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+
+  letter-spacing: -0.04em;
+  text-align: left;
+
+  color: #b4afaf;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+
+  text-align: left;
+}
+
+.book__text {
+}
+.book__text-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+
+  color: $shopping-list-title;
+}
+
+.book__text-type {
+  margin-bottom: 24px;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+
+  letter-spacing: 0.03em;
+
+  color: #b4afaf;
+}
+
+.book__links {
+  display: flex;
+  gap: 14px;
 }
