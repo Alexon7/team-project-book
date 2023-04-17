@@ -1,3 +1,4 @@
+import { loaderRender } from './preloader';
 import { initializeApp } from 'firebase/app';
 import {
   AuthErrorCodes,
@@ -13,7 +14,6 @@ import {
 import 'firebase/firestore';
 import 'firebase/database';
 import { Database } from 'firebase/database';
-import { Firestore } from 'firebase/firestore';
 // import { databaseURL } from 'firebase/firebase-database';
 
 // console.log(AuthErrorCodes);
@@ -35,7 +35,6 @@ const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
 
-console.log(avatarNickName.textContent);
 
 const firebaseSettings = initializeApp({
   appName: 'BookProject',
@@ -47,13 +46,12 @@ const firebaseSettings = initializeApp({
   messagingSenderId: '560994919300',
   appId: '1:560994919300:web:10cdf4110616a9d01f33d1',
 });
+loaderRender();
+
 const auth = getAuth(firebaseSettings);
 // console.log(auth);
 // console.log(btnLogin.disabled);
 // console.log(userEmail.value);
-
-// authBackDrop.addEventListener('load', () => monitorAuthState);
-
 class Accounts {
   static create(account) {
     fetch(
@@ -126,6 +124,7 @@ function hideButtons() {
 }
 
 linkSignIn.addEventListener('click', () => {
+  btnLogin.disabled = false;
   btnLogin.style.display = '';
   btnSignup.style.display = 'none';
   linkSignUp.style.display = '';
@@ -140,13 +139,12 @@ linkSignIn.addEventListener('click', () => {
 });
 
 linkSignUp.addEventListener('click', () => {
-  // btnLogin.style.display = 'none';
-  btnLogin.remove();
+  btnLogin.style.display = 'none';
   btnSignup.style.display = 'block';
   linkSignUp.style.display = 'none';
   linkSignIn.style.display = 'block';
   userNickname.style.display = 'block';
-  // btnLogin.disabled = true;
+  btnLogin.disabled = true;
   messageLogin.innerHTML = '';
   messageLogin.insertAdjacentHTML(
     'beforeend',
@@ -202,7 +200,6 @@ const createAccount = async event => {
         displayName: nickname,
       });
     });
-    location.reload();
   } catch {
     error => {
       console.log(error);
@@ -219,12 +216,10 @@ const monitorAuthState = async () => {
       messageLogin.innerHTML = '';
       userInterface.style.display = 'flex';
 
-      // console.log(user);
-      // console.log(auth);
       showLoginState(user);
       setTimeout(() => {
         authBackDrop.classList.add('is-hidden');
-      }, 5000);
+      }, 500);
 
       if (user.displayName !== null) {
         avatarNickName.textContent = `${user.displayName}`;
@@ -255,7 +250,7 @@ const showLoginForm = () => {
 // Log out
 export const logout = async () => {
   await signOut(auth);
-  location.reload();
+  // location.reload();
 };
 
 btnLogin.addEventListener('click', loginEmailPassword);
