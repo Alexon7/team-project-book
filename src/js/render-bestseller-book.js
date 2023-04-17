@@ -19,8 +19,8 @@ let currentRenderWidth = window.innerWidth;
 addEventListener('resize', event => {
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
-    (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    (window.innerWidth > 1279 && currentRenderWidth < 1280) ||
+    (window.innerWidth < 1280 && currentRenderWidth > 1279) ||
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
@@ -35,7 +35,7 @@ export async function renderBestsellersBooks() {
 
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
-  } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
+  } else if (currentRenderWidth > 767 && currentRenderWidth < 1280) {
     amountRenderedBooks = 3;
   } else {
     amountRenderedBooks = 5;

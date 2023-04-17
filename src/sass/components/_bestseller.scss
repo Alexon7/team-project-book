@@ -137,6 +137,14 @@
   // margin-top: 14px;
 }
 
+.light-theme .book-card__name {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.dark-theme .book-card__name {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .book-card__author {
   font-family: 'DM Sans';
   font-style: italic;
@@ -225,6 +233,10 @@
   }
   .book-card__list {
     gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   .booksList {
     display: flex;
@@ -235,6 +247,6 @@
   }
   .book-card__title {
     font-size: 48px;
-    line-height: 52px;
+    // line-height: 52px;
   }
 }
