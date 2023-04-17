@@ -18,13 +18,13 @@ const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
   renderBookDescriptionEl.innerHTML = renderedList;
 })();
 
-// removeBookFromShoppingListBtn.addEventListener('click', onRemoveBookBtnClick);
+renderBookDescriptionEl.addEventListener('click', onRemoveBookBtnClick);
 
-// function onRemoveBookBtnClick(e) {
-//   e.preventDefault();
+function onRemoveBookBtnClick(e) {
+  e.preventDefault();
 
-//   console.log('click!');
-// }
+  console.log('click!');
+}
 
 // !+++++++++++++++++++++++++++++++++++
 
