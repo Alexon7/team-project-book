@@ -4,12 +4,14 @@ import { BookAPI } from './api-service.js';
 const bookApi = new BookAPI();
 
 export const showBookModal = async bookId => {
-  const infoBook = await bookApi.getBooksById(bookId);
-  // const infoBook = response.data;
-  console.log(infoBook);
-  localStorage.setItem('openInfoBook', JSON.stringify(infoBook));
-  const renderedInfoBook = renderDescBook(infoBook);
-  modal(renderedInfoBook);
+  const newBook = await bookApi.getBooksById(bookId);
+  const renderedInfoBook = renderDescBook(newBook);
+
+  modal(renderedInfoBook); // render book
+
+  // находим кнопки после рендера
+  const btnAddBookToShoppingList = document.querySelector('.btnAdd');
+  const btnRemoveBookFromShoppingList = document.querySelector('.btnRemove');
 
   const showAdd = () => {
     btnRemoveBookFromShoppingList.classList.remove('active');
@@ -19,21 +21,21 @@ export const showBookModal = async bookId => {
     btnAddBookToShoppingList.classList.remove('active');
     btnRemoveBookFromShoppingList.classList.add('active');
   };
-  const isAddShoppingList = shoppingBooks.find(
-    book => book._id === openBook._id
-  );
-  isAddShoppingList ? showRemove() : showAdd();
+  // const isAddShoppingList = shoppingBooks.find(
+  //   book => book._id === openBook._id
+  // );
+  // isAddShoppingList ? showRemove() : showAdd();
 
+  // добавляем в LS книгу
   btnAddBookToShoppingList.addEventListener('click', event => {
-    const openBook = JSON.parse(localStorage.getItem('openInfoBook'));
-    const shoppingBooks = JSON.parse(localStorage.getItem('shoppingList'));
+    const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
 
-    const newShoppingBooks = shoppingBooks
-      ? [...shoppingBooks, openBook]
-      : [openBook];
-    localStorage.setItem('shoppingList', JSON.stringify(newShoppingBooks));
+    allBooks.push(newBook);
+    console.log('добавленные книги', allBooks);
+    localStorage.setItem('shoppingList', JSON.stringify(allBooks));
     showRemove();
   });
+
   btnRemoveBookFromShoppingList.addEventListener('click', event => {
     const openBook = JSON.parse(localStorage.getItem('openInfoBook'));
     const shoppingBooks = JSON.parse(localStorage.getItem('shoppingList'));
