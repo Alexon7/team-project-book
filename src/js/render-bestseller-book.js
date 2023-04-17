@@ -127,15 +127,15 @@ export function renderBestsellersBook(book, typeBooks) {
   return `
      <li class="book-card__item" >
       <a class="book-card__link" href="#">
-          <div class="book-card__wrapper" data-type="${typeBooks.list_name}">
+          <div class="book-card__wrapper"  data-type="${typeBooks.list_name}">
               <img
               class="book-card__image"
               src="${book.book_image ? book.book_image : ``}"
               alt="${book.title}"
               loading="lazy"
-              data-id="${book._id}"
+            data-id="${book._id}"
               />
-              <div class="book-card__overlay">
+              <div class="book-card__overlay" data-id="${book._id}">
               <p class="book-card__quick-view-text">quick view</p>
           </div>
           </div>
