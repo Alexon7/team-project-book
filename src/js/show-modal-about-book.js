@@ -13,16 +13,19 @@ export const showBookModal = async bookId => {
   // находим кнопки после рендера
   const btnAddBookToShoppingList = document.querySelector('.btnAdd');
   const btnRemoveBookFromShoppingList = document.querySelector('.btnRemove');
+  const divRemove = document.querySelector('.btnRemove-wrapper');
 
   //показываю кнопку добавить
   const showAdd = () => {
     btnRemoveBookFromShoppingList.classList.remove('active');
+    divRemove.classList.remove('active');
     btnAddBookToShoppingList.classList.add('active');
   };
 
   // показываю кнопку удалить
   const showRemove = () => {
     btnAddBookToShoppingList.classList.remove('active');
+    divRemove.classList.add('active');
     btnRemoveBookFromShoppingList.classList.add('active');
   };
 

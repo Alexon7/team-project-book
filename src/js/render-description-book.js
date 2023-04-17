@@ -1,5 +1,7 @@
-// import sprite from '../img/sprite.svg';
+import sprite from '../images/sprite.svg';
 import amazon from '../images/Amazon.png';
+import apple from '../images/Apple.png';
+import bookshop from '../images/Bookshop.png';
 
 export function renderDescBook(aboutBook) {
   // const { book_image, title, author, description } = aboutBook;
@@ -7,7 +9,7 @@ export function renderDescBook(aboutBook) {
   return `
   <div class="book-modal">
      <svg class="close-icon" width="24" height="24">
-             <use href="../images/sprite.svg#close-btn"></use>
+             <use href="${sprite}#close-btn"></use>
       </svg>
     <div class="book-modal__content">
      <div class="book-modal__book">
@@ -38,14 +40,14 @@ export function renderDescBook(aboutBook) {
         <a class="modal-book__link" href="">
               <img
               class="book-modal__link bookshop"
-              src="../images/Bookshop.png"
+              src=${bookshop}
               alt="Shop logo"
             />
         </a>
         <a class="modal-book__link" href="">
               <img
               class="book-modal__link applebooks"
-              src="../images/Apple Books.png"
+              src=${apple}
               alt="Shop logo"
             />
         </a>
