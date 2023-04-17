@@ -4,11 +4,7 @@ import { BookAPI } from './api-service';
 import { refs } from './refs';
 import { handleRenderCategoryItem } from './render-bookByType';
 import { renderBestsellersBooks } from './render-bestseller-book';
-import { loaderRender } from './preloader';
-// import { createSwiperSliderSupport } from './swiper';
-// import { renderBestsellersBooksList } from './render-bestseller-book';
 
-// console.log(categoriesEl);
 const bookApi = new BookAPI();
 
 // Рендерим список категорий
@@ -29,8 +25,7 @@ const renderCategories = async () => {
       )
       .join('')}
     `;
-  // console.log(categoriesList);
-  // console.dir(refs.allCategoryLink);
+
   const allCategoryLink = document.querySelectorAll('.category');
   allCategoryLink.forEach(categoryLink => {
     categoryLink.addEventListener('click', event => {
@@ -50,6 +45,10 @@ const renderCategories = async () => {
         `;
         renderBestsellersBooks();
       } else {
+        refs.book_card__title.innerHTML = `${category.slice(
+          0,
+          category.lastIndexOf(' ')
+        )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
         handleRenderCategoryItem(category);
 
         console.log(

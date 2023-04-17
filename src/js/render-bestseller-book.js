@@ -26,11 +26,6 @@ addEventListener('resize', event => {
   }
 });
 
-// const renderSliderSupport = async () => {
-//   buildSwiperSliderSupport(refs.sliderSupport);
-// };
-// renderSliderSupport();
-
 export async function renderBestsellersBooks() {
   loaderRender();
   // refs.galleryContainer.innerHTML = '';
@@ -66,9 +61,21 @@ export async function renderBestsellersBooks() {
 
     function handleSeeMore(ev) {
       const category = ev.target.dataset.category.trim();
-      refs.galleryContainer.innerHTML = ``;
-      refs.galleryContainer.scrollTop;
-      console.log('refs.galleryContainer', refs.galleryContainer);
+
+      refs.book_card__title.innerHTML = `${category.slice(
+        0,
+        category.lastIndexOf(' ')
+      )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
+      const listCategory = document.querySelectorAll('.category');
+      const activeCategory = document.querySelector('.category.is-active');
+      activeCategory.classList.remove('is-active');
+      listCategory.forEach(el => {
+        if (el.dataset.id.trim() === category) {
+          el.classList.add('is-active');
+        }
+      });
+      // console.log('refs.galleryContainer', refs.galleryContainer);
+
       handleRenderCategoryItem(category);
     }
   });
