@@ -1,28 +1,28 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 @import url(https://fonts.googleapis.com/css?family=DM+Sans:regular,italic,500,700);
-.container {
-  width: 100%;
-  margin: 40px 20px;
+/* .container {
+  /* width: 100%; */
+/* margin: 0 auto;
 }
 @media screen and (min-width: 375px) {
   .container {
-    width: 375px;
+    max-width: 767px;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 1279px;
     padding: 0px 32px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1280px;
+    max-width: 1440px;
   }
-}
+} */
 
 body {
-  font-family: "DM Sans";
+  font-family: 'DM Sans';
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: -0.02em;
@@ -72,7 +72,7 @@ button {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -158,4 +158,4 @@ body.light-theme {
 body.dark-theme {
   color: #ffffff;
   background-color: #111111;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
