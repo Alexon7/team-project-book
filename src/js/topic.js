@@ -5,6 +5,8 @@ const checkBoxEl = document.querySelector(
   '.theme-switch .theme-switch__toggle'
 );
 
+const checkBoxElMob = document.querySelector('#theme-switch-toggle-mob');
+
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
@@ -29,3 +31,4 @@ function repleceCheckTheme() {
   }
 }
 checkBoxEl.addEventListener('click', repleceCheckTheme);
+checkBoxElMob.addEventListener('click', repleceCheckTheme);
