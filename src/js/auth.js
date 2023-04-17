@@ -1,3 +1,4 @@
+import { loaderRender } from './preloader';
 import { initializeApp } from 'firebase/app';
 import {
   AuthErrorCodes,
@@ -13,7 +14,6 @@ import {
 import 'firebase/firestore';
 import 'firebase/database';
 import { Database } from 'firebase/database';
-import { Firestore } from 'firebase/firestore';
 // import { databaseURL } from 'firebase/firebase-database';
 
 // console.log(AuthErrorCodes);
@@ -35,7 +35,6 @@ const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
 
-console.log(avatarNickName.textContent);
 
 const firebaseSettings = initializeApp({
   appName: 'BookProject',
@@ -47,6 +46,8 @@ const firebaseSettings = initializeApp({
   messagingSenderId: '560994919300',
   appId: '1:560994919300:web:10cdf4110616a9d01f33d1',
 });
+loaderRender();
+
 const auth = getAuth(firebaseSettings);
 // console.log(auth);
 // console.log(btnLogin.disabled);
@@ -199,7 +200,6 @@ const createAccount = async event => {
         displayName: nickname,
       });
     });
-    location.reload();
   } catch {
     error => {
       console.log(error);
@@ -219,7 +219,7 @@ const monitorAuthState = async () => {
       showLoginState(user);
       setTimeout(() => {
         authBackDrop.classList.add('is-hidden');
-      }, 5000);
+      }, 500);
 
       if (user.displayName !== null) {
         avatarNickName.textContent = `${user.displayName}`;
