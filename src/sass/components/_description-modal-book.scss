@@ -6,7 +6,7 @@
 
 .book-modal {
   background-color: $page-color-light;
-  outline: 2px solid $page-color-dark;
+  border: 2px solid $page-color-dark;
   border-radius: 18px;
   padding: 40px 24px;
   position: relative;
@@ -20,22 +20,42 @@
 }
 
 .dark-theme .book-modal {
-  background-color: #202024;
-  outline: 2px solid $page-color-light;
+  background-color: $page-color-dark;
+  border: 2px solid $page-color-light;
+}
+
+.book-modal__close-button {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px;
+  
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  
+    cursor: pointer;
 }
 
 .close-icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 6px;
-  cursor: pointer;
   fill: $page-color-dark;
+  width: 12px;
+  height: 12px;
+
+  .book-modal__close-button:hover &,
+  .book-modal__close-button:focus & {
+    fill: $page-color-accent;
+  }
 }
 
-.close-icon:hover,
-.close-icon:focus {
-  fill: $page-color-accent;
+.dark-theme .close-icon {
+  fill: $page-color-light;
 }
 
 .book-modal__book {
