@@ -1,4 +1,3 @@
-import { loaderRender } from './preloader';
 import { initializeApp } from 'firebase/app';
 import {
   AuthErrorCodes,
@@ -35,7 +34,6 @@ const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
 
-
 const firebaseSettings = initializeApp({
   appName: 'BookProject',
   apiKey: 'AIzaSyCeohKwpW6233js3UPE5dhzJtQnOMgZfaI',
@@ -46,7 +44,6 @@ const firebaseSettings = initializeApp({
   messagingSenderId: '560994919300',
   appId: '1:560994919300:web:10cdf4110616a9d01f33d1',
 });
-loaderRender();
 
 const auth = getAuth(firebaseSettings);
 // console.log(auth);
@@ -123,7 +120,7 @@ function hideButtons() {
   btnLogout.style.display = 'block';
 }
 
-linkSignIn.addEventListener('click', () => {
+linkSignIn?.addEventListener('click', () => {
   btnLogin.disabled = false;
   btnLogin.style.display = '';
   btnSignup.style.display = 'none';
@@ -138,7 +135,7 @@ linkSignIn.addEventListener('click', () => {
   );
 });
 
-linkSignUp.addEventListener('click', () => {
+linkSignUp?.addEventListener('click', () => {
   btnLogin.style.display = 'none';
   btnSignup.style.display = 'block';
   linkSignUp.style.display = 'none';
@@ -207,7 +204,7 @@ const createAccount = async event => {
   }
 };
 
-btnSignup.addEventListener('click', createAccount);
+btnSignup?.addEventListener('click', createAccount);
 
 // Monitor auth state
 const monitorAuthState = async () => {
@@ -253,10 +250,11 @@ export const logout = async () => {
   // location.reload();
 };
 
-btnLogin.addEventListener('click', loginEmailPassword);
-btnLogout.addEventListener('click', logout);
-authButtonClose.addEventListener('click', () => {
+btnLogin?.addEventListener('click', loginEmailPassword);
+btnLogout?.addEventListener('click', logout);
+authButtonClose?.addEventListener('click', () => {
   authBackDrop.classList.add('is-hidden');
 });
+
 monitorAuthState();
 // console.log(auth);
