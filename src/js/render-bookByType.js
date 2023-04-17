@@ -4,11 +4,15 @@ import { showBookModal } from './show-modal-about-book';
 import { refs } from './refs';
 import { loaderRender } from './preloader';
 import { renderBooksByType } from './render-books';
+
 const bookApi = new BookAPI();
 
 //запрос книг по выбранной категории - считываем категорию со списка категорий и рендерим книги из нее
 export async function handleRenderCategoryItem(category) {
-  loaderRender();
+  const preloader = document.getElementById('preloader');
+
+  preloader.classList.remove('done'); // показую спінер
+
   try {
     const categoryBooks = await bookApi.getBooksByCategories(category);
     window.scrollTo({ top: 0, behavior: 'smooth' }); //возвращаемся вверх
@@ -21,6 +25,8 @@ export async function handleRenderCategoryItem(category) {
     }
   } catch (error) {
     console.log(error);
+  } finally {
+    loaderRender(); // приховую спінер
   }
 }
 
@@ -29,6 +35,7 @@ export async function handleRenderCategoryItem(category) {
 refs.galleryContainer.addEventListener('click', handleDataBookById);
 export function handleDataBookById(event) {
   event.preventDefault();
+
   try {
     if (event.target.nodeName === 'IMG') {
       const bookId = event.target.dataset.id;

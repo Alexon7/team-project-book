@@ -5,5 +5,5 @@ export function loaderRender() {
       // клас done - приберає лоадер
       preloader.classList.add('done');
     }
-  }, 300);
+  }, 250);
 }
