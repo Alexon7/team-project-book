@@ -1,4 +1,5 @@
 // import sprite from '../img/sprite.svg';
+import amazon from '../images/Amazon.png';
 
 export function renderDescBook(aboutBook) {
   // const { book_image, title, author, description } = aboutBook;
@@ -29,7 +30,7 @@ export function renderDescBook(aboutBook) {
         <a class="modal-book__link" href="">
               <img
               class="book-modal__link amazon"
-              src="../images/Amazon.png"
+              src=${amazon}
               alt="Shop logo"
   
             />
