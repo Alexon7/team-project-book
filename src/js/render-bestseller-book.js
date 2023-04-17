@@ -6,6 +6,7 @@ import { BookAPI } from './api-service';
 import { handleRenderCategoryItem } from './render-bookByType';
 import { loaderRender } from './preloader';
 import { handleDataBookById } from './render-bookByType';
+import { renderBooksByType } from './render-books';
 // code -------------------------------------------------------------------
 const bookApi = new BookAPI();
 // variables -------------------------------------------------------------------
@@ -42,7 +43,7 @@ export async function renderBestsellersBooks() {
 
   let bestsellersBooks = await bookApi.getBooksTop();
   // let bestsellersBooks = response;
-  console.log('bestsellersBooks', bestsellersBooks);
+  // console.log('bestsellersBooks', bestsellersBooks);
   bestsellersBooks = bestsellersBooks.map(type => {
     return { ...type, books: type.books.slice(0, amountRenderedBooks) };
   });
@@ -81,24 +82,9 @@ export async function renderBestsellersBooks() {
   });
 }
 
-// get-books
-// export async function getBooksRender() {
-//   try {
-//     const response = await axios.get(
-//       'https://books-backend.p.goit.global/books/top-books'
-//     );
-//     // renderBestsellersBooks(response.data);
-//     // renderBestsellersBooksList(response.data);
-//     console.log('зашли');
-//   } catch (error) {
-//     console.log(error);
-//     return null;
-//   }
-// }
-// ----
 // render-books -------------------------------------------------------------------
 export function renderBestsellersBooksList(data) {
-  // console.log('renderBestsellersBooksList(data)', data);
+  console.log('renderBestsellersBooksList(data)', data);
   const markup = data
     .map(typeBooks => {
       return `

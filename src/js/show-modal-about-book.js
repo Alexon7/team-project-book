@@ -7,7 +7,7 @@ export const showBookModal = async bookId => {
   const newBook = await bookApi.getBooksById(bookId);
   const renderedInfoBook = renderDescBook(newBook);
   const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
-
+  console.log(newBook);
   modal(renderedInfoBook); // render book
 
   // находим кнопки после рендера
