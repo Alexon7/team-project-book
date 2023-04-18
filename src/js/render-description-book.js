@@ -1,7 +1,7 @@
 import sprite from '../images/sprite.svg';
-import amazon from '../images/Amazon.png';
-import apple from '../images/Apple.png';
-import bookshop from '../images/Bookshop.png';
+import amazon from '../images/Amazon2x.png';
+import apple from '../images/Apple2x.png';
+import bookshop from '../images/Bookshop2x.png';
 
 export function renderDescBook(aboutBook) {
   // const { book_image, title, author, description } = aboutBook;
