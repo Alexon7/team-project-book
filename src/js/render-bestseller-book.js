@@ -28,7 +28,10 @@ addEventListener('resize', event => {
 });
 
 export async function renderBestsellersBooks() {
-  loaderRender();
+  const preloader = document.getElementById('preloader');
+
+  preloader.classList.remove('done'); // показую спінер
+
   // refs.galleryContainer.innerHTML = '';
   let currentRenderWidth = window.innerWidth;
   let amountRenderedBooks = 1;
@@ -68,23 +71,22 @@ export async function renderBestsellersBooks() {
         category.lastIndexOf(' ')
       )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
       const listCategory = document.querySelectorAll('.category');
-      const activeCategory = document.querySelector('.category.is-active');
-      activeCategory.classList.remove('is-active');
       listCategory.forEach(el => {
-        if (el.dataset.id.trim() === category) {
-          el.classList.add('is-active');
-        }
+        el.dataset.id.trim() === category
+          ? el.classList.add('is-active')
+          : el.classList.remove('is-active');
       });
       // console.log('refs.galleryContainer', refs.galleryContainer);
 
       handleRenderCategoryItem(category);
     }
   });
+  loaderRender();
 }
 
 // render-books -------------------------------------------------------------------
 export function renderBestsellersBooksList(data) {
-  console.log('renderBestsellersBooksList(data)', data);
+  // console.log('renderBestsellersBooksList(data)', data);
   const markup = data
     .map(typeBooks => {
       return `
