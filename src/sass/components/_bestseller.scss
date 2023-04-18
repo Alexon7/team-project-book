@@ -102,9 +102,16 @@
 }
 
 .book-card__link:hover .book-card__overlay {
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transform: translateY(0);
 }
-
+.book-card__item:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.book-card__item {
+  @include transition(all);
+}
 .book-card__quick-view-text {
   font-family: 'DM Sans';
   font-style: normal;
@@ -180,6 +187,7 @@
 
   border: 2px solid #4f2ee8;
   border-radius: 40px;
+  @include transition(all);
 }
 
 .book-card__btn:hover,
