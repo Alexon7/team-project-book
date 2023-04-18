@@ -32,12 +32,12 @@
   align-items: center;
 
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
 
-  width: 24px;
-  height: 24px;
-  padding: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
   background-color: transparent;
   border: none;
   outline: none;
@@ -45,18 +45,17 @@
   cursor: pointer;
 
   @include _tablet {
-    top: 24px;
-    right: 24px;
-    width: 28px;
-    height: 28px;
-    padding: 7px;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
   }
 }
 
 .close-icon {
   fill: $page-color-dark;
-  width: 12px;
-  height: 12px;
+  width: 28px;
+  height: 28px;
 
   .book-modal__close-button:hover &,
   .book-modal__close-button:focus & {
@@ -64,8 +63,8 @@
   }
 
   @include _tablet {
-    width: 14px;
-    height: 14px;
+    width: 32px;
+    height: 32px;
   }
 
   .dark-theme & {
@@ -239,12 +238,21 @@
 }
 
 .book-modal__link {
-  width: 33px;
   height: 100%;
   filter: grayscale(100%);
 }
 
 .amazon {
   width: 62px;
+  height: 100%;
+}
+
+.applebooks {
+  width: 33px;
+  height: 100%;
+}
+
+.bookshop {
+  width: 38px;
   height: 100%;
 }
