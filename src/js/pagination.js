@@ -33,6 +33,7 @@ pagination &&
   pagination.on('beforeMove', e => {
     const currentPage = e.page;
     renderListBooks(currentPage);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
 // ! Створюєио options для пагінації
