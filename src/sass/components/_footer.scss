@@ -1,5 +1,7 @@
 .page-footer {
   &-content {
+    margin-bottom: 30px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,18 +42,61 @@
       font-weight: 500;
       span {
       }
+
+      // .footer__link:hover {
+      //   // transform: 'scale(1.25)';
+      //   // color: violet;
+      //   // transform: rotate(45deg);
+      // }
+      // .footer__link:focus {
+      //   // transform: 'scale(1.25)';
+      //   // color: violet;
+      // }
+      .heart {
+        fill: currentColor;
+      }
+      .heart:hover {
+        color: violet;
+        animation-name: changeColor, scaling;
+        animation-duration: 3000ms;
+      }
+      @keyframes changeColor {
+        0% {
+          color: teal;
+        }
+
+        50% {
+          color: orange;
+        }
+      }
+      @keyframes scaling {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.4);
+        }
+      }
+
+      // .heart:hover {
+      //   transform: 'scale(1.25)';
+      // }
+      // .heart:focus {
+      //   transform: 'scale(1.25)';
+      // }
       // .modal-heart {
       //   width: 20px;
       //   height: 20px;
       // }
-      .button-heart:hover {
-        content: 'scale(1.25)';
-        color: violet;
-      }
-      .button-heart:focus {
-        content: 'scale(1.25)';
-        color: violet;
-      }
+      // .button-heart:hover {
+      //   content: 'scale(1.25)';
+      //   color: violet;
+      // }
+      // .button-heart:focus {
+      //   content: 'scale(1.25)';
+      //   color: violet;
+      // }
       .modal-heart {
         color: currentColor;
       }
