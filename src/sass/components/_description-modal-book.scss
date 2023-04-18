@@ -43,17 +43,12 @@
   cursor: pointer;
 
   @include _tablet {
-      top: 34px;
-      right: 26px;
+      top: 24px;
+      right: 24px;
       width: 28px;
       height: 28px;
       padding: 7px;
     }
-
-  @include _desktop {
-    top: 24px;
-    right: 24px;
-  }
 }
 
 .close-icon {
