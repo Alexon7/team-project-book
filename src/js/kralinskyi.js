@@ -1,7 +1,6 @@
 import { renderShoppingListBooks } from './render-shopping-list.js';
 
 const emptyShoppingList = document.querySelector('.shopping-list__empty');
-const removeBookFromShoppingListBtn = document.querySelector('.delete-btn');
 const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
 
 (function loadList() {
@@ -18,14 +17,19 @@ const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
   renderBookDescriptionEl.innerHTML = renderedList;
 })();
 
-renderBookDescriptionEl.addEventListener('click', onRemoveBookBtnClick);
+const removeBookFromShoppingListBtn = document.querySelector('.delete-btn');
+const shoppingListEl = document.querySelector('.shopping-book');
+
+console.log(shoppingListEl);
+
+console.log(removeBookFromShoppingListBtn);
+
+shoppingListEl.addEventListener('click', onRemoveBookBtnClick);
 
 function onRemoveBookBtnClick(e) {
   e.preventDefault();
 
-  console.log('click!');
+  console.log(e.target.elements);
 }
 
 // !+++++++++++++++++++++++++++++++++++
-
-console.log(renderBookDescriptionEl);

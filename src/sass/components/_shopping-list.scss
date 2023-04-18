@@ -157,12 +157,12 @@
 }
 
 .book__img {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  margin-bottom: 4px;
 }
 
 .book__author {
+  margin-bottom: 48px;
+
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
@@ -178,7 +178,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 48px;
 
   text-align: left;
 }
@@ -187,6 +186,9 @@
 }
 
 .book__text-title {
+  margin-bottom: 4px;
+  max-width: 144px;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.12;
@@ -208,6 +210,12 @@
 }
 
 .book__links {
+  width: 136px;
+  height: 30px;
+
   display: flex;
   gap: 14px;
+}
+
+.book__links > .link {
 }
