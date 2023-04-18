@@ -80,14 +80,28 @@
   font-size: 14px;
   line-height: calc(18 / 14);
   color: $page-color-light;
-}
+
+
+    // &:hover{
+    //   color: #EAC645;
+    // }
+  }
+
 
 .support__link img {
  
   width: auto;
 
   filter: grayscale(100%) invert(50%) brightness(200%);
+  
+
+  &:hover{
+    filter: none;
+  }
+  
+ 
 }
+
 
 .support__btn {
   width: 32px;
@@ -102,6 +116,13 @@
   border-radius: 50%;
   background-color: $page-color-light;
 
+  &:hover
+     {
+      transform: scale(1.2);
+      transition: 0.2s;
+    }
+
+ 
   @media screen and (min-width: 768px) {
     width: 38px;
     height: 38px;
@@ -110,4 +131,8 @@
 
 .support__btn-icon {
   fill: $page-color-accent;
+
+
+
+  
 }
