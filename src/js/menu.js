@@ -26,14 +26,20 @@
   });
 })();
 
+let currentPage = document.querySelector('.desktop-nav__link');
+if (window.location.pathname == '/') {
+  currentPage.classList.add('current');
+}
+if (window.location.pathname == '/team-project-book/') {
+  currentPage.classList.add('current');
+}
+
 let activePage = document.querySelectorAll(
   '.mobile-nav__link, .desktop-nav__link'
 );
 activePage.forEach(el => {
   if (el.getAttribute('href') == window.location.pathname) {
     el.classList.add('current');
-  } else {
-    el.classList.remove('current');
   }
 });
 
