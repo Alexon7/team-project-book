@@ -11,17 +11,19 @@
   padding: 40px 24px;
   position: relative;
   max-width: 335px;
-  transform: translate(0%, 100px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
 
   @include _tablet {
     max-width: 579px;
     padding: 40px;
   }
 
-    .dark-theme & {
-      background-color: $page-color-dark;
-      border: 2px solid $page-color-light;
-    }
+  .dark-theme & {
+    background-color: $page-color-dark;
+    border: 2px solid $page-color-light;
+  }
 }
 
 .book-modal__close-button {
@@ -43,12 +45,12 @@
   cursor: pointer;
 
   @include _tablet {
-      top: 24px;
-      right: 24px;
-      width: 28px;
-      height: 28px;
-      padding: 7px;
-    }
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+    padding: 7px;
+  }
 }
 
 .close-icon {
@@ -61,14 +63,14 @@
     fill: $page-color-accent;
   }
 
-    @include _tablet {
-      width: 14px;
-      height: 14px;
-    }
+  @include _tablet {
+    width: 14px;
+    height: 14px;
+  }
 
-    .dark-theme & {
-      fill: $page-color-light;
-    }
+  .dark-theme & {
+    fill: $page-color-light;
+  }
 }
 
 .book-modal__book {
