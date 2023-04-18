@@ -1,4 +1,3 @@
-import sprite from '../images/sprite.svg';
 import amazon from '../images/Amazon2x.png';
 import apple from '../images/Apple2x.png';
 import bookshop from '../images/Bookshop2x.png';
@@ -8,7 +7,7 @@ export function renderDescBook(aboutBook) {
   return `
   <div class="book-modal">
       <button class="book-modal__close-button" type="button">
-          <svg class=" close-icon " version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          <svg class=" close-icon " version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
               viewBox="0 0 32 32">
               <path
                   d="M7.626 6.245c-0.291 0.085-0.749 0.427-1.029 0.774-0.432 0.533-0.509 1.054-0.24 1.616 0.088 0.184 1.011 1.143 3.665 3.806l3.547 3.56-3.551 3.56c-3.907 3.918-3.806 3.799-3.805 4.44 0 0.449 0.157 0.77 0.586 1.199 0.429 0.43 0.75 0.586 1.199 0.586 0.634 0 0.526 0.093 4.44-3.808l3.56-3.547 3.56 3.547c3.914 3.901 3.806 3.808 4.44 3.808 0.449 0 0.77-0.157 1.199-0.586 0.43-0.429 0.586-0.75 0.586-1.199 0-0.634 0.093-0.526-3.808-4.44l-3.547-3.56 3.547-3.56c3.901-3.914 3.808-3.806 3.808-4.44 0-0.449-0.157-0.77-0.586-1.199-0.429-0.43-0.75-0.586-1.199-0.586-0.634 0-0.526-0.093-4.44 3.808l-3.56 3.547-3.56-3.547c-2.721-2.712-3.619-3.576-3.814-3.67-0.29-0.138-0.728-0.186-1-0.109z">
@@ -50,88 +49,3 @@ export function renderDescBook(aboutBook) {
   </div>
   `;
 }
-/* <a class="modal-book__link" href="">
-              <img
-              class="book-modal__link amazon"
-              src="../images/Amazon.png"
-              alt="Shop logo"
-  
-            />
-        </a>
-        <a class="modal-book__link" href="">
-              <img
-              class="book-modal__link bookshop"
-              src="../images/Bookshop.png"
-              alt="Shop logo"
-            />
-        </a>
-        <a class="modal-book__link" href="">
-              <img
-              class="book-modal__link applebooks"
-              src="../images/Apple Books.png"
-              alt="Shop logo"
-            />
-        </a> */
-
-// !========================================KRALINSKYI============================================================================
-// Перейменовано і переписано.
-/*
-        
-        export function renderBookDescription(bookData) {
-  const { image, title, author, description } = bookData;
-
-  return `
-  <div class="book-modal">
-     <svg class="close-icon" width="24" height="24">
-             <use href="../images/sprite.svg#close-btn"></use>
-      </svg>
-    <div class="book-modal__content">
-     <div class="book-modal__book">
-      <img
-      src=${book_image}
-        class="book-modal__img"
-        alt="${title}"
-        loading="lazy"
-      />
-      <div>
-        <div class="book-modal__text">
-          <h4 class="book-modal__title">${title}</h4>
-          <h4 class="book-modal__author">${author}</h4>
-          <p class="book-modal__description">${description}</p>
-        </div>
-        <div class="book-modal__links">
-          <a class="book-modal__link" href="">
-            <img
-              class="book-modal__link-image amazon"
-              src="../images/Amazon.png"
-              alt="Amazon logo"
-            />
-          </a>
-          <a class="book-modal__link" href="">
-            <img
-              class="book-modal__link-image bookshop"
-              src="../images/Bookshop.png"
-              alt="Bookshop logo"
-            />
-          </a>
-          <a class="book-modal__link" href="">
-            <img
-              class="book-modal__link-image apple-books"
-              src="../images/Apple Books.png"
-              alt="Apple Books logo"
-            />
-          </a>
-        </div>
-      </div>
-     </div>
-     <button class="book-modal__button btn-add active" type="button">Add to shopping list</button>
-     <div class="btn-remove-wrapper">
-         <button class="book-modal__button btn-remove" type="button">Remove from shopping list</button>
-         <p class="button-text">Congratulations! You have added the book to the shopping list. To delete, press the button "Remove from the shopping list".</p>
-     </div>
-    </div>
-  </div>
-  `;
-}
-
-        */
