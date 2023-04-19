@@ -139,6 +139,10 @@ body.dark-theme > header {
   min-width: 170px;
 }
 
+.mobile-btn {
+  margin-left: 20px;
+}
+
 .auth {
   gap: 55px;
   border: 1.5px solid $shopping-list-title;
@@ -252,6 +256,7 @@ body.dark-theme > header {
   display: flex;
   justify-content: space-between;
   padding: 18px 20px;
+  margin-bottom: 20px;
 }
 
 body.dark-theme > header > .menu-container > .mobile-header {
