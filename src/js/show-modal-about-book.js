@@ -48,6 +48,7 @@ export const showBookModal = async bookId => {
   //   });
   // };
 
+  ///проверка от ментора
   btnAddBookToShoppingList.addEventListener('click', event => {
     const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
     const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
@@ -72,6 +73,3 @@ export const showBookModal = async bookId => {
   const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
   isAddShoppingList ? showRemove() : showAdd();
 };
-
-const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
-isAddShoppingList ? showRemove() : showAdd();
