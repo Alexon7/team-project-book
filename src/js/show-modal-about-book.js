@@ -28,8 +28,8 @@ export const showBookModal = async bookId => {
     btnRemoveBookFromShoppingList.classList.add('active');
   };
 
-  // const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
-  // isAddShoppingList ? showRemove() : showAdd();
+  const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
+  isAddShoppingList ? showRemove() : showAdd();
 
   // добавляем в LS книгу
   //   btnAddBookToShoppingList.addEventListener('click', event => {
@@ -48,7 +48,7 @@ export const showBookModal = async bookId => {
   //   });
   // };
 
-  ///проверка от ментора
+  ///добавление книги
   btnAddBookToShoppingList.addEventListener('click', event => {
     const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
     const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
@@ -68,8 +68,4 @@ export const showBookModal = async bookId => {
     localStorage.setItem('shoppingList', JSON.stringify(filteredBooks));
     showAdd();
   });
-
-  console.log(allBooks);
-  const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
-  isAddShoppingList ? showRemove() : showAdd();
 };
