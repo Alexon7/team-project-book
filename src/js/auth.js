@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { firebaseSettings } from './auth-settings';
 import {
   AuthErrorCodes,
   getAuth,
@@ -15,10 +15,9 @@ import 'firebase/database';
 import { Database } from 'firebase/database';
 // import { databaseURL } from 'firebase/firebase-database';
 
-// console.log(AuthErrorCodes);
-const authBackDrop = document.querySelector('.auth__backdrop');
+console.log(UserInfo);
 const elipsBackDrop = document.querySelector('.elips');
-
+const authBackDrop = document.querySelector('.auth__backdrop');
 const authForm = document.querySelector('.auth__form');
 const authButtonClose = document.querySelector('.auth__button__close');
 const userNickname = document.querySelector('#user_name');
@@ -29,25 +28,18 @@ const btnSignup = document.querySelector('#btnSignup');
 const btnLogout = document.querySelector('#btnLogout');
 const linkSignUp = document.querySelector('.link__signup');
 const linkSignIn = document.querySelector('.link__signin');
+const blockSignUP = document.querySelector('.signup__block');
 const messageLogin = document.querySelector('.message__login');
 const avatarNickName = document.querySelector('.users-login');
 const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
 const signupDesktop = document.querySelector('.sign-up__btn');
+const avatarNickNameMobile = document.getElementById('user-login-mobile');
+const logoutMobile = document.getElementById('log-out-mobile');
+const userDataMobile = document.querySelector('.users-data');
 
-console.log(signupDesktop);
-
-const firebaseSettings = initializeApp({
-  appName: 'BookProject',
-  apiKey: 'AIzaSyCeohKwpW6233js3UPE5dhzJtQnOMgZfaI',
-  authDomain: 'itsharks-books-project.firebaseapp.com',
-  databaseURL: 'https://itsharks-books-project-default-rtdb.firebaseio.com',
-  projectId: 'itsharks-books-project',
-  storageBucket: 'itsharks-books-project.appspot.com',
-  messagingSenderId: '560994919300',
-  appId: '1:560994919300:web:10cdf4110616a9d01f33d1',
-});
+console.log(avatarNickNameMobile);
 
 const auth = getAuth(firebaseSettings);
 // console.log(auth);
@@ -109,9 +101,6 @@ const showLoginError = error => {
 };
 
 const showLoginState = user => {
-  // console.log(
-  //   `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `
-  // );
   messageLogin.insertAdjacentHTML(
     'beforeend',
     `<p class="auth__true__notify">You're logged in as <span>${user.email}<span></p>`
@@ -132,6 +121,7 @@ linkSignIn?.addEventListener('click', () => {
   linkSignIn.style.display = 'none';
   userNickname.style.display = 'none';
   messageLogin.innerHTML = '';
+  blockSignUP.classList.remove('is-hidden');
 
   messageLogin.insertAdjacentHTML(
     'beforeend',
@@ -142,7 +132,7 @@ linkSignIn?.addEventListener('click', () => {
 linkSignUp?.addEventListener('click', () => {
   btnLogin.style.display = 'none';
   btnSignup.style.display = 'block';
-  linkSignUp.style.display = 'none';
+  blockSignUP.classList.add('is-hidden');
   linkSignIn.style.display = 'block';
   userNickname.style.display = 'block';
   btnLogin.disabled = true;
@@ -197,9 +187,7 @@ const createAccount = async event => {
   userNickname.style.display = 'block';
   try {
     await createUserWithEmailAndPassword(auth, email, password).then(() => {
-      updateProfile(auth.currentUser, {
-        displayName: nickname,
-      });
+      updateUserNickname(nickname);
     });
   } catch {
     error => {
@@ -218,6 +206,7 @@ const monitorAuthState = async () => {
       messageLogin.innerHTML = '';
       userInterface.style.display = 'flex';
       signupDesktop.classList.add('is-hidden');
+      userDataMobile.classList.remove('is-hidden');
 
       showLoginState(user);
       setTimeout(() => {
@@ -226,8 +215,12 @@ const monitorAuthState = async () => {
 
       if (user.displayName !== null) {
         avatarNickName.textContent = `${user.displayName}`;
+        avatarNickNameMobile.textContent = `${user.displayName}`;
       } else {
         avatarNickName.textContent = `${user.email}`.slice(0, 2).toUpperCase();
+        avatarNickNameMobile.textContent = `${user.email}`
+          .slice(0, 2)
+          .toUpperCase();
         avatarNickName.style.color = 'grey';
       }
     } else {
@@ -238,6 +231,7 @@ const monitorAuthState = async () => {
       );
       showLoginForm();
       userInterface.style.display = 'none';
+      userDataMobile.classList.add('is-hidden');
     }
   });
 };
@@ -265,6 +259,7 @@ btnLogout?.addEventListener('click', logout);
 authButtonClose?.addEventListener('click', () => {
   authBackDrop.classList.add('is-hidden');
 });
+logoutMobile.addEventListener('click', logout);
 const test = document.querySelector('.dropdown-content');
 
 test.onclick = function (event) {
@@ -289,3 +284,9 @@ function closeModalOnBackDrop(event) {
     authBackDrop.classList.add('is-hidden');
   }
 }
+
+const updateUserNickname = nickname => {
+  updateProfile(auth.currentUser, {
+    displayName: nickname,
+  });
+};

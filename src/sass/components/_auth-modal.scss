@@ -9,22 +9,23 @@
   overflow: auto;
 
   background: $page-color-accent;
-  // background: rgb(156, 135, 255);
-  // background: linear-gradient(
-  //   93deg,
-  //   rgba(156, 135, 255, 1) 0%,
-  //   rgba(79, 46, 232, 1) 30%
-  // );
-
   text-align: center;
   padding: 10px;
   z-index: 100;
+}
 
-  &.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .elips {
@@ -215,6 +216,9 @@
   font-size: 10px;
 }
 
+
+.auth__icon__name,
+.auth__icon__pass,
 .auth__icon__mail {
   position: absolute;
 
@@ -243,32 +247,10 @@
   }
 }
 
-.auth__icon__pass {
-  position: absolute;
-
-  top: 10;
-  right: 20;
-
-  width: 20px;
-  height: 20px;
-
-  @include _mobile {
-    width: 24px;
-    height: 24px;
-
-    top: 15;
-    right: 25;
-  }
-
-  @include _tablet {
-    width: 28px;
-    height: 28px;
-  }
-
-  @include _desktop {
-    top: 18;
-    right: 32;
-  }
+.auth__icon__name {
+fill: none;
+stroke: #000;
+stroke-width: 1.5px;
 }
 
 .auth__button {
@@ -354,7 +336,6 @@
   display: none;
 }
 
-.link__signup,
 .link__signin {
   margin-top: 20px;
   margin-left: auto;
@@ -368,6 +349,27 @@
   border-bottom: 2px solid $page-color-accent;
   text-transform: uppercase;
 }
+
+.signup__block {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+}
+
+
+.link__signup {
+  margin-left: 10px;
+  // margin-right: auto;
+  border: none;
+  background: none;
+  font-weight: 700;
+  line-height: 24px;
+  color: $page-color-accent;
+
+  border-bottom: 2px solid $page-color-accent;
+  text-transform: uppercase;
+}
+
 
 .auth__notify {
   margin-bottom: 20px;
@@ -407,6 +409,3 @@
   margin-right: auto;
 }
 
-.dropdown-content {
-  outline: 1px red solid;
-}
