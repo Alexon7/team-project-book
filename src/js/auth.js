@@ -35,44 +35,15 @@ const signupDesktop = document.querySelector('.sign-up__btn');
 const avatarNickNameMobile = document.getElementById('user-login-mobile');
 const logoutMobile = document.getElementById('log-out-mobile');
 const userDataMobile = document.querySelector('.users-data');
+const userSignupMobile = document.getElementById('sign-up-mobile');
 
 console.log(avatarNickNameMobile);
 
 const auth = getAuth(firebaseSettings);
-// console.log(auth);
-// console.log(btnLogin.disabled);
-// console.log(userEmail.value);
-class Accounts {
-  static create(account) {
-    fetch(
-      'https://itsharks-books-project-default-rtdb.firebaseio.com/accounts.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(account),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        account.id = response.nickname;
-        return account;
-      })
-      .then(addToLocalStorage);
-  }
-}
 
-function addToLocalStorage(account) {
-  const all = getAccountFromLocaleStorage();
-  all.push(account);
-  localStorage.setItem('accounts', JSON.stringify(all));
-}
-
-function getAccountFromLocaleStorage() {
-  return JSON.parse(localStorage.getItem('accounts') || '[]');
-}
+const showModal = () => {
+  authBackDrop.classList.remove('is-hidden');
+};
 
 // Login using email/password
 const loginEmailPassword = async e => {
@@ -134,46 +105,12 @@ linkSignUp?.addEventListener('click', () => {
   userNickname.style.display = 'block';
   btnLogin.disabled = true;
   messageLogin.innerHTML = '';
+  authForm.reset();
   messageLogin.insertAdjacentHTML(
     'beforeend',
     `<p class="auth__notify">You can SIGN UP on this website</p>`
   );
 });
-
-// Create new account using email/password
-// const createAccount = async event => {
-//   event.preventDefault();
-//   const nickname = userNickname.value.trim();
-//   const email = userEmail.value.trim();
-//   const password = userPassword.value.trim();
-//   userNickname.style.display = 'block';
-
-// const account = {
-//   nickname: nickname,
-//   email: email,
-//   password: password,
-// };
-
-// Accounts.create(account).then(() => {
-//   console.log('Hello');
-// });
-
-//   try {
-//     await createUserWithEmailAndPassword(auth, email, password).then(
-//       updateProfile(auth.currentUser, {
-//         displayName: nickname,
-//       })
-//     );
-//     // Accounts.create(account);
-//     // alert('HOHOOHO');
-//     // console.log(res);
-//     // console.log(email);
-//   } catch (error) {
-//     console.log(`There was an error: ${error}`);
-//     showLoginError(error);
-//     console.log(showLoginError(error));
-//   }
-// };
 
 // Create new account using email/password
 const createAccount = async event => {
@@ -191,7 +128,9 @@ const createAccount = async event => {
       console.log(error);
     };
   }
-  //  await location.reload();
+  setTimeout(() => {
+    location.reload();
+  }, 500);
 };
 
 btnSignup?.addEventListener('click', createAccount);
@@ -204,6 +143,8 @@ const monitorAuthState = async () => {
       userInterface.style.display = 'flex';
       signupDesktop.classList.add('is-hidden');
       userDataMobile.classList.remove('is-hidden');
+      logoutMobile.classList.remove('is-hidden');
+      userSignupMobile.classList.add('is-hidden');
 
       showLoginState(user);
       setTimeout(() => {
@@ -229,6 +170,7 @@ const monitorAuthState = async () => {
       showLoginForm();
       userInterface.style.display = 'none';
       userDataMobile.classList.add('is-hidden');
+      logoutMobile.classList.add('is-hidden');
     }
   });
 };
@@ -247,8 +189,7 @@ const showLoginForm = () => {
 export const logout = async () => {
   await signOut(auth);
   signupDesktop.classList.remove('is-hidden');
-
-  // location.reload();
+  location.reload();
 };
 
 btnLogin?.addEventListener('click', loginEmailPassword);
@@ -257,16 +198,16 @@ authButtonClose?.addEventListener('click', () => {
   authBackDrop.classList.add('is-hidden');
 });
 logoutMobile.addEventListener('click', logout);
-const test = document.querySelector('.dropdown-content');
+userSignupMobile.addEventListener('click', showModal);
 
-test.onclick = function (event) {
-  if (event.target === test) {
+const logoutDesktop = document.querySelector('.dropdown-content');
+
+logoutDesktop.onclick = function (event) {
+  if (event.target === logoutDesktop) {
     logout();
-    alert('You are welcome');
   }
 };
 monitorAuthState();
-// console.log(auth);
 
 function closeModal(event) {
   if (event.code === 'Escape') {
