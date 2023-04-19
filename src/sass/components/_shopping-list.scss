@@ -66,7 +66,7 @@
     }
 
     @include _desktop {
-      margin-bottom: 140px;
+      // margin-bottom: 140px;
     }
 
     &__span {
@@ -83,6 +83,9 @@
     width: 265px;
     @include _tablet {
       width: 349px;
+    }
+    @include _desktop {
+      margin-top: 140px;
     }
   }
 
@@ -167,6 +170,14 @@
   margin-bottom: 4px;
 }
 
+.book__links {
+  align-items: center;
+}
+
+.book__link {
+  width: 100%;
+}
+
 .book__author {
   margin-bottom: 48px;
 
@@ -179,6 +190,9 @@
   text-align: left;
 
   color: #b4afaf;
+  @include _tablet {
+    margin-bottom: 0;
+  }
 }
 
 .content {
@@ -202,6 +216,10 @@
 
   letter-spacing: -0.04em;
   text-transform: uppercase;
+
+  @include _tablet {
+    max-width: fit-content;
+  }
 }
 
 .book__text-type {

@@ -15,6 +15,7 @@ export function renderShoppingListBooks(savedBooks) {
         </svg>
       </button>
       <div class="content">
+      
         <div class="book">
         <div class="book__img">  
         <img
@@ -33,23 +34,25 @@ export function renderShoppingListBooks(savedBooks) {
                       <a class="modal-book__link" href="${
                         book.buy_links[0].url
                       }" target="_blank">
-                          <img class="book-modal__link amazon" src=${amazon} alt="Shop logo" />
+                          <img class="book__link" src=${amazon} alt="Shop logo" width="48"/>
                       </a>
                       <a class="modal-book__link" href="${
                         book.buy_links[1].url
                       }" target="_blank">
-                          <img class="book-modal__link applebooks" src=${apple} alt="Shop logo" />
+                          <img class="book__link" src=${apple} alt="Shop logo" width="28"/>
                       </a>
                       <a class="modal-book__link" href="${
                         book.buy_links[4].url
                       }" target="_blank">
-                          <img class="book-modal__link bookshop" src=${bookshop} alt="Shop logo" />
+                          <img class="book__link" src=${bookshop} alt="Shop logo" width="32">
                       </a>
                   </div>
           </div>
         </div>
+        <div class="book__desc">
         <h4 class="book__author">${book.author}</h4>
         <p class="description">${book.description}</p>
+        </div>
       </div>
     </li>`;
   return savedBooks.map(bookItemTemplate).join('');
