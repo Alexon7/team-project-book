@@ -17,8 +17,9 @@ import { Database } from 'firebase/database';
 
 // console.log(AuthErrorCodes);
 const authBackDrop = document.querySelector('.auth__backdrop');
+const elipsBackDrop = document.querySelector('.elips');
+
 const authForm = document.querySelector('.auth__form');
-const authInputs = document.querySelector('.auth__unputs');
 const authButtonClose = document.querySelector('.auth__button__close');
 const userNickname = document.querySelector('#user_name');
 const userEmail = document.querySelector('#user_email');
@@ -33,6 +34,9 @@ const avatarNickName = document.querySelector('.users-login');
 const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
+const signupDesktop = document.querySelector('.sign-up__btn');
+
+console.log(signupDesktop);
 
 const firebaseSettings = initializeApp({
   appName: 'BookProject',
@@ -202,6 +206,7 @@ const createAccount = async event => {
       console.log(error);
     };
   }
+  //  await location.reload();
 };
 
 btnSignup?.addEventListener('click', createAccount);
@@ -212,6 +217,7 @@ const monitorAuthState = async () => {
     if (user) {
       messageLogin.innerHTML = '';
       userInterface.style.display = 'flex';
+      signupDesktop.classList.add('is-hidden');
 
       showLoginState(user);
       setTimeout(() => {
@@ -242,11 +248,15 @@ const showLoginForm = () => {
   userNickname.style.display = 'none';
   userEmail.value = '';
   userPassword.value = '';
+  window.addEventListener('keydown', closeModal);
+  window.addEventListener('click', closeModalOnBackDrop);
 };
 
 // Log out
 export const logout = async () => {
   await signOut(auth);
+  signupDesktop.classList.remove('is-hidden');
+
   // location.reload();
 };
 
@@ -255,6 +265,27 @@ btnLogout?.addEventListener('click', logout);
 authButtonClose?.addEventListener('click', () => {
   authBackDrop.classList.add('is-hidden');
 });
+const test = document.querySelector('.dropdown-content');
 
+test.onclick = function (event) {
+  if (event.target === test) {
+    logout();
+    alert('You are welcome');
+  }
+};
 monitorAuthState();
 // console.log(auth);
+
+function closeModal(event) {
+  if (event.code === 'Escape') {
+    authBackDrop.classList.add('is-hidden');
+  }
+}
+function closeModalOnBackDrop(event) {
+  if (event.target === elipsBackDrop) {
+    authBackDrop.classList.add('is-hidden');
+  }
+  if (event.target === authBackDrop) {
+    authBackDrop.classList.add('is-hidden');
+  }
+}

@@ -1,4 +1,5 @@
 .auth__backdrop {
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,6 +9,12 @@
   overflow: auto;
 
   background: $page-color-accent;
+  // background: rgb(156, 135, 255);
+  // background: linear-gradient(
+  //   93deg,
+  //   rgba(156, 135, 255, 1) 0%,
+  //   rgba(79, 46, 232, 1) 30%
+  // );
 
   text-align: center;
   padding: 10px;
@@ -21,9 +28,10 @@
 }
 
 .elips {
+  z-index: -5;
   position: absolute;
 
-  background: rgba(204, 236, 231, 0.5);
+  background: rgba(203, 236, 231, 0.502);
   filter: blur(539.791px);
 
   @include _tablet {
@@ -397,4 +405,8 @@
 .auth__button__logout {
   margin-left: auto;
   margin-right: auto;
+}
+
+.dropdown-content {
+  outline: 1px red solid;
 }
