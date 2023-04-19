@@ -140,16 +140,20 @@ function onRemoveBookBtnClick(e) {
   dataBooks = dataBooks.filter(book => book._id !== bookToRemoveId);
   localStorage.setItem('shoppingList', JSON.stringify(dataBooks));
 
-  renderBookDescriptionEl.innerHTML = '';
-  if (allShoppingListBooks.length === 0 || !allShoppingListBooks) {
+  if (dataBooks.length === 0 || !dataBooks) {
+    renderBookDescriptionEl.innerHTML = '';
     renderBookDescriptionEl.classList.add('is-hidden');
     container.classList.add('is-hidden');
+    emptyShoppingList.classList.remove('is-hidden');
     return;
   }
-  if (allShoppingListBooks.length < 4) {
+  if (dataBooks.length < 4) {
+    renderBookDescriptionEl.innerHTML = '';
     container.classList.add('is-hidden');
+    renderListBooks(1);
     return;
   }
+  renderBookDescriptionEl.innerHTML = '';
   pagination.reset(dataBooks.length);
   renderListBooks(currentPage);
   pagination.on('beforeMove', e => {
