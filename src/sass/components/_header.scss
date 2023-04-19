@@ -94,6 +94,15 @@ body.dark-theme > header {
   align-items: center;
 }
 
+.desktop-nav__link:hover,
+.mobile-nav__link:hover {
+  color: $page-color-accent;
+  box-shadow: 4px 3px 5px 0px rgba(231, 147, 85, 0.73);
+  background: $current-page-color;
+  border-radius: 36px;
+  padding: 8px 16px;
+}
+
 .desktop-nav__link.icon,
 .mobile-nav__link.icon {
   display: inline-flex;
@@ -137,6 +146,11 @@ body.dark-theme > header {
   border: none;
   cursor: pointer;
   min-width: 170px;
+}
+
+.sign-up__btn:hover {
+  border: none;
+  box-shadow: 4px 3px 5px 0px rgba(79, 46, 232, 0.73);
 }
 
 .mobile-btn {
@@ -244,6 +258,10 @@ body.dark-theme > header {
         #4f2ee8 18.03%,
         #ffffff 100%
       );
+  }
+
+  @media screen and (min-width: 376px) {
+    background-position-x: right;
   }
   z-index: 2;
 }
