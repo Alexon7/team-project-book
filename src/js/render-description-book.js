@@ -1,5 +1,4 @@
 // import amazon from '../images/Amazon2x.png';
-
 import amazon from '../images/Amazon_dark2x.png';
 import apple from '../images/Apple2x.png';
 import bookshop from '../images/Bookshop2x.png';
