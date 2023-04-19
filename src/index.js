@@ -12,3 +12,4 @@ import './js/render-support-Ukraine';
 import './js/swiper';
 import './js/render-bestseller-book';
 import './js/back-to-top';
+import './js/footer';

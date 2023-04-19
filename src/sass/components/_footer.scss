@@ -40,8 +40,8 @@
       font-size: 21px;
       color: grey;
       font-weight: 500;
-      span {
-      }
+      // span {
+      // }
 
       // .footer__link:hover {
       //   // transform: 'scale(1.25)';
@@ -107,4 +107,38 @@
       }
     }
   }
+
+  .footer__link {
+    display: none;
+  }
+}
+
+// .page-footer-goit {
+//   position: relative;
+// }
+
+// .footer__link {
+//   position: absolute;
+//   top: -100px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   color: #5c4bdb;
+//   // display: inline-block;
+//   text-align: center;
+// }
+
+.message {
+  position: fixed;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.33;
+  letter-spacing: 0.1em;
+  bottom: 100px;
+  left: 60%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #f6f6f6;
+  color: #5c4bdb;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
