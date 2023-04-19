@@ -29,15 +29,37 @@ export const showBookModal = async bookId => {
     btnRemoveBookFromShoppingList.classList.add('active');
   };
 
-  const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
-  isAddShoppingList ? showRemove() : showAdd();
+  // const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
+  // isAddShoppingList ? showRemove() : showAdd();
 
   // добавляем в LS книгу
+  //   btnAddBookToShoppingList.addEventListener('click', event => {
+  //     allBooks.push(newBook);
+  //     console.log('добавленные книги', allBooks);
+  //     localStorage.setItem('shoppingList', JSON.stringify(allBooks));
+  //     showRemove();
+  //   });
+
+  //   btnRemoveBookFromShoppingList.addEventListener('click', event => {
+  //     const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  //     const filteredBooks = allBooks.filter(book => book._id !== newBook._id);
+
+  //     localStorage.setItem('shoppingList', JSON.stringify(filteredBooks));
+  //     showAdd();
+  //   });
+  // };
+
+  ///проверка от ментора
   btnAddBookToShoppingList.addEventListener('click', event => {
-    allBooks.push(newBook);
-    console.log('добавленные книги', allBooks);
-    localStorage.setItem('shoppingList', JSON.stringify(allBooks));
-    showRemove();
+    const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
+    const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
+
+    if (!isAddShoppingList) {
+      allBooks.push(newBook);
+      console.log('добавленные книги', allBooks);
+      localStorage.setItem('shoppingList', JSON.stringify(allBooks));
+      showRemove();
+    }
   });
 
   btnRemoveBookFromShoppingList.addEventListener('click', event => {
@@ -47,4 +69,8 @@ export const showBookModal = async bookId => {
     localStorage.setItem('shoppingList', JSON.stringify(filteredBooks));
     showAdd();
   });
+
+  console.log(allBooks);
+  const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
+  isAddShoppingList ? showRemove() : showAdd();
 };
