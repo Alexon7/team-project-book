@@ -46,7 +46,7 @@
   &__desktop {
     @include _desktop {
       margin-left: 40px;
-      width: -webkit-fill-available;
+      max-width: 1440px;
     }
   }
 
