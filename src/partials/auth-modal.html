@@ -4,7 +4,7 @@
   <!-- <div class="auth__backdrop"> -->
   <!-- elips -->
   <!-- modal -->
-  <div class="auth__modal"> 
+  <div class="auth__modal">
     <!-- close btn -->
     <button class="auth__button__close">
       <svg class="auth__icon__close">
@@ -25,7 +25,10 @@
             autocomplete="nickname"
             required
           />
-          <label class="auth__label" for="user_name">name</label>
+          <label class="auth__label" for="user_name">name</label>  
+          <svg class="auth__icon__name">
+            <use href="./images/sprite.svg#user-ico"></use>
+          </svg>
         </div>
 
         <div class="auth__field">
@@ -47,22 +50,20 @@
           <input
             type="password"
             name="password"
-            class="auth__input"
-            id="user_password"
+            class="auth__input" 
+            id="user_password"  
             autocomplete="new-password"
             required
           />
-          <label class="auth__label" for="user_password"
-            >password
-            <svg class="auth__icon__pass">
-              <use href="./images/sprite.svg#pass"></use>
-            </svg>
-          </label>
+          <label class="auth__label" for="user_password">password </label>
+          <svg class="auth__icon__pass">
+            <use href="./images/sprite.svg#pass"></use>
+          </svg>
         </div>
       </div>
       <!-- btn submit -->
       <button
-        type="submit"
+        type="submit" 
         class="auth__button__signin auth__button"
         id="btnLogin"
       >

@@ -35,8 +35,9 @@ const userInterface = document.querySelector(
   '.users-data--tablet'
 ).lastElementChild;
 const signupDesktop = document.querySelector('.sign-up__btn');
+const avatarNickNameMobile = document.getElementById('user-login-mobile');
 
-console.log(signupDesktop);
+console.log(avatarNickNameMobile);
 
 const firebaseSettings = initializeApp({
   appName: 'BookProject',
@@ -109,10 +110,7 @@ const showLoginError = error => {
 };
 
 const showLoginState = user => {
-  // console.log(
-  //   `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `
-  // );
-  messageLogin.insertAdjacentHTML(
+messageLogin.insertAdjacentHTML(
     'beforeend',
     `<p class="auth__true__notify">You're logged in as <span>${user.email}<span></p>`
   );
@@ -226,8 +224,12 @@ const monitorAuthState = async () => {
 
       if (user.displayName !== null) {
         avatarNickName.textContent = `${user.displayName}`;
+        avatarNickNameMobile.textContent = `${user.displayName}`;
       } else {
         avatarNickName.textContent = `${user.email}`.slice(0, 2).toUpperCase();
+        avatarNickNameMobile.textContent = `${user.email}`
+          .slice(0, 2)
+          .toUpperCase();
         avatarNickName.style.color = 'grey';
       }
     } else {
@@ -289,3 +291,4 @@ function closeModalOnBackDrop(event) {
     authBackDrop.classList.add('is-hidden');
   }
 }
+
