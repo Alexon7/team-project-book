@@ -1,6 +1,10 @@
 import sprite from '../images/sprite.svg';
-import '../images/Apple.png';
-import '../images/Bookshop.png';
+// import '../images/Apple.png';
+// import '../images/Bookshop.png';
+
+import amazon from '../images/Amazon2x.png';
+import apple from '../images/Apple2x.png';
+import bookshop from '../images/Bookshop2x.png';
 
 export function renderShoppingListBooks(savedBooks) {
   const bookItemTemplate = book => `
@@ -25,25 +29,23 @@ export function renderShoppingListBooks(savedBooks) {
           <div class="book__text">
             <h4 class="book__text-title">${book.title}</h4>
             <h4 class="book__text-type">${book.list_name}</h4>
-            <div class="book__links">
-              ${book.buy_links
-                .filter(
-                  link =>
-                    link.name === 'Amazon' ||
-                    link.name === 'Bookshop' ||
-                    link.name === 'Apple Books'
-                )
-                .map(link => {
-                  return `<a class="link" href=${link.url}>
-                    <img
-                      class="images ${link.name}"
-                      src="./images/${link.name}.png"
-                      alt="Shop logo"
-                    />
-                  </a>`;
-                })
-                .join('')}
-            </div>
+             <div class="book__links">
+                      <a class="modal-book__link" href="${
+                        book.buy_links[0].url
+                      }" target="_blank">
+                          <img class="book-modal__link amazon" src=${amazon} alt="Shop logo" />
+                      </a>
+                      <a class="modal-book__link" href="${
+                        book.buy_links[1].url
+                      }" target="_blank">
+                          <img class="book-modal__link applebooks" src=${apple} alt="Shop logo" />
+                      </a>
+                      <a class="modal-book__link" href="${
+                        book.buy_links[4].url
+                      }" target="_blank">
+                          <img class="book-modal__link bookshop" src=${bookshop} alt="Shop logo" />
+                      </a>
+                  </div>
           </div>
         </div>
         <h4 class="book__author">${book.author}</h4>
