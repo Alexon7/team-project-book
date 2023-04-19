@@ -6,8 +6,6 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  UserInfo,
-  updateCurrentUser,
   updateProfile,
 } from 'firebase/auth';
 import 'firebase/firestore';
@@ -15,7 +13,6 @@ import 'firebase/database';
 import { Database } from 'firebase/database';
 // import { databaseURL } from 'firebase/firebase-database';
 
-console.log(UserInfo);
 const elipsBackDrop = document.querySelector('.elips');
 const authBackDrop = document.querySelector('.auth__backdrop');
 const authForm = document.querySelector('.auth__form');
