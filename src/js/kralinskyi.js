@@ -10,7 +10,10 @@ const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
   // console.log(dataBooks);
 
   // Якщо масив книжок є  ----
-  dataBooks && emptyShoppingList.classList.add('is-hidden');
+  // dataBooks && emptyShoppingList.classList.add('is-hidden');
+  if (dataBooks) {
+    emptyShoppingList.classList.add('is-hidden');
+  }
 
   const renderedList = renderShoppingListBooks(dataBooks);
 
@@ -23,6 +26,7 @@ function onRemoveBookBtnClick(e) {
   if (e.target.dataset.action !== 'delete') {
     return;
   }
+  renderBookDescriptionEl.innerHTML = ``;
   const parentNode = e.target.closest('.shopping-book');
   const bookToRemoveId = parentNode.dataset.id;
 
