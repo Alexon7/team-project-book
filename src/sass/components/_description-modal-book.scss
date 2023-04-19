@@ -73,6 +73,12 @@
   }
 }
 
+.book-modal__content {
+  width: 100%;
+  height: auto;
+  max-height: 806px;
+}
+
 .book-modal__book {
   @include _tablet {
     display: flex;

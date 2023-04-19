@@ -47,7 +47,6 @@ export function renderDescBook(aboutBook) {
               <p class="button-text">Сongratulations! You have added the book to the shopping list. To delete, press the
                   button “Remove from the shopping list”.</p>
           </div>
-
       </div>
   </div>
   `;
