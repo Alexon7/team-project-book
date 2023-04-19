@@ -27,11 +27,13 @@
 })();
 
 let currentPage = document.querySelector('.desktop-nav__link');
-if (window.location.pathname == '/') {
+let currentPageMob = document.querySelector('.mobile-nav__link');
+if (
+  window.location.pathname == '/' ||
+  window.location.pathname == '/team-project-book/'
+) {
   currentPage.classList.add('current');
-}
-if (window.location.pathname == '/team-project-book/') {
-  currentPage.classList.add('current');
+  currentPageMob.classList.add('current');
 }
 
 let activePage = document.querySelectorAll(
