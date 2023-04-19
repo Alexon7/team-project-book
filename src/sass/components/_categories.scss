@@ -54,7 +54,7 @@
   color: rgba(17, 17, 17, 0.6);
   letter-spacing: -0.02em;
   cursor: pointer;
-
+  @include transition(all);
   // @include _tablet {
   //   width: 337px;
   //   font-size: 18px;

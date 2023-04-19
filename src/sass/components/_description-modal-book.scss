@@ -6,36 +6,70 @@
 
 .book-modal {
   background-color: $page-color-light;
-  outline: 2px solid $page-color-dark;
+  border: 2px solid $page-color-dark;
   border-radius: 18px;
   padding: 40px 24px;
   position: relative;
   max-width: 335px;
-  transform: translate(0%, 100px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
 
   @include _tablet {
     max-width: 579px;
     padding: 40px;
   }
+
+  .dark-theme & {
+    background-color: $page-color-dark;
+    border: 2px solid $page-color-light;
+  }
 }
 
-.dark-theme .book-modal {
-  background-color: #202024;
-  outline: 2px solid $page-color-light;
+.book-modal__close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  @include _tablet {
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .close-icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 6px;
-  cursor: pointer;
   fill: $page-color-dark;
-}
+  width: 28px;
+  height: 28px;
 
-.close-icon:hover,
-.close-icon:focus {
-  fill: $page-color-accent;
+  .book-modal__close-button:hover &,
+  .book-modal__close-button:focus & {
+    fill: $page-color-accent;
+  }
+
+  @include _tablet {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dark-theme & {
+    fill: $page-color-light;
+  }
 }
 
 .book-modal__book {
@@ -48,14 +82,16 @@
 
 .book-modal__img {
   display: block;
+  width: 287px;
   height: 408px;
   border-radius: 8px;
   margin: auto;
   margin-bottom: 14px;
 
   @include _tablet {
-    height: 281px;
     width: 192px;
+    height: 281px;
+    margin-left: 0;
     margin-right: 24px;
   }
 }
@@ -68,7 +104,8 @@
   letter-spacing: -0.04em;
 
   margin-bottom: 4px;
-  color: $page-color-dark;
+  color: $shopping-list-title;
+  text-transform: uppercase;
 
   @include _tablet {
     font-size: 24px;
@@ -78,11 +115,10 @@
 }
 
 .dark-theme .book-modal__title,
-.dark-theme .book-modal__author,
 .dark-theme .book-modal__description,
 .dark-theme .modal-book__button {
   color: $page-color-light;
-  background-color: #202024;
+  background-color: $page-color-dark;
 }
 
 .book-modal__author {
@@ -190,12 +226,33 @@
   flex-wrap: wrap;
   align-items: center;
   height: 36px;
+  filter: contrast(-100%);
 
   @include _tablet {
     margin-top: 20px;
   }
 }
 
-.book-modal__links:hover {
+.book-modal__link:hover {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.book-modal__link {
+  height: 100%;
+  filter: grayscale(100%);
+}
+
+.amazon {
+  width: 62px;
+  height: 100%;
+}
+
+.applebooks {
+  width: 33px;
+  height: 100%;
+}
+
+.bookshop {
+  width: 38px;
+  height: 100%;
 }

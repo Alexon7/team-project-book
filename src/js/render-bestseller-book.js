@@ -19,8 +19,8 @@ let currentRenderWidth = window.innerWidth;
 addEventListener('resize', event => {
   if (
     (window.innerWidth > 767 && currentRenderWidth < 768) ||
-    (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
-    (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    (window.innerWidth > 1279 && currentRenderWidth < 1280) ||
+    (window.innerWidth < 1280 && currentRenderWidth > 1279) ||
     (window.innerWidth < 768 && currentRenderWidth > 767)
   ) {
     location.reload();
@@ -28,14 +28,17 @@ addEventListener('resize', event => {
 });
 
 export async function renderBestsellersBooks() {
-  loaderRender();
+  const preloader = document.getElementById('preloader');
+
+  preloader.classList.remove('done'); // показую спінер
+
   // refs.galleryContainer.innerHTML = '';
   let currentRenderWidth = window.innerWidth;
   let amountRenderedBooks = 1;
 
   if (currentRenderWidth < 768) {
     amountRenderedBooks = 1;
-  } else if (currentRenderWidth > 767 && currentRenderWidth < 1440) {
+  } else if (currentRenderWidth > 767 && currentRenderWidth < 1280) {
     amountRenderedBooks = 3;
   } else {
     amountRenderedBooks = 5;
@@ -68,23 +71,22 @@ export async function renderBestsellersBooks() {
         category.lastIndexOf(' ')
       )}<span class="book-card__filter"> ${category.split(' ').pop()}</span>`;
       const listCategory = document.querySelectorAll('.category');
-      const activeCategory = document.querySelector('.category.is-active');
-      activeCategory.classList.remove('is-active');
       listCategory.forEach(el => {
-        if (el.dataset.id.trim() === category) {
-          el.classList.add('is-active');
-        }
+        el.dataset.id.trim() === category
+          ? el.classList.add('is-active')
+          : el.classList.remove('is-active');
       });
       // console.log('refs.galleryContainer', refs.galleryContainer);
 
       handleRenderCategoryItem(category);
     }
   });
+  loaderRender();
 }
 
 // render-books -------------------------------------------------------------------
 export function renderBestsellersBooksList(data) {
-  console.log('renderBestsellersBooksList(data)', data);
+  // console.log('renderBestsellersBooksList(data)', data);
   const markup = data
     .map(typeBooks => {
       return `

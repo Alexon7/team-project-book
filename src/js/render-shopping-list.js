@@ -4,8 +4,8 @@ import '../images/Bookshop.png';
 
 export function renderShoppingListBooks(savedBooks) {
   const bookItemTemplate = book => `
-    <li class="shopping-book">
-      <button class="delete-btn" type="button" width="28" height="28">
+    <li class="shopping-book" data-id=${book._id}>
+      <button class="delete-btn" data-action="delete" type="button">
         <svg class="delete-icon" width="28" height="28">
           <use href="${sprite}#delete-book"></use>
         </svg>
@@ -21,7 +21,6 @@ export function renderShoppingListBooks(savedBooks) {
             width="98"
             height="139"
           />
-          <h4 class="book__author">${book.author}</h4>
           </div>
           <div class="book__text">
             <h4 class="book__text-title">${book.title}</h4>
@@ -37,7 +36,7 @@ export function renderShoppingListBooks(savedBooks) {
                 .map(link => {
                   return `<a class="link" href=${link.url}>
                     <img
-                      class="image ${link.name}"
+                      class="images ${link.name}"
                       src="./images/${link.name}.png"
                       alt="Shop logo"
                     />
@@ -47,12 +46,9 @@ export function renderShoppingListBooks(savedBooks) {
             </div>
           </div>
         </div>
-        
+        <h4 class="book__author">${book.author}</h4>
         <p class="description">${book.description}</p>
       </div>
     </li>`;
-
-  return savedBooks.length > 0
-    ? savedBooks.map(bookItemTemplate).join('')
-    : `<p>No books saved yet</p>`;
+  return savedBooks.map(bookItemTemplate).join('');
 }
