@@ -37,7 +37,6 @@
 
   width: 32px;
   height: 32px;
-  padding: 4px;
   background-color: transparent;
   border: none;
   outline: none;
@@ -45,8 +44,8 @@
   cursor: pointer;
 
   @include _tablet {
-    top: 20px;
-    right: 20px;
+    top: 14px;
+    right: 14px;
     width: 36px;
     height: 36px;
   }

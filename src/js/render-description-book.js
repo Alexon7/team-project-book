@@ -1,4 +1,5 @@
-import amazon from '../images/Amazon2x.png';
+// import amazon from '../images/Amazon2x.png';
+import amazon from '../images/Amazon_dark2x.png';
 import apple from '../images/Apple2x.png';
 import bookshop from '../images/Bookshop2x.png';
 
@@ -19,11 +20,9 @@ export function renderDescBook(aboutBook) {
               <img src=${aboutBook.book_image} class="book-modal__img" alt="о книге" loading="lazy" />
               <div>
                   <div class="book-modal__text">
-
                       <h4 class="book-modal__title">${aboutBook.title}</h4>
                       <h4 class="book-modal__author">${aboutBook.author}</h4>
                       <p class="book-modal__description">${aboutBook.description}</p>
-
                   </div>
                   <div class="book-modal__links">
                       <a class="modal-book__link" href="${aboutBook.buy_links[0].url}" target="_blank">
