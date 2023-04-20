@@ -1,4 +1,4 @@
-.main-div {
+.main {
   margin-bottom: 10%;
 }
 
@@ -52,7 +52,7 @@
   &__desktop {
     @include _desktop {
       margin-left: 40px;
-      // width: 100%;
+      width: 100%;
     }
   }
 
@@ -69,10 +69,6 @@
     @include _tablet {
       font-size: 48px;
       line-height: 1.08;
-    }
-
-    @include _desktop {
-      // margin-bottom: 140px;
     }
 
     &__span {
@@ -118,9 +114,6 @@
 
     text-align: center;
   }
-
-  &__not-empty {
-  }
 }
 
 .shopping-book__tablet {
@@ -164,6 +157,7 @@
 
 .support-div {
   display: none;
+
   @include _desktop {
     display: block;
   }
@@ -236,6 +230,7 @@
   text-align: left;
 
   color: #b4afaf;
+
   @include _tablet {
     margin-bottom: 0;
   }
@@ -266,9 +261,6 @@
   letter-spacing: -0.04em;
 
   color: $writer-color;
-}
-
-.book__text {
 }
 
 .book__text-title {
@@ -316,9 +308,6 @@
   }
 }
 
-.book__links > .link {
-}
-
 // Пагінація
 
 .tui-pagination {
@@ -332,6 +321,10 @@
   height: 38px;
 
   padding: 0px;
+
+  @include _desktop {
+    margin: 40px auto;
+  }
 }
 
 .tui-page-btn {
