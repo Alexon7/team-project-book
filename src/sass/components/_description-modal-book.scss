@@ -5,17 +5,19 @@
 }
 
 .book-modal {
-  background-color: $page-color-light;
-  border: 2px solid $page-color-dark;
-  border-radius: 18px;
-  padding: 40px 24px;
   position: relative;
-  max-width: 335px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 0%);
-  max-height: 100vh;
+  max-width: 335px;
   width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background-color: $page-color-light;
+  border: 2px solid $page-color-dark;
+  border-radius: 18px;
 
   @include _tablet {
     max-width: 579px;
@@ -71,6 +73,14 @@
   .dark-theme & {
     fill: $page-color-light;
   }
+}
+
+.book-modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  // max-height: 806px;
 }
 
 .book-modal__book {
@@ -200,12 +210,19 @@
   }
 }
 
+.modal-book__button-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modal-book__button-wrapper,
 .book-modal .btnAdd,
 .book-modal .btnRemove,
 .btnRemove-wrapper {
   display: none;
 }
 
+.modal-book__button-wrapper,
 .book-modal .btnAdd.active,
 .book-modal .btnRemove.active,
 .btnRemove-wrapper.active {
