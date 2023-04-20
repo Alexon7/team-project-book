@@ -1,5 +1,3 @@
-// Iskra Matjuha
-
 .book-category {
   overflow-x: auto;
   overflow-x: hidden;
@@ -12,34 +10,15 @@
     height: 472px;
   }
 
-  /* Работает в Firefox */
-  // .book-category {
-  //   scrollbar-width: thin;
-  //   scrollbar-color: blue orange;
-  // }
-
-  // @include _tablet {
-  //   width: 337px;
-  //   height: 472px;
-  // }
-
   @media screen and (min-width: 1280px) {
     width: 356px;
     height: 472px;
   }
-  // @include _desktop {
-  //   width: 356px;
-  //   height: 472px;
-  // }
 }
-/* Работает в Chrome, Edge и Safari */
+
 .book-category::-webkit-scrollbar {
   width: 8px;
 }
-
-// .book-category::-webkit-scrollbar-track {
-//   background: orange;
-// }
 
 .book-category::-webkit-scrollbar-thumb {
   border-radius: 12px;
@@ -55,14 +34,6 @@
   letter-spacing: -0.02em;
   cursor: pointer;
   @include transition(all);
-  // @include _tablet {
-  //   width: 337px;
-  //   font-size: 18px;
-  // }
-  // @include _desktop {
-  //   width: 490pxt;
-  //   font-size: 18px;
-  // }
 }
 
 .category:not(:last-child) {
@@ -80,12 +51,10 @@
 }
 
 .light-theme .category {
-  // color: rgba(255, 255, 255, 0.6);
   color: rgba(17, 17, 17, 0.6);
 }
 
 .dark-theme .category {
-  // color: rgba(17, 17, 17, 0.6);
   color: rgba(255, 255, 255, 0.6);
 }
 
