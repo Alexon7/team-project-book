@@ -118,6 +118,7 @@ const createAccount = async event => {
     await updateUserNickname(nickname);
   } catch (error) {
     showAuthError(error);
+    return;
   }
 
   setTimeout(() => {
