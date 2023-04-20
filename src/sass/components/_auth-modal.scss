@@ -366,6 +366,8 @@
 }
 
 .link__signup {
+  transition: all 2s ease-in;
+
   margin-left: 10px;
   border: none;
   background: none;
@@ -382,6 +384,10 @@
   }
   @include _tablet {
     font-size: 20px;
+  }
+  &:hover {
+    font-size: 25px;
+    transition: all 1s ease-out;
   }
 }
 
