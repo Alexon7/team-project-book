@@ -15,7 +15,6 @@ import { Database } from 'firebase/database';
 import Notiflix from 'notiflix';
 // import { databaseURL } from 'firebase/firebase-database';
 
-// console.log(AuthErrorCodes);
 
 const elipsBackDrop = document.querySelector('.elips');
 const authBackDrop = document.querySelector('.auth__backdrop');
@@ -41,6 +40,8 @@ const logoutMobile = document.getElementById('log-out-mobile');
 const userDataMobile = document.querySelector('.users-data');
 const userSignupMobile = document.getElementById('sign-up-mobile');
 
+const test = document.querySelector('anim');
+
 const auth = getAuth(firebaseSettings);
 // Monitor auth state
 const monitorAuthState = () => {
@@ -58,7 +59,7 @@ const monitorAuthState = () => {
       setTimeout(() => {
         authBackDrop.classList.add('is-hidden');
       }, 500);
-      if (user.displayName != null) {
+      if (user.displayName !== null) {
         avatarNickName.textContent = `${user.displayName}`;
         avatarNickNameMobile.textContent = `${user.displayName}`;
       } else {
@@ -85,6 +86,7 @@ monitorAuthState();
 
 const showModal = () => {
   authBackDrop.classList.remove('is-hidden');
+  // test.classList.add('anim');
 };
 
 // Login using email/password
@@ -113,15 +115,14 @@ const createAccount = async event => {
   }
   try {
     await createUserWithEmailAndPassword(auth, email, password);
-    await location.reload();
     await updateUserNickname(nickname);
   } catch (error) {
     showAuthError(error);
   }
 
-  // setTimeout(() => {
-  //   location.reload();
-  // }, 500);
+  setTimeout(() => {
+    location.reload();
+  }, 500);
 };
 
 const showAuthError = error => {

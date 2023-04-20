@@ -11,7 +11,6 @@
   background: $page-color-accent;
   text-align: center;
   padding: 10px;
-  z-index: 100;
 }
 
 .is-hidden {
@@ -54,31 +53,52 @@
   flex-direction: column;
 }
 
+.auth__backdrop.is-hidden .auth__modal {
+  transform: translate(-50%, -50%) scale(2);
+}
+
 .auth__modal {
   width: 300px;
   padding: 40px 10px 10px;
   @include _mobile {
     width: 350px;
     padding: 50px 20px 20px;
+    transform: translate(-50%, -50%) scale(1);
+
+    transition: all 1350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   @include _tablet {
     width: 580px;
     padding: 65px 25px 25px;
+    transform: translate(-50%, -50%) scale(1);
+
+    transition: all 1350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @include _desktop {
     padding: 80px 40px 40px;
+    transform: translate(-50%, -50%) scale(1);
+
+    transition: all 1350ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   position: absolute;
 
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: all 1350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: $page-color-light;
   border: 2px solid $black-color;
   border-radius: 18px;
+}
+
+.anim {
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: all 1350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth__icon__close {
@@ -253,6 +273,8 @@
 }
 
 .auth__button {
+  transition: background-color 650ms cubic-bezier(0.4, 0, 0.2, 1);
+
   cursor: pointer;
   margin-bottom: 6px;
   margin-left: auto;
@@ -291,6 +313,11 @@
     border: none;
     cursor: default;
     color: $black-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $page-color-accent;
   }
 }
 
@@ -366,7 +393,7 @@
 }
 
 .link__signup {
-  transition: all 2s ease-in;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   margin-left: 10px;
   border: none;
@@ -387,7 +414,7 @@
   }
   &:hover {
     font-size: 25px;
-    transition: all 1s ease-out;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
