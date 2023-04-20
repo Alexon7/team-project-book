@@ -236,3 +236,22 @@
     text-align: left;
   }
 }
+@media screen and (max-width: 766px) {
+  .book-card__item.by-category {
+    width: 335px;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+  .book-card__title {
+    width: 335px;
+    // margin: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .section-category {
+    height: 472px;
+  }
+}
+.books-best-wrapper {
+  margin: 0;
+}
