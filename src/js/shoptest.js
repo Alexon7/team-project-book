@@ -83,6 +83,9 @@ let currentPage = pagination.getCurrentPage();
 
 async function renderListBooks(currentPage) {
   const allShoppingListBooks = JSON.parse(localStorage.getItem('shoppingList'));
+
+  if (!allShoppingListBooks) return;
+
   console.log(allShoppingListBooks);
 
   const booksPerPage = allShoppingListBooks.slice(

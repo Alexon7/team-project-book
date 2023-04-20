@@ -61,7 +61,7 @@ function createOptions() {
         '<span class="tui-ico-{{type}}">{{type}}</span>' +
         '</span>',
       moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<a href="#" class="tui-page-btn">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },

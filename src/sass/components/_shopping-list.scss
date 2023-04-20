@@ -1,3 +1,7 @@
+.main-div {
+  margin-bottom: 10%;
+}
+
 .body.dark-theme {
   .shopping-list-header__main {
     color: $page-color-light;
@@ -46,7 +50,7 @@
   &__desktop {
     @include _desktop {
       margin-left: 40px;
-      max-width: 1440px;
+      min-width: 100%;
     }
   }
 
@@ -125,6 +129,7 @@
   border-radius: 16px;
 
   // background-color: $page-color-light;
+  width: 100%;
 }
 
 .is-hidden {
@@ -243,4 +248,89 @@
 }
 
 .book__links > .link {
+}
+
+// Пагінація
+
+.tui-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 20px auto;
+  width: 323px;
+  height: 38px;
+
+  padding: 0px;
+}
+
+.tui-page-btn {
+  border-radius: 50%;
+  color: $page-color-dark;
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+}
+.tui-page-btn.tui-first.tui-is-disabled,
+.tui-page-btn.tui-prev.tui-is-disabled,
+.tui-page-btn.tui-next.tui-is-disabled,
+.tui-page-btn.tui-last.tui-is-disabled,
+.tui-page-btn.tui-is-selected {
+  color: $page-color-light;
+  background-color: $shopping-list-title;
+}
+.tui-page-btn.tui-first,
+.tui-page-btn.tui-prev,
+.tui-page-btn.tui-next,
+.tui-page-btn.tui-last {
+  background-color: $current-page-color;
+  height: 38px;
+  width: 38px;
+}
+
+.tui-pagination .tui-first + .tui-prev,
+.tui-pagination .tui-next + .tui-last {
+  width: 38px;
+  // height: 38px;
+  border: 1px solid $shopping-list-title;
+}
+
+.tui-pagination .tui-page-btn {
+  width: 38px;
+  border-width: 1px 1px;
+  margin-left: 0;
+  padding: 8px 0 6px;
+  border: 1px solid $shopping-list-title;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.22;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.tui-pagination .tui-ico-first {
+  width: 12px;
+  height: 12px;
+  background-position: 0 0;
+}
+
+.tui-pagination .tui-ico-prev {
+  width: 7px;
+  height: 13px;
+  background-position: -26px 0;
+}
+
+.tui-pagination .tui-ico-next {
+  width: 7px;
+  height: 12px;
+  background-position: -13px -24px;
+}
+
+.tui-pagination .tui-ico-last {
+  width: 11px;
+  height: 12px;
+  background-position: 0 -12px;
 }
