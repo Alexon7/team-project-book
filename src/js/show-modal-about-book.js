@@ -31,6 +31,7 @@ export const showBookModal = async bookId => {
   const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
   isAddShoppingList ? showRemove() : showAdd();
 
+  ///добавление книги
   btnAddBookToShoppingList.addEventListener('click', event => {
     const allBooks = JSON.parse(localStorage.getItem('shoppingList')) || [];
     const isAddShoppingList = allBooks.find(book => book._id === newBook._id);
