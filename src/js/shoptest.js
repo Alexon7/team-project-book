@@ -50,7 +50,7 @@ async function renderListBooks(currentPage) {
 
   if (!allShoppingListBooks) return;
 
-  console.log(allShoppingListBooks);
+  // console.log(allShoppingListBooks);
 
   const booksPerPage = allShoppingListBooks.slice(
     itemsPerPage * currentPage - itemsPerPage,
@@ -82,7 +82,7 @@ async function renderListBooks(currentPage) {
 
 renderListBooks(currentPage);
 pagination.on('beforeMove', e => {
-  console.log('e.page', e.page);
+  // console.log('e.page', e.page);
   const currentPage = e.page;
   renderListBooks(currentPage);
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -95,12 +95,12 @@ function onRemoveBookBtnClick(e) {
     return;
   }
   currentPage = pagination.getCurrentPage();
-  console.log(currentPage);
+  // console.log(currentPage);
   //   renderBookDescriptionEl.innerHTML = ``;
   const parentNode = e.target.closest('.shopping-book');
   const bookToRemoveId = parentNode.dataset.id;
 
-  console.log(bookToRemoveId);
+  // console.log(bookToRemoveId);
 
   let dataBooks = localStorage.getItem('shoppingList');
   dataBooks = JSON.parse(dataBooks);
@@ -124,7 +124,7 @@ function onRemoveBookBtnClick(e) {
   pagination.reset(dataBooks.length);
   renderListBooks(currentPage);
   pagination.on('beforeMove', e => {
-    console.log('e.page', e.page);
+    // console.log('e.page', e.page);
     const currentPage = e.page;
     renderListBooks(currentPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
