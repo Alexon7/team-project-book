@@ -8,3 +8,4 @@ import './js/shoptest';
 import './js/auth';
 import './js/preloader';
 import './js/pagination';
+import './js/footer';
