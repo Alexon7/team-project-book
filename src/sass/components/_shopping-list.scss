@@ -1,12 +1,8 @@
 .main-div {
   margin-bottom: 10%;
 }
-body {
-  background-color: $background-color;
-}
-body .light-theme {
-  // background-color: $background-color;
 
+.body.light-theme {
   .shopping-list__text {
     color: rgba(0, 0, 0, 0.6);
   }
@@ -20,9 +16,8 @@ body .light-theme {
   }
 }
 
-body .dark-theme {
-  .shopping-book__mobile,
-  .shopping-book__tablet {
+.body.dark-theme {
+  .shopping-book {
     color: $page-color-light;
     background-color: $shopping-list-title;
   }
