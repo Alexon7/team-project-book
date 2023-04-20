@@ -1,12 +1,8 @@
-
 .booksList {
   display: block;
 }
 
 .book-card {
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 80px;
   height: auto;
   width: auto;
 }
@@ -15,7 +11,7 @@
 }
 
 .title {
-  text-align:left;
+  text-align: left;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
@@ -31,9 +27,8 @@
 }
 
 .book-card__title {
-  text-align: center;
   margin-bottom: 40px;
-  text-align:left;
+  text-align: left;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
@@ -66,8 +61,6 @@
 
 .book-card__list {
   margin-bottom: 30px;
-  display: block;
-  // display: block;
 }
 
 .book-card__link {
@@ -134,20 +127,18 @@
 }
 
 .book-card__name {
-  text-align:left;
+  text-align: left;
   margin: 0;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 18px;
-  /* identical to box height, or 112% */
 
   letter-spacing: -0.04em;
   text-transform: uppercase;
 
   color: #111111;
-  // margin-top: 14px;
 }
 
 .light-theme .book-card__name {
@@ -159,13 +150,12 @@
 }
 
 .book-card__author {
-  text-align:left;
+  text-align: left;
   font-family: 'DM Sans';
   font-style: italic;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  /* identical to box height, or 117% */
 
   letter-spacing: -0.04em;
 
@@ -176,7 +166,7 @@
 .book-card__btn {
   display: block;
   margin-left: auto;
-  // margin-right: auto;
+
   margin-bottom: 40px;
   height: 46px;
   width: 124px;
@@ -185,7 +175,6 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
-  /* identical to box height, or 129% */
 
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -202,8 +191,6 @@
   color: #ffffff;
   background-color: #4f2ee8;
 }
-
-
 
 @media screen and (min-width: 768px) {
   .book-card__image {
@@ -226,7 +213,7 @@
   }
   .book-card__title {
     font-size: 48px;
-    // line-height: 52px;
+    text-align: center;
   }
 }
 
@@ -244,5 +231,8 @@
   }
   .book-card__btn {
     margin-top: 40px;
+  }
+  .book-card__title {
+    text-align: left;
   }
 }
