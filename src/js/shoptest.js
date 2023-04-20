@@ -43,42 +43,6 @@ function createOptions() {
 
 const pagination = new Pagination(container, createOptions());
 
-// console.log(container);
-// async function onRenderPage(page) {
-//   try {
-//     const allShoppingListBooks = JSON.parse(
-//       localStorage.getItem('shoppingList')
-//     );
-//     const booksPerPage = allShoppingListBooks.slice(
-//       itemsPerPage * currentPage - itemsPerPage,
-//       itemsPerPage * currentPage
-//     );
-//     console.log('booksPerPage', booksPerPage);
-//     let dataBooks = localStorage.getItem('shoppingList');
-//     dataBooks = JSON.parse(dataBooks);
-//     // Перевірка, якщо нічого не повернулось приховуємо пагінацію
-//     if (dataBooks.length === 0 || !dataBooks) {
-//       console.log(dataBooks);
-//       renderBookDescriptionEl.classList.add('is-hidden');
-//       container.classList.add('is-hidden');
-//       return;
-//     }
-//     console.log(dataBooks);
-//     const renderedList = renderShoppingListBooks(dataBooks);
-
-//     emptyShoppingList.classList.add('is-hidden');
-
-//     renderBookDescriptionEl.innerHTML = renderedList;
-
-//     // Якщо все добре, додаємо пагінацію
-//     if (dataBooks.length > 3) {
-//       container.classList.remove('is-hidden');
-//       pagination.reset(dataBooks.length);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
 let currentPage = pagination.getCurrentPage();
 
 async function renderListBooks(currentPage) {
