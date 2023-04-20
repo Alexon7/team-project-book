@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { firebaseSettings } from './auth-settings';
 import {
   AuthErrorCodes,
@@ -11,7 +12,9 @@ import {
 import 'firebase/firestore';
 import 'firebase/database';
 import { Database } from 'firebase/database';
+import Notiflix from 'notiflix';
 // import { databaseURL } from 'firebase/firebase-database';
+
 
 const elipsBackDrop = document.querySelector('.elips');
 const authBackDrop = document.querySelector('.auth__backdrop');
@@ -37,12 +40,53 @@ const logoutMobile = document.getElementById('log-out-mobile');
 const userDataMobile = document.querySelector('.users-data');
 const userSignupMobile = document.getElementById('sign-up-mobile');
 
-console.log(avatarNickNameMobile);
+const test = document.querySelector('anim');
 
 const auth = getAuth(firebaseSettings);
+// Monitor auth state
+const monitorAuthState = () => {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log(user);
+      messageLogin.innerHTML = '';
+      userInterface.style.display = 'flex';
+      signupDesktop.classList.add('is-hidden');
+      userDataMobile.classList.remove('is-hidden');
+      logoutMobile.classList.remove('is-hidden');
+      userSignupMobile.classList.add('is-hidden');
+
+      showLoginState(user);
+      setTimeout(() => {
+        authBackDrop.classList.add('is-hidden');
+      }, 500);
+      if (user.displayName !== null) {
+        avatarNickName.textContent = `${user.displayName}`;
+        avatarNickNameMobile.textContent = `${user.displayName}`;
+      } else {
+        avatarNickName.textContent = `${user.email}`.slice(0, 2).toUpperCase();
+        avatarNickNameMobile.textContent = `${user.email}`
+          .slice(0, 2)
+          .toUpperCase();
+        avatarNickName.style.color = 'grey';
+      }
+    } else {
+      messageLogin.innerHTML = '';
+      messageLogin.insertAdjacentHTML(
+        'beforeend',
+        `<p class="auth__false__notify">You're not logged in</p>`
+      );
+      showLoginForm();
+      userInterface.style.display = 'none';
+      userDataMobile.classList.add('is-hidden');
+      logoutMobile.classList.add('is-hidden');
+    }
+  });
+};
+monitorAuthState();
 
 const showModal = () => {
   authBackDrop.classList.remove('is-hidden');
+  // test.classList.add('anim');
 };
 
 // Login using email/password
@@ -50,21 +94,48 @@ const loginEmailPassword = async e => {
   e.preventDefault();
   const loginEmail = userEmail.value.trim();
   const loginPassword = userPassword.value.trim();
-  console.log(loginEmail);
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
   } catch (error) {
     console.log(`There was an error: ${error}`);
-    showLoginError(error);
+    showAuthError(error);
   }
-  // monitorAuthState();
 };
 
-const showLoginError = error => {
+// Create new account using email/password
+const createAccount = async event => {
+  event.preventDefault();
+  const nickname = userNickname.value.trim();
+  const email = userEmail.value.trim();
+  const password = userPassword.value.trim();
+  userNickname.style.display = 'block';
+  if (nickname === '') {
+    Notiflix.Notify.info('Please, type your nickname');
+    return;
+  }
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    await updateUserNickname(nickname);
+  } catch (error) {
+    showAuthError(error);
+  }
+
+  setTimeout(() => {
+    location.reload();
+  }, 500);
+};
+
+const showAuthError = error => {
   if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
-    alert('Wrong password. Try again.');
+    Notiflix.Notify.failure('Wrong password. Try again.');
+  } else if (error.code == AuthErrorCodes.INVALID_EMAIL) {
+    Notiflix.Notify.failure('Invalid e-mail. Try again.');
+  } else if (error.code == 'auth/missing-password') {
+    Notiflix.Notify.failure('I wait your password. Try again.');
+  } else if (error.code == 'auth/user-not-found') {
+    Notiflix.Notify.failure(`We don't have such user yet. Try again.`);
   } else {
-    alert(`Error: ${error.message}`);
+    Notiflix.Notify.failure(`${error.message}`);
   }
 };
 
@@ -112,68 +183,7 @@ linkSignUp?.addEventListener('click', () => {
   );
 });
 
-// Create new account using email/password
-const createAccount = async event => {
-  event.preventDefault();
-  const nickname = userNickname.value.trim();
-  const email = userEmail.value.trim();
-  const password = userPassword.value.trim();
-  userNickname.style.display = 'block';
-  try {
-    await createUserWithEmailAndPassword(auth, email, password).then(() => {
-      updateUserNickname(nickname);
-    });
-  } catch {
-    error => {
-      console.log(error);
-    };
-  }
-  setTimeout(() => {
-    location.reload();
-  }, 500);
-};
-
 btnSignup?.addEventListener('click', createAccount);
-
-// Monitor auth state
-const monitorAuthState = async () => {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      messageLogin.innerHTML = '';
-      userInterface.style.display = 'flex';
-      signupDesktop.classList.add('is-hidden');
-      userDataMobile.classList.remove('is-hidden');
-      logoutMobile.classList.remove('is-hidden');
-      userSignupMobile.classList.add('is-hidden');
-
-      showLoginState(user);
-      setTimeout(() => {
-        authBackDrop.classList.add('is-hidden');
-      }, 500);
-
-      if (user.displayName !== null) {
-        avatarNickName.textContent = `${user.displayName}`;
-        avatarNickNameMobile.textContent = `${user.displayName}`;
-      } else {
-        avatarNickName.textContent = `${user.email}`.slice(0, 2).toUpperCase();
-        avatarNickNameMobile.textContent = `${user.email}`
-          .slice(0, 2)
-          .toUpperCase();
-        avatarNickName.style.color = 'grey';
-      }
-    } else {
-      messageLogin.innerHTML = '';
-      messageLogin.insertAdjacentHTML(
-        'beforeend',
-        `<p class="auth__false__notify">You're not logged in</p>`
-      );
-      showLoginForm();
-      userInterface.style.display = 'none';
-      userDataMobile.classList.add('is-hidden');
-      logoutMobile.classList.add('is-hidden');
-    }
-  });
-};
 
 const showLoginForm = () => {
   authForm.style.display = 'block';
@@ -207,7 +217,6 @@ logoutDesktop.onclick = function (event) {
     logout();
   }
 };
-monitorAuthState();
 
 function closeModal(event) {
   if (event.code === 'Escape') {
