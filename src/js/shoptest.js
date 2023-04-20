@@ -7,6 +7,7 @@ const container = document.getElementById('tui-pagination-container');
 //контейнер рендера книг пустой и отдельно с книгами
 const emptyShoppingList = document.querySelector('.shopping-list__empty');
 const renderBookDescriptionEl = document.querySelector('.shopping-list__list');
+
 const itemsPerPage = 3;
 
 function createOptions() {
