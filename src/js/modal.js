@@ -9,7 +9,6 @@ export const modal = async content => {
       window.addEventListener('keydown', closeModal);
     },
     onClose: () => {
-      // localStorage.removeItem('openInfoBook');
       document.body.style.overflow = ''; //скролл подложки вкл
       window.removeEventListener('keydown', closeModal);
     },

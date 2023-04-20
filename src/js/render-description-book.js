@@ -3,11 +3,10 @@ import amazonDark from '../images/Amazon_dark2x.png';
 import apple from '../images/Apple2x.png';
 import bookshop from '../images/Bookshop2x.png';
 
-const body = document.querySelector('body');
 let amazonImg;
 
 export function renderDescBook(aboutBook) {
-    amazonImg = body.classList.contains("light-theme") ? amazon : amazonDark;
+    amazonImg = document.body.classList.contains("light-theme") ? amazon : amazonDark;
 
     return `
   <div class="book-modal">
