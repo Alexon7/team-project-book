@@ -45,14 +45,18 @@ const renderCategories = async () => {
           refs.book_card__title.innerHTML = `
          Best Sellers <span class="book-card__filter">Books</span>
         `;
+          refs.book_card__title.classList.remove('by-category');
           renderBestsellersBooks();
         } else {
+          refs.book_card__title.classList.add('by-category');
+          // console.log(refs.book_card__title.classList);
           refs.book_card__title.innerHTML = `${category.slice(
             0,
             category.lastIndexOf(' ')
           )}<span class="book-card__filter"> ${category
             .split(' ')
             .pop()}</span>`;
+
           handleRenderCategoryItem(category);
 
           // console.log(

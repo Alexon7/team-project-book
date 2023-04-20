@@ -4,7 +4,7 @@ export function renderBooksByType(categoryBooks) {
         .map(
           book =>
             `
-     <li class="book-card__item" >
+     <li class="book-card__item by-category" >
       <a class="book-card__link" href="#" >
           <div class="book-card__wrapper"   data-type="${book.list_name}">
               <img
