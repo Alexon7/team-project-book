@@ -1,5 +1,4 @@
 import './js/api-service';
-import './js/home-page';
 import './js/menu';
 import './js/render-bookByType';
 import './js/auth';
@@ -9,7 +8,6 @@ import './js/show-modal-about-book';
 import './js/modal';
 import './js/support-list';
 import './js/render-support-Ukraine';
-import './js/swiper';
 import './js/render-bestseller-book';
 import './js/back-to-top';
 import './js/footer';
