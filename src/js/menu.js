@@ -4,6 +4,28 @@
   const closeMenuBtn = document.querySelector('.js-close-menu');
 
   const toggleMenu = () => {
+    const toggler = document.querySelector(
+      '#mobile-menu .theme-switch__toggle'
+    );
+    const checkBoxEl = document.querySelector(
+      '.theme-switch .theme-switch__toggle'
+    );
+
+    const Theme = {
+      LIGHT: 'light-theme',
+      DARK: 'dark-theme',
+    };
+
+    const checkTheme = localStorage.getItem('theme');
+
+    if (checkTheme === Theme.DARK) {
+      toggler.checked = true;
+      checkBoxEl.checked = true;
+    } else {
+      toggler.checked = false;
+      checkBoxEl.checked = false;
+    }
+
     const isMenuOpen =
       openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
